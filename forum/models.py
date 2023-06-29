@@ -27,7 +27,7 @@ class ForumPost(models.Model):
         max_length=20, choices=Bikes.choices, default=Bikes.NONE)
     cover_image = CloudinaryField('image', default="placeholder")
     content = models.TextField()
-    
+
     class Meta:
         ordering = ['created_on']
 

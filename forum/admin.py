@@ -1,4 +1,17 @@
 from django.contrib import admin
-from .models import ForumPost
+from .models import ForumPost, Comment
 
-admin.site.register(ForumPost)
+
+@admin.register(ForumPost)
+class ForumPostAdmin(admin.ModelAdmin):
+    prepopulated_fields = {'slug': ('title',)}
+    list_display = ('title', 'author', 'created_on', 'updated_on')
+    list_filter = ('created_on', 'updated_on')
+    search_fields = ('title', 'author__username')
+
+
+@admin.register(Comment)
+class CommentAdmin(admin.ModelAdmin):
+    list_display = ('post', 'author', 'body', 'created_on')
+    list_filter = ('created_on', 'updated_on')
+    search_fields = ('post__title', 'author__username')

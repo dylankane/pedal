@@ -18,16 +18,34 @@ class ForumPost(models.Model):
         HYBRID = 'HYB', 'Hybrid'
 
     title = models.CharField(max_length=150, unique=True)
-    author = models.ForeignKey(User, on_delete=models.CASCADE, related_name="forum_posts")
     slug = models.SlugField(max_length=150, unique=True)
     created_on = models.DateTimeField(auto_now=True)
     updated_on = models.DateTimeField(auto_now=True)
+    author = models.ForeignKey(
+        User, on_delete=models.CASCADE, related_name="forum_posts")
+    bikes = models.CharField(
+        max_length=20, choices=Bikes.choices, default=Bikes.NONE)
     cover_image = CloudinaryField('image', default="placeholder")
     content = models.TextField()
-    bikes = models.CharField(max_length=20, choices=Bikes.choices, default=Bikes.NONE)
-
+    
     class Meta:
         ordering = ['created_on']
 
     def __str__(self):
         return self.title
+
+
+class Comment(models.Model):
+    post = models.ForeignKey(
+        ForumPost, on_delete=models.CASCADE, related_name='comments')
+    created_on = models.DateTimeField(auto_now=True)
+    updated_on = models.DateTimeField(auto_now=True)
+    author = models.ForeignKey(
+        User, on_delete=models.CASCADE, related_name='user_comments')
+    body = models.TextField()
+
+    class Meta:
+        ordering = ['created_on']
+
+    def __str__(self):
+        return f"Comment {self.body} by {self.author}"

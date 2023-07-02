@@ -27,12 +27,17 @@ class ForumPost(models.Model):
         max_length=20, choices=Bikes.choices, default=Bikes.NONE)
     cover_image = CloudinaryField('image', default="placeholder")
     content = models.TextField()
+    likes = models.ManyToManyField(
+        User, related_name='forum_like', blank=True)
 
     class Meta:
-        ordering = ['created_on']
+        ordering = ['-created_on']
 
     def __str__(self):
         return self.title
+
+    def number_of_likes(self):
+        return self.likes.count()
 
 
 class Comment(models.Model):

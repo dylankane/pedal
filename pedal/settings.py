@@ -30,7 +30,9 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.environ.get('DEBUG', False)
 
-ALLOWED_HOSTS = ['pedal-forum-80408630e3b0.herokuapp.com', '8000-dylankane-pedal-8asdqp1lcl0.ws-eu101.gitpod.io']
+ALLOWED_HOSTS = [
+    'pedal-forum-80408630e3b0.herokuapp.com',
+    '8000-dylankane-pedal-8asdqp1lcl0.ws-eu101.gitpod.io']
 
 
 # Application definition
@@ -41,11 +43,20 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
+    'django.contrib.sites',
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
     'cloudinary_storage',
     'django.contrib.staticfiles',
     'cloudinary',
     'forum',
 ]
+
+SITE_ID = 1
+
+LOGIN_REDIRECT_URL = '/'
+LOGOUT_REDIRECT_URL = '/'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

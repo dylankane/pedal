@@ -20,7 +20,33 @@
             <h3 class="post-title">{{ post.title }}</h3>
         </div>
         <div class="row">
-            <p class="post-subtitle">By: {{ post.author }} | Created: {{ post.created_on }}</p>
+            <p class="post-subtitle">By:<strong>{{ post.author }}</strong> | Created: <strong>{{ post.created_on }}</strong></p>
+        </div>
+        <div class="row">
+            <div class="col mb-3">
+                <span><i class="fa-regular fa-heart"></i></span>
+                <span>{{ post.number_of_likes }}</span>
+            </div>
+            <div class="col mb-3">
+                {% with comments.count as total_comments %}
+                <span><i class="fa-regular fa-comment"></i></span>
+                <span>{{ total_comments }}</span>
+                {% endwith %}
+            </div>
+            <div class="row mb-3">
+                <div class="col">
+                   <a href="#" class="badge rounded-pill text-bg-warning">{{ post.bikes }}</a>
+                </div>
+                <div class="col">
+                   <a href="#" class="badge rounded-pill text-bg-warning">2x</a>
+                </div>
+                <div class="col">
+                   <a href="#" class="badge rounded-pill text-bg-warning">Drop Bars</a>
+                </div>
+            </div>
+            <div class="row">
+                <p>{{ post.content | safe }}</p>
+            </div>
         </div>
     </div>
 
@@ -63,7 +89,5 @@
         </div>
     </div>
 </div>
-
-
 
 {% endblock %}

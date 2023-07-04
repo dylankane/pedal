@@ -3,6 +3,7 @@ from django.views import generic, View
 from django.http import HttpResponseRedirect
 from .models import ForumPost
 from .forms import CommentForm
+from django.contrib import messages
 
 
 class PostList(generic.ListView):
@@ -45,7 +46,7 @@ class PostDetail(View):
         comment_form = CommentForm(data=request.POST)
 
         if comment_form.is_valid():
-            # comment_form.instance.email = request.user.email
+            messages.success(request, "Your comment successfully posted")
             comment_form.instance.author = request.user
             comment = comment_form.save(commit=False)
             comment.post = post

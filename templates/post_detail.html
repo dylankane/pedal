@@ -22,9 +22,25 @@
         <div class="row">
             <p class="post-subtitle">By:<strong>{{ post.author }}</strong> | Created: <strong>{{ post.created_on }}</strong></p>
         </div>
+
         <div class="row">
             <div class="col mb-3">
+                {% if user.is_authenticated %}
+                <form class="d-inline" action="{% url 'post_like' post.slug %}" method="POST">
+                    {% csrf_token %}
+                    {% if liked %}
+                    <button type="submit" name="forumpost_id" value="{{post.slug}}" class="btn-like">
+                        <i class="fa-solid fa-heart fa-beat"></i>
+                    </button>
+                    {% else %}
+                    <button type="submit" name="forumpost_id" value="{{post.slug}}" class="btn-like">
+                        <i class="fa-regular fa-heart"></i>
+                    </button>
+                    {% endif %}
+                </form>
+                {% else %}
                 <span><i class="fa-regular fa-heart"></i></span>
+                {% endif %}
                 <span>{{ post.number_of_likes }}</span>
             </div>
             <div class="col mb-3">
@@ -33,6 +49,7 @@
                 <span>{{ total_comments }}</span>
                 {% endwith %}
             </div>
+
             <div class="row mb-3">
                 <div class="col">
                    <a href="#" class="badge rounded-pill text-bg-warning">{{ post.bikes }}</a>

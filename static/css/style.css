@@ -43,3 +43,11 @@ hr{
    margin:auto;
 }
 
+.fa-beat{
+    color: red;
+}
+
+.btn-like{
+    border: none;
+    background-color: transparent;
+}

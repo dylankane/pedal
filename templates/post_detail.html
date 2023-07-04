@@ -24,31 +24,41 @@
         </div>
     </div>
 
-    
-
-    <div class="row">
-        <div class="col">
-            <h2>Comments</h2>
-            <p>As: {{ user.username }}</p>
-            <form method="post" style="margin-top: 1.3em;">
-                {{ comment_form | crispy }}
-                {% csrf_token %}
-                <button type="submit" class="btn btn-signup btn-lg">Submit</button>
-            </form>
-            {% endif %}
+</div>
+<div class="container-fluid">
+    <div class="row px-4">
+        <div class="col-md-8 card mb-4  mt-3 ">
+            <h3>Comments:</h3>
+            <div class="card-body">
+                {% for comment in comments %}
+                <div class="comments" style="padding: 10px;">
+                    <p class="font-weight-bold">By: {{ comment.author }} | 
+                        <span class="text-muted">{{ comment.created_on }}</span>
+                    </p>
+                    {{ comment.body | linebreaks }}
+                </div>
+                <hr>
+                {% endfor %}
+            </div>
         </div>
-    </div>
 
-    <div class="row">
-        <div class="col">
+    
+        <div class="col-md-4 mb-4 mt-3">
             {% if user.is_authenticated %}
             <h3>Leave a comment:</h3>
             <p>As: {{ user.username }}</p>
             <form method="post" style="margin-top: 1.3em;">
                 {{ comment_form | crispy }}
                 {% csrf_token %}
-                <button type="submit" class="btn btn-signup btn-lg">Submit</button>
+                <button type="submit" class="btn btn-success btn-lg">Submit</button>
             </form>
+            {% else %}
+            <h2>Want to join in the conversation?</h2>
+            <p>
+                <a href="{% url 'account_signup' %}">Sign Up</a>
+                <span>or</span>
+                <a href="{% url 'account_login' %}">login</a>
+            </p>
             {% endif %}
         </div>
     </div>

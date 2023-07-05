@@ -2,8 +2,9 @@ from django.shortcuts import render, get_object_or_404, reverse
 from django.views import generic, View
 from django.http import HttpResponseRedirect
 from .models import ForumPost
-from .forms import CommentForm
+from .forms import CommentForm, PostForm
 from django.contrib import messages
+from django.contrib.auth.models import User
 
 
 class PostList(generic.ListView):
@@ -46,7 +47,8 @@ class PostDetail(View):
         comment_form = CommentForm(data=request.POST)
 
         if comment_form.is_valid():
-            messages.success(request, "Your comment successfully posted")
+            messages.success(
+                request, "Your comment has been successfully posted")
             comment_form.instance.author = request.user
             comment = comment_form.save(commit=False)
             comment.post = post
@@ -77,3 +79,15 @@ class PostLike(View):
             post.likes.add(request.user)
 
         return HttpResponseRedirect(reverse('post_detail', args=[slug]))
+
+
+class CreatePost(generic.CreateView):
+    model = ForumPost
+    template_name = 'create_post.html'
+    context = {'form': PostForm()}
+    # fields = '__all__'
+    fields = ('title', 'slug', 'bikes', 'cover_image', 'content',)
+    
+
+    # def create(self, request):
+    #     author.instance = self.request.user

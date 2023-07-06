@@ -59,7 +59,7 @@ class PostDetail(View):
 
         return render(
             request,
-            "post_detail.html",
+            'post_detail.html',
             {
                 "post": post,
                 "comments": comments,
@@ -96,3 +96,17 @@ class CreatePost(generic.CreateView):
         slug = self.object.slug
         success_url = reverse('post_detail', kwargs={'slug': slug})
         return success_url
+
+
+class Profile(generic.ListView):
+    model = ForumPost
+    # queryset = ForumPost.objects.all().order_by('-created_on')
+    template_name = 'profile.html'
+    context_object_name = "posts"
+    paginate_by = 9
+
+    def get_queryset(self):
+        user = self.request.user
+        queryset = ForumPost.objects.filter(author=user)
+
+        return queryset

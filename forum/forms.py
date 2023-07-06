@@ -11,6 +11,7 @@ class CommentForm(forms.ModelForm):
 class PostForm(forms.ModelForm):
     class Meta:
         model = ForumPost
-        fields = ('title', 'bikes', 'cover_image', 'content',)
+        fields = ('title', 'slug', 'bikes', 'cover_image', 'content',)
+        # form.instance.author = self.request.user
         # prepopulated_fields = {'slug': ('title',)}
         # prepopulated_fields = {'author': user.username}

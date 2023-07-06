@@ -84,10 +84,13 @@ class PostLike(View):
 class CreatePost(generic.CreateView):
     model = ForumPost
     template_name = 'create_post.html'
-    context = {'form': PostForm()}
-    # fields = '__all__'
-    fields = ('title', 'slug', 'bikes', 'cover_image', 'content',)
-    
+    form_class = PostForm
+
+    def form_valid(self, form):
+        messages.success(
+            self.request, "Your bike has been successfully posted")
+        form.instance.author = self.request.user
+        return super().form_valid(form)
 
     # def create(self, request):
     #     author.instance = self.request.user

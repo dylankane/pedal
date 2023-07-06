@@ -92,5 +92,7 @@ class CreatePost(generic.CreateView):
         form.instance.author = self.request.user
         return super().form_valid(form)
 
-    # def create(self, request):
-    #     author.instance = self.request.user
+    def get_success_url(self):
+        slug = self.object.slug
+        success_url = reverse('post_detail', kwargs={'slug': slug})
+        return success_url

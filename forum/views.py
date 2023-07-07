@@ -2,9 +2,10 @@ from django.shortcuts import render, get_object_or_404, reverse
 from django.views import generic, View
 from django.http import HttpResponseRedirect
 from .models import ForumPost
-from .forms import CommentForm, PostForm
+from .forms import CommentForm, PostForm, UpdateForm
 from django.contrib import messages
 from django.contrib.auth.models import User
+from django.urls import reverse_lazy
 
 
 class PostList(generic.ListView):

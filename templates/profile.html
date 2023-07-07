@@ -7,7 +7,7 @@
     <div class="row text-center my-5">
         <h3>Hi {{ user.username|capfirst }} </h3>
     </div>
-    <div class="row my-5 text-center" >
+    <div class="row my-5 text-center">
         <div class="col">
             <p>Show us your amazing bike build, by creating your own post</p>
         </div>
@@ -30,8 +30,7 @@
                         <div class="card-body">
                             <div class="image-container">
                                 {% if "placeholder" in post.cover_image.url %}
-                                <img class="card-img-top"
-                                    src="/static/images/placeholder.jpg">
+                                <img class="card-img-top" src="/static/images/placeholder.jpg">
                                 {% else %}
                                 <img class="card-img-top" src=" {{ post.cover_image.url }}">
                                 {% endif %}
@@ -48,10 +47,10 @@
                                 {{ post.number_of_likes }}</p>
                             <div class="row">
                                 <div class="col">
-                                    <a href="#" class="btn btn-info">EDIT</a>
+                                    <a href="{% url 'update_post' post.slug %}" class="btn btn-info">EDIT</a>
                                 </div>
                                 <div class="col">
-                                    <a href="#" class="btn btn-danger">Delete</a>
+                                    <a href="{% url 'delete_post' post.slug %}" class="btn btn-danger">Delete</a>
                                 </div>
                             </div>
                         </div>

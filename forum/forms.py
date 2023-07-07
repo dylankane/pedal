@@ -11,10 +11,12 @@ class CommentForm(forms.ModelForm):
 class PostForm(forms.ModelForm):
     class Meta:
         model = ForumPost
-        fields = ('title', 'slug', 'bikes', 'cover_image', 'content',)
+        fields = (
+            'title', 'slug', 'bikes', 'gears', 'bars', 'cover_image', 'content',)
 
 
 class UpdateForm(forms.ModelForm):
     class Meta:
         model = ForumPost
-        fields = ('title', 'slug', 'bikes', 'cover_image', 'content',)
+        fields = (
+            'title', 'slug', 'bikes', 'gears', 'bars', 'cover_image', 'content',)

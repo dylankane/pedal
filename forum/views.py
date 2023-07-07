@@ -100,8 +100,22 @@ class PostLike(View):
         return HttpResponseRedirect(reverse('post_detail', args=[slug]))
 
 
+class Categories(generic.listView):
+    model = ForumPost
+    queryset = ForumPost.objects.filter(bikes=FLAT).order_by('-created_on')
+    template_name = 'categories.html'
+    context_object_name = 'posts'
+    paginate_by = 9
+
+    # def get_queryset(self):
+    #     list = self.request.user
+    #     queryset = ForumPost.objects.filter(author=user)
+    #     return queryset
+
+
 # Class to create a view of the posts creted by the current user,
-# Targets the ForumPost model, sets a template to render to, and paginates by 9.
+# Targets the ForumPost model, sets a template to render to, and
+# paginates by 9.
 class Profile(generic.ListView):
     model = ForumPost
     template_name = 'profile.html'

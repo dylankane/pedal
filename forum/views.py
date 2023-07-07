@@ -109,8 +109,12 @@ class UpdatePost(generic.UpdateView):
         return success_url
 
 
-    def get_queryset(self):
-        user = self.request.user
-        queryset = ForumPost.objects.filter(author=user)
+class DeletePost(generic.DeleteView):
+    model = ForumPost
+    template_name = 'delete_post.html'
+    success_url = reverse_lazy('profile')
 
-        return queryset
+    # def get_success_url(self):
+    #     slug = self.object.slug
+    #     success_url = reverse('post_detail', kwargs={'slug': slug})
+    #     return success_url

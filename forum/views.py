@@ -98,12 +98,16 @@ class CreatePost(generic.CreateView):
         return success_url
 
 
-class Profile(generic.ListView):
+class UpdatePost(generic.UpdateView):
     model = ForumPost
-    # queryset = ForumPost.objects.all().order_by('-created_on')
-    template_name = 'profile.html'
-    context_object_name = "posts"
-    paginate_by = 9
+    template_name = 'update_post.html'
+    form_class = UpdateForm
+
+    def get_success_url(self):
+        slug = self.object.slug
+        success_url = reverse('post_detail', kwargs={'slug': slug})
+        return success_url
+
 
     def get_queryset(self):
         user = self.request.user

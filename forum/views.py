@@ -100,17 +100,40 @@ class PostLike(View):
         return HttpResponseRedirect(reverse('post_detail', args=[slug]))
 
 
-class Categories(generic.listView):
-    model = ForumPost
-    queryset = ForumPost.objects.filter(bikes=FLAT).order_by('-created_on')
-    template_name = 'categories.html'
-    context_object_name = 'posts'
-    paginate_by = 9
+def Categories(request, cats):
+    categorey_posts = ForumPost.objects.filter(bikes=cats)
+    return render(
+        request,
+        'categories.html',
+        {'cats': cats, 'categorey_posts': categorey_posts})
 
-    # def get_queryset(self):
-    #     list = self.request.user
-    #     queryset = ForumPost.objects.filter(author=user)
-    #     return queryset
+
+def Categories(request, cats):
+    categorey_posts = ForumPost.objects.filter(bars=cats)
+    return render(
+        request,
+        'categories.html',
+        {'cats': cats, 'categorey_posts': categorey_posts})
+
+
+def Categories(request, cats):
+    categorey_posts = ForumPost.objects.filter(gears=cats)
+    return render(
+        request,
+        'categories.html',
+        {'cats': cats, 'categorey_posts': categorey_posts})
+
+
+# class Categories(generic.ListView):
+#     model = ForumPost
+#     template_name = 'categories.html'
+#     context_object_name = 'posts'
+#     paginate_by = 9
+
+#     def get_queryset(self):
+#         bikes = self.request.GET.get('bikes')
+#         queryset = ForumPost.objects.filter(bikes=bikes)
+#         return queryset
 
 
 # Class to create a view of the posts creted by the current user,
@@ -171,7 +194,8 @@ class DeletePost(generic.DeleteView):
     template_name = 'delete_post.html'
     success_url = reverse_lazy('profile')
 
-    # def get_success_url(self):
-    #     slug = self.object.slug
-    #     success_url = reverse('post_detail', kwargs={'slug': slug})
-    #     return success_url
+
+class DeleteComment(generic.DeleteView):
+    model = ForumPost
+    template_name = 'delete_comment.html'
+    success_url = reverse_lazy('post_detail')

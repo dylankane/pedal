@@ -47,6 +47,8 @@ class ForumPost(models.Model):
     gears = models.CharField(
         max_length=20, choices=Gears.choices, default=Bikes.NONE)
     cover_image = CloudinaryField('image', default="placeholder")
+    second_image = CloudinaryField('image', default="placeholder")
+    third_image = CloudinaryField('image', default="placeholder")
     content = models.TextField()
     likes = models.ManyToManyField(
         User, related_name='forum_like', blank=True)

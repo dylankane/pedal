@@ -71,13 +71,13 @@
 
             <div class="row mb-3">
                 <div class="col">
-                   <a href="#" class="badge rounded-pill text-bg-warning">{{ post.bikes }}</a>
+                   <a href="{% url 'categories' post.bikes %}" class="badge rounded-pill text-bg-warning">{{ post.bikes }}</a>
                 </div>
                 <div class="col">
-                   <a href="#" class="badge rounded-pill text-bg-warning">{{ post.bars }}</a>
+                   <a href="{% url 'categories' post.bars %}" class="badge rounded-pill text-bg-warning">{{ post.bars }}</a>
                 </div>
                 <div class="col">
-                   <a href="#" class="badge rounded-pill text-bg-warning">{{ post.gears }}</a>
+                   <a href="{% url 'categories' post.gears %}" class="badge rounded-pill text-bg-warning">{{ post.gears }}</a>
                 </div>
             </div>
             <div class="row">

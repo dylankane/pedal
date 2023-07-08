@@ -2,21 +2,19 @@
 
 {% block content %}
 
-{% load crispy_forms_tags %}
+<h1>{{ cats }} Bikes</h1>
 <div class="container-fluid">
-    <div class="row mt-4">
-        <p>Here are all your the posts of bikes</p>
-    </div>
     <div class="row">
         <div class="col-12 mt-3 left">
             <div class="row">
-                {% for post in posts %}
+                {% for post in categorey_posts %}
                 <div class="col-md-4">
                     <div class="card mb-4">
                         <div class="card-body">
                             <div class="image-container">
                                 {% if "placeholder" in post.cover_image.url %}
-                                <img class="card-img-top" src="/static/images/placeholder.jpg">
+                                <img class="card-img-top"
+                                    src="/static/images/placeholder.jpg">
                                 {% else %}
                                 <img class="card-img-top" src=" {{ post.cover_image.url }}">
                                 {% endif %}
@@ -31,14 +29,6 @@
                             <p class="card-text">{{ post.bikes }}</p>
                             <p class="card-text text-muted h6">{{ post.created_on}} <i class="far fa-heart"></i>
                                 {{ post.number_of_likes }}</p>
-                            <div class="row">
-                                <div class="col">
-                                    <a href="{% url 'update_post' post.slug %}" class="btn btn-info">EDIT</a>
-                                </div>
-                                <div class="col">
-                                    <a href="{% url 'delete_post' post.slug %}" class="btn btn-danger">Delete</a>
-                                </div>
-                            </div>
                         </div>
                     </div>
                 </div>

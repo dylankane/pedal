@@ -9,14 +9,33 @@
         <div class="row">
             <div class="image-container">
                 {% if "placeholder" in post.cover_image.url %}
-                <img class="card-img-top"
+                <img class="card-img-top rounded"
                     src="/static/images/placeholder.jpg">
                 {% else %}
-                <img class="card-img-top" src=" {{ post.cover_image.url }}">
+                <img class="card-img-top rounded" src=" {{ post.cover_image.url }}">
                 {% endif %}
             </div>
         </div>
         <div class="row">
+            <div class=" col image-container pt-3">
+                {% if "placeholder" in post.second_image.url %}
+                <img class="rounded float-start"
+                    src="/static/images/placeholder.jpg">
+                {% else %}
+                <img class="card-img rounded float-start" src=" {{ post.second_image.url }}">
+                {% endif %}
+            </div>
+            <div class="col image-container pt-3">
+                {% if "placeholder" in post.third_image.url %}
+                <img class="rounded float-end"
+                    src="/static/images/placeholder.jpg">
+                {% else %}
+                <img class="card-img rounded fload-end " src=" {{ post.third_image.url }}">
+                {% endif %}
+            </div>
+        </div>
+        
+        <div class="row pt-4">
             <h3 class="post-title">{{ post.title }}</h3>
         </div>
         <div class="row">
@@ -52,7 +71,7 @@
 
             <div class="row mb-3">
                 <div class="col">
-                   <a href="{% url 'categories' %}" class="badge rounded-pill text-bg-warning">{{ post.bikes }}</a>
+                   <a href="#" class="badge rounded-pill text-bg-warning">{{ post.bikes }}</a>
                 </div>
                 <div class="col">
                    <a href="#" class="badge rounded-pill text-bg-warning">{{ post.bars }}</a>
@@ -70,9 +89,10 @@
 </div>
 <div class="container-fluid">
     <div class="row px-4">
-        <div class="col-md-8 card mb-4  mt-3 ">
+        <div class="col-md-8 mb-4 mt-3">
             <h3>Comments:</h3>
-            <div class="card-body">
+            <hr>
+            <div class="card-body pt-4">
                 {% for comment in comments %}
                 <div class="comments" style="padding: 10px;">
                     <p class="font-weight-bold">By: {{ comment.author }} | 
@@ -80,7 +100,6 @@
                     </p>
                     {{ comment.body | linebreaks }}
                 </div>
-                <hr>
                 {% endfor %}
             </div>
         </div>

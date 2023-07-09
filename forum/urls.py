@@ -16,8 +16,12 @@ urlpatterns = [
         views.DeletePost.as_view(),
         name='delete_post'),
     path(
-        '<int:pk>/delete_comment',
+    path(
+        'delete_comment/<int:pk>/',
         views.DeleteComment.as_view(),
         name='delete_comment'),
-    path('<slug:slug>/', views.PostDetail.as_view(), name='post_detail'),
+    # path(
+    #     'delete_comment/<slug:post_slug>/<int:pk>/',
+    #     views.DeleteComment.as_view(),
+    #     name='delete_comment'),
 ]

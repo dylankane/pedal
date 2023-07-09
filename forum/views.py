@@ -195,6 +195,18 @@ class DeletePost(generic.DeleteView):
     success_url = reverse_lazy('profile')
 
 
+class EditComment(generic.UpdateView):
+    model = Comment
+    template_name = 'edit_comment.html'
+    form_class = EditCommentForm
+    success_url = reverse_lazy('home')
+
+    # def get_success_url(self):
+    #     slug = self.object.slug
+    #     success_url = reverse('post_detail', kwargs={'slug': slug})
+    #     return success_url
+
+
 class DeleteComment(generic.DeleteView):
     model = Comment
     template_name = 'delete_comment.html'

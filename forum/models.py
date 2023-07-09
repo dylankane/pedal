@@ -68,7 +68,6 @@ class ForumPost(models.Model):
         return super().save(*args, **kwargs)
 
 
-
 class Comment(models.Model):
     post = models.ForeignKey(
         ForumPost, on_delete=models.CASCADE, related_name='comments')

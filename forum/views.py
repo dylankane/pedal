@@ -1,8 +1,8 @@
-from django.shortcuts import render, get_object_or_404, reverse
+from django.shortcuts import render, get_object_or_404, reverse, redirect
 from django.views import generic, View
 from django.http import HttpResponseRedirect
-from .models import ForumPost
-from .forms import CommentForm, PostForm, UpdateForm
+from .models import ForumPost, Comment
+from .forms import CommentForm, PostForm, UpdateForm, EditCommentForm
 from django.contrib import messages
 from django.contrib.auth.models import User
 from django.urls import reverse_lazy
@@ -196,6 +196,15 @@ class DeletePost(generic.DeleteView):
 
 
 class DeleteComment(generic.DeleteView):
-    model = ForumPost
+    model = Comment
     template_name = 'delete_comment.html'
-    success_url = reverse_lazy('post_detail')
+    context_object_name = 'comment'
+    success_url = reverse_lazy('home')
+
+    # def get_success_url(self, *args):
+    #     slug = self.kwargs['post_slug']
+    #     return reverse_lazy('post_detail', kwargs={'slug': slug})
+
+    #  self.success_url = f'/{self.get_object().post.slug}'
+    #  self.slug = self.get_object().post.slug
+    #  return reverse_lazy('post_detail', args=[self.slug])

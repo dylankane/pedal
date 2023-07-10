@@ -1,1 +1,1 @@
-web: gunicorn pedal.wsgi
+web: gunicorn pedal.wsgi:application

@@ -4,20 +4,22 @@
 
 {% load crispy_forms_tags %}
 <div class="container">
-    <div class="col">
+    <div class="col-8 offset-2">
         <div class="row">
             <h1>Edit your post<h1>
-            <p>Have you made a mistake, have more info to add or just made changes to your bike,
-                feel free to update your post.</p>
+        </div>
+        <div class="row mb-4">
+            <h4>Have you made a mistake, have more info to add or just made changes to your bike,
+                feel free to update your post.</h4>
         </div>
     </div>
-    <div class="row">
+    <div class="col-8 offset-2">
         <form method="POST">
             {{ form | crispy }}
             {% csrf_token %}
             <button type="submit" class="btn btn-success btn-lg">Update</button>
         </form>
-    </div>
+    </div class=mb-4>
     
 </div>
 

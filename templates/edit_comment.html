@@ -3,14 +3,13 @@
 {% block content %}
 
 {% load crispy_forms_tags %}
-<div class="container">
-    <div class="col">
-        <div class="row">
-            <h1>Edit your comment<h1>
-            <p>Would you like to edit / update your comment.</p>
+<div class="container p-4">
+    <div class="row-8 mt-5">
+        <div class="col">
+            <h2>Would you like to edit / update your comment<h2>
         </div>
     </div>
-    <div class="row">
+    <div class="row-8">
         <form method="POST">
             {{ form | crispy }}
             {% csrf_token %}

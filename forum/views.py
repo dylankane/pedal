@@ -89,15 +89,24 @@ class PostDetail(View):
 #  not, with logic to add or remove the like field, and redirecting to the
 #   currrent page / post view.
 class PostLike(View):
-    def post(self, request, slug):
+    def post(self, request, slug, *args, **kwargs):
         post = get_object_or_404(ForumPost, slug=slug)
+        pk = post.id
 
         if post.likes.filter(id=request.user.id).exists():
             post.likes.remove(request.user)
         else:
             post.likes.add(request.user)
 
-        return HttpResponseRedirect(reverse('post_detail', args=[slug]))
+        return HttpResponseRedirect(reverse('post_detail', kwargs={
+            'slug': slug, 'pk': pk}))
+
+        # return HttpResponseRedirect(reverse('post_detail', args=[slug]))
+
+        # return reverse('post_detail', args={'slug': slug, 'pk': id})
+
+        # return HttpResponseRedirect('post_detail', kwargs={'slug': slug, 'pk': pk})
+        # reverse('polls:results', args=(category.slug, question.id, ))
 
 
 def categories(request, cats):
@@ -174,7 +183,8 @@ class CreatePost(generic.CreateView):
     # url, to redirect user to the post detail view of that newly created post
     def get_success_url(self):
         slug = self.object.slug
-        success_url = reverse('post_detail', kwargs={'slug': slug})
+        pk = self.object.id
+        success_url = reverse('post_detail', kwargs={'slug': slug, 'pk': pk})
         return success_url
 
 
@@ -199,12 +209,13 @@ class EditComment(generic.UpdateView):
     model = Comment
     template_name = 'edit_comment.html'
     form_class = EditCommentForm
-    success_url = reverse_lazy('home')
+    # success_url = reverse_lazy('home')
 
-    # def get_success_url(self):
-    #     slug = self.object.slug
-    #     success_url = reverse('post_detail', kwargs={'slug': slug})
-    #     return success_url
+    def get_success_url(self):
+        slug = self.object.post.slug
+        pk = self.object.post.id
+        success_url = reverse('post_detail', kwargs={'slug': slug, 'pk': pk})
+        return success_url
 
 
 class DeleteComment(generic.DeleteView):

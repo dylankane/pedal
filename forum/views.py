@@ -100,28 +100,28 @@ class PostLike(View):
         return HttpResponseRedirect(reverse('post_detail', args=[slug]))
 
 
-def Categories(request, cats):
-    categorey_posts = ForumPost.objects.filter(bikes=cats)
+def categories(request, cats):
+    categorey_posts = ForumPost.objects.filter(bikes=cats) | ForumPost.objects.filter(bars=cats) | ForumPost.objects.filter(gears=cats)
     return render(
         request,
         'categories.html',
         {'cats': cats, 'categorey_posts': categorey_posts})
 
 
-def Categories(request, cats):
-    categorey_posts = ForumPost.objects.filter(bars=cats)
-    return render(
-        request,
-        'categories.html',
-        {'cats': cats, 'categorey_posts': categorey_posts})
+# def categories(request, cats):
+#     categorey_posts = ForumPost.objects.filter(bars=cats)
+#     return render(
+#         request,
+#         'categories.html',
+#         {'cats': cats, 'categorey_posts': categorey_posts})
 
 
-def Categories(request, cats):
-    categorey_posts = ForumPost.objects.filter(gears=cats)
-    return render(
-        request,
-        'categories.html',
-        {'cats': cats, 'categorey_posts': categorey_posts})
+# def categories(request, cats):
+#     categorey_posts = ForumPost.objects.filter(gears=cats)
+#     return render(
+#         request,
+#         'categories.html',
+#         {'cats': cats, 'categorey_posts': categorey_posts})
 
 
 # class Categories(generic.ListView):

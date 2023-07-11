@@ -1,20 +1,119 @@
 {% extends "base.html" %}
 
 {% block content %}
-<section class="py-5 text-center container">
-    <div class="row py-lg-5">
-        <div class="col-lg-6 col-md-8 mx-auto">
-            <div class="row title"><h1 class="fw-light text-center">P E D A L</h1></div>
-            <div class="row py-5 bike"><i class="fa-sharp fa-solid fa-bicycle fa-5x"></i></div>
-            <div class="row"><p class="text-body-secondary fw-bold sub-title">Check out these beautiful bike builds below</p></div>
+
+
+
+<div class="container-fluid">
+
+
+    <section class="py-5 text-center container mylogo">
+        <div class="row py-lg-5">
+            <div class="col-lg-6 col-md-8 mx-auto">
+                <div class="row title">
+                    <h1 class="fw-light text-center">P E D A L</h1>
+                </div>
+                <div class="row py-5 bike"><i class="fa-sharp fa-solid fa-bicycle fa-5x"></i></div>
+                <div class="row">
+                    <p class="text-body-secondary fw-bold sub-title">Check out these beautiful bike builds below</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="row px-lg-5">
+
+        <div class="col-12">
+            <div class="row">
+                {% for post in posts %}
+                <div class="col-md-4 mb-4">
+                    <div class="bg-white rounded shadow-sm h-100">
+                        {% if "placeholder" in post.cover_image.url %}
+                        <img src="/static/images/placeholder2.jpg.webp" alt="" class="img-fluid card-img-top rounded">
+                        {% else %}
+                        <img src="{{ post.cover_image.url }}" alt="" class="img-fluid card-img-top rounded">
+                        {% endif %}
+                        <div class="col p-3">
+
+                            <div class="row px-2">
+                                <div class="col mb-3"><i class="far fa-heart"></i><span class="font-weight-bold">{{ post.number_of_likes }}</span>
+                                </div>
+                                <div class="col mb-3"><span><i class="fa-regular fa-comment"></i></span>
+                                </div>
+                            </div>
+
+                            <div class="row px-2">
+                                <h4><a href="{% url 'post_detail' post.id post.slug %}" class="text-dark"><strong>{{ post.title }}</strong></a></h4>
+                            </div>
+                            <div class="row px-2"><p class="post-subtitle">By:<strong>{{ post.author }}</strong></p>
+                            </div>
+                            <div class="row px-2"><p class="post-subtitle">Created:<strong>{{ post.created_on }}</strong></p>
+                            </div>
+                           
+                            <div class="row px-2 mb-2">
+                                <div class="col">
+                                    <a href="#" class="badge rounded-pill" id="tags">{{ post.bikes }}</a>
+                                </div>
+                                <div class="col">
+                                    <a href="#" class="badge rounded-pill" id="tags">{{ post.bars }}</a>
+                                </div>
+                                <div class="col">
+                                   <a href="#" class="badge rounded-pill" id="tags"> {{ post.gears }} </a>
+                                </div>
+                            </div>
+                            
+                            
+                        </div>
+                    </div>
+                </div>
+                {% if forloop.counter|divisibleby:3 %}
+            </div>
+            <div class="row">
+                {% endif %}
+                {% endfor %}
+            </div>
         </div>
     </div>
-</section>
-<hr>
-<div class="container-fluid">
+    {% if is_paginated %}
+    <nav aria-label="Page navigation">
+        <ul class="pagination justify-content-center">
+            {% if page_obj.has_previous %}
+            <li><a href="?page={{ page_obj.previous_page_number }}" class="page-link">&laquo; PREV </a></li>
+            {% endif %}
+            {% if page_obj.has_next %}
+            <li><a href="?page={{ page_obj.next_page_number }}" class="page-link"> NEXT &raquo;</a></li>
+
+            {% endif %}
+        </ul>
+    </nav>
+    {% endif %}
+</div>
+{% endblock %}
+
+
+<!-- <h4><a href="{% url 'post_detail' post.id post.slug %}"
+    class="text-dark">{{ post.title }}</a></h4>
+<p class="small text-muted mb-0">By: {{ post.author }}</p>
+<p class="small text-muted mb-0">{{ post.created_on }}</p>
+<div
+class="d-flex align-items-center justify-content-between rounded-pill bg-light px-3 py-2 mt-4">
+<div class="badge badge-danger px-3 rounded-pill font-weight-normal text-bg-warning">
+    {{ post.bikes }}</div>
+<div class="badge badge-danger px-3 rounded-pill font-weight-normal text-bg-warning">
+    {{ post.bikes }}</div>
+<div class="badge badge-danger px-3 rounded-pill font-weight-normal text-bg-warning">
+    {{ post.bikes }}</div>
+</div>
+<p class="small mb-0"><i class="far fa-heart"></i><span
+    class="font-weight-bold">{{ post.number_of_likes }} -->
+
+
+
+
+<!-- <div class="container-fluid">
     <div class="row">
         
-        <!-- Blog Entries Column -->
+        
         <div class="col-12 mt-3 left">
             <div class="row">
                 {% for post in posts %}
@@ -26,7 +125,7 @@
                                 <img class="card-img-top"
                                     src="/static/images/placeholder.jpg">
                                 {% else %}
-                                <img class="card-img-top" src=" {{ post.cover_image.url }}">
+                                <img class="card-img-top" src="{{ post.cover_image.url }}">
                                 {% endif %}
                                 <div class="image-flash">
                                     <p class="author">Author: {{ post.author }}</p>
@@ -66,5 +165,8 @@
         </ul>
     </nav>
     {% endif %}
-</div>
-{% endblock %}
+</div> -->
+
+
+
+

@@ -121,15 +121,12 @@ def categories(request, cats):
 
 class LikedList(LoginRequiredMixin, generic.ListView):
     model = ForumPost
-    # queryset = ForumPost.objects.filter(user.forum_like).all().order_by('-created_on')
     template_name = 'liked_list.html'
     context_object_name = "posts"
-    paginate_by = 6
+    paginate_by = 9
 
     def get_queryset(self):
-        user = self.request.user
-        queryset = User.objects.prefetch_related('forum_like').get(pk=1).forum_like.all()
-        # queryset = ForumPost.objects.filter(user.forum_like).all().order_by('-created_on')
+        queryset = ForumPost.objects.filter(likes=self.request.user)
         return queryset
 
 

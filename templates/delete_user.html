@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+<div class="container-fluid">
+  <div class="col m-5">
+    <div class="row">
+      <h1>Delete Your Account</h1>
+    </div>
+    <div class="row">
+      <p>Are you sure you want to delete your post, it will be gone forever, along with your bike posts and comments</p>
+    </div>
+    <div class="row">
+      <form method="post">
+         {% csrf_token %}
+         <button type="submit" class="btn btn-danger">Delete</button>
+        <button class="btn btn-outline-dark"><a href="{% url 'home' %}"></a> I changed my mind</button>
+      </form>
+    </div>  
+  </div>
+</div>
+
+{% endblock %}

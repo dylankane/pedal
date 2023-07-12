@@ -75,13 +75,20 @@
         </div>
     </div>
     {% if is_paginated %}
-    <nav aria-label="Page navigation">
+    <nav class="mb-5" aria-label="Page navigation">
         <ul class="pagination justify-content-center">
             {% if page_obj.has_previous %}
-            <li><a href="?page={{ page_obj.previous_page_number }}" class="page-link">&laquo; PREV </a></li>
+            <li><a href="?page={{ page_obj.previous_page_number }}" class="page-link text-dark rounded">&laquo; PREV </a></li>
             {% endif %}
+            {% for i in paginator.page_range %}
+            {% if page_obj.number == i %}
+                <li class="page-item disabled"><a href="?page={{ i }}" class="page-link text-dark rounded">{{ i }}</a></li>
+            {% else %}
+                <li><a href="?page={{ i }}" class="page-link text-dark rounded">{{ i }}</a></li>
+            {% endif %}
+        {% endfor %}
             {% if page_obj.has_next %}
-            <li><a href="?page={{ page_obj.next_page_number }}" class="page-link"> NEXT &raquo;</a></li>
+            <li><a href="?page={{ page_obj.next_page_number }}" class="page-link text-dark rounded"> NEXT &raquo;</a></li>
 
             {% endif %}
         </ul>
@@ -91,81 +98,29 @@
 {% endblock %}
 
 
-<!-- <h4><a href="{% url 'post_detail' post.id post.slug %}"
-    class="text-dark">{{ post.title }}</a></h4>
-<p class="small text-muted mb-0">By: {{ post.author }}</p>
-<p class="small text-muted mb-0">{{ post.created_on }}</p>
-<div
-class="d-flex align-items-center justify-content-between rounded-pill bg-light px-3 py-2 mt-4">
-<div class="badge badge-danger px-3 rounded-pill font-weight-normal text-bg-warning">
-    {{ post.bikes }}</div>
-<div class="badge badge-danger px-3 rounded-pill font-weight-normal text-bg-warning">
-    {{ post.bikes }}</div>
-<div class="badge badge-danger px-3 rounded-pill font-weight-normal text-bg-warning">
-    {{ post.bikes }}</div>
-</div>
-<p class="small mb-0"><i class="far fa-heart"></i><span
-    class="font-weight-bold">{{ post.number_of_likes }} -->
-
-
-
-
-<!-- <div class="container-fluid">
-    <div class="row">
-        
-        
-        <div class="col-12 mt-3 left">
-            <div class="row">
-                {% for post in posts %}
-                <div class="col-md-4 my-2">
-                    <div class="card mb-4 h-100">
-                        <div class="card-body">
-                            <div class="image-container">
-                                {% if "placeholder" in post.cover_image.url %}
-                                <img class="card-img-top"
-                                    src="/static/images/placeholder.jpg">
-                                {% else %}
-                                <img class="card-img-top" src="{{ post.cover_image.url }}">
-                                {% endif %}
-                                <div class="image-flash">
-                                    <p class="author">Author: {{ post.author }}</p>
-                                </div>
-                            </div>
-                        
-                            <a href="{% url 'post_detail' post.id post.slug %}" class="post-link">
-                                <h2 class="card-title">{{ post.title }}</h2>
-                            </a>
-                            <hr />
-                            <p class="card-text">{{ post.bikes }}</p>
-                            <p class="card-text text-muted h6">{{ post.created_on}} <i class="far fa-heart"></i>
-                                {{ post.number_of_likes }}</p>
-                            
-                        </div>
-                    </div>
-                </div>
-                {% if forloop.counter|divisibleby:3 %}
-            </div>
-            <div class="row">
-                {% endif %}
-                {% endfor %}
-
-            </div>
-        </div>
-    </div>
-    {% if is_paginated %}
+<!-- {% if is_paginated %}
     <nav aria-label="Page navigation">
         <ul class="pagination justify-content-center">
             {% if page_obj.has_previous %}
-            <li><a href="?page={{ page_obj.previous_page_number }}" class="page-link">&laquo; PREV </a></li>
+                <li><a href="?page={{ page_obj.previous_page_number }}" class="page-link text-dark rounded">&laquo; PREV </a></li>
             {% endif %}
-            {% if page_obj.has_next %}
-            <li><a href="?page={{ page_obj.next_page_number }}" class="page-link"> NEXT &raquo;</a></li>
 
+            {% for i in paginator.page_range %}
+                {% if page_obj.number == i %}
+                    <li class="active"><a href="?page={{ i }}" class="page-link text-dark rounded">{{ i }}</a></li>
+                {% else %}
+                    <li><a href="?page={{ i }}" class="page-link text-dark rounded">{{ i }}</a></li>
+                {% endif %}
+            {% endfor %}
+
+            {% if page_obj.has_next %}
+                <li><a href="?page={{ page_obj.next_page_number }}" class="page-link text-dark rounded"> NEXT &raquo;</a></li>
             {% endif %}
         </ul>
     </nav>
-    {% endif %}
-</div> -->
+{% endif %} -->
+
+
 
 
 

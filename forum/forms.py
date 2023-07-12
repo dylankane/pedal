@@ -33,4 +33,12 @@ class UpdateForm(forms.ModelForm):
     class Meta:
         model = ForumPost
         fields = (
-            'title', 'bikes', 'gears', 'bars', 'cover_image', 'content',)
+            'title',
+            'bikes',
+            'gears',
+            'bars',
+            'cover_image',
+            'second_image',
+            'third_image',
+            'content',
+            )

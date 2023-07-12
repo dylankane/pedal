@@ -17,13 +17,13 @@
 </head>
 
 <body>
-    <header data-bs-theme="light">
-        <div class="collapse text-bg-light" id="navbarHeader">
+    <header>
+        <div class="collapse" id="navbarHeader">
             <div class="container">
                 <div class="row text text-center">
                     <div class="col-sm-8 col-md-7 py-4">
                         <h4>What is PEDAL</h4>
-                        <p class="text-body-secondary">Pedal is a space for showcasing amazingly unique bike builds.
+                        <p>Pedal is a space for showcasing amazingly unique bike builds.
                             Where biker lovers of all kinds can come to admire other peoples builds and / or post an
                             article about
                             their own unique build. Whether its a refurbished 90's mtb a brand new carbon gravel bike or
@@ -33,36 +33,50 @@
                     </div>
                     <div class="col-sm-4 offset-md-1 py-4">
                         <ul class="list-unstyled">
-                            
-                            {% if user.is_authenticated %}
-                                <li><a href="{% url 'account_logout' %}" class="text-dark">Log Out</a></li>
-                            {% else %}
-                            <li><a href="{% url 'account_login' %}" class="text-dark">Log In</a></li>
-                            <li><a href="{% url 'account_signup' %}" class="text-dark">Sign Up</a></li>
-                            {% endif %}
-                            <li><a href="#" class="text-dark">About PEDAL</a></li>
+                            <li><a href="#" class="text-dark">About Us</a></li>
+                            <li><a href="#" class="text-dark">Contact</a></li>
+                            <li><a href="#" class="text-dark">T&C's</a></li>
                         </ul>
                     </div>
                 </div>
             </div>
         </div>
         <div class="navbar navbar-dark bg-dark shadow-sm">
-            <div class="container">
-                <div>
+            <div class="container-fluid">
+                <div class="col-8">
                     <a href="{% url 'home' %}" class="navbar-brand d-flex align-items-center" data-mdb-ripple-color="light"><strong>PEDAL</strong></a>
                 </div>
-                <div>
-                    {%if user.is_authenticated%}
-                    <a href="{% url 'profile' %}"><i class="fa-sharp fa-regular fa-user fa-xl" style="color: #f5f9ff;"></i></a>
-                    {% endif %}
+                <div class="col-2 text-center">
+                    <div class="dropdown">
+                        <button class="btn dropdown-toggle text-light" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fa-sharp fa-regular fa-user fa-xl"></i>
+                        </button>
+                        <ul class="dropdown-menu" data-bs-theme="dark" >
+                            {%if user.is_authenticated%}
+                            <li><a class="dropdown-item" href="{% url 'account_logout' %}">Log Out</a></li>
+                            <li><a class="dropdown-item" href="{% url 'profile' %}">Profile</a></li>
+                            {% else %}
+                            <li><a class="dropdown-item" href="{% url 'account_login' %}">Login In</a></li>
+                            <li><a class="dropdown-item" href="{% url 'account_signup' %}">Sign Up</a></li>
+                            {% endif %}
+                        </ul>
+                      </div>
+                </div>
+                <div class="col-2 text-center">
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarHeader"
-                        aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation" style="color: #f5f9ff;">
-                        <span class="navbar-toggler-icon"></span>
+                        aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="text-light"><i class="fa-solid fa-bars fa-lg"></i></span>
                     </button>
                 </div>
             </div>
         </div>
     </header>
+
+    <!-- {%if user.is_authenticated%}
+    <a href="{% url 'profile' %}" class="text-light"><i class="fa-sharp fa-regular fa-user fa-xl"></i></a>
+    {% endif %} -->
+
+    
 
     <div class="container">
         <div class="row">
@@ -81,20 +95,31 @@
         {% block content %}
         {% endblock %}
     </main>
-    <hr>
-    <footer class="container text-center">
-        <div class="my-4">
-            <a class="btn btn-lg text-dark m-1" href="https://www.facebook.com/" role="button"
-                target="_blank"><i class="fab fa-facebook-f"></i></a>
-            <a class="btn btn-lg text-dark m-1" href="https://www.twitter.com/"
-                target="_blank"><i class="fab fa-twitter"></i></a>
-            <a class="btn btn-lg text-dark m-1" href="https://www.instagram.com/" role="button"
-                target="_blank"><i class="fab fa-instagram"></i></a>
+    
+    <footer class="container-fluid">
+        <hr>
+        <div class="row">
+            <div class="col">
+                <a class="btn btn-lg text-dark m-1" href="https://www.facebook.com/" role="button"
+                    target="_blank"><i class="fab fa-facebook-f"></i></a>
+            </div>
+            <div class="col">
+                <a class="btn btn-lg text-dark m-1" href="https://www.twitter.com/"
+                    target="_blank"><i class="fab fa-twitter"></i></a>
+            </div>
+            <div class="col">
+                <a class="btn btn-lg text-dark m-1" href="https://www.instagram.com/" role="button"
+                    target="_blank"><i class="fab fa-instagram"></i></a>
+            </div>
         </div>
-        <div class="my-4 "></div>
-            &copy 2023 Copyright: DylanKane
-            <a class="btn btn-lg text-dark" href="https://github.com/dylankane" role="button"
-                target="_blank"> <i class="fab fa-github"></i></a>
+        <div class="row">
+            <div class="col">
+                <p>&copy 2023 Copyright: DylanKane</p>
+            </div>
+             <div class="col">
+                <a class="btn btn-lg text-dark" href="https://github.com/dylankane" role="button"
+                    target="_blank"> <i class="fab fa-github"></i></a>
+            </div>
         </div>
     </footer>
     <script>
@@ -110,3 +135,4 @@
 </body>
 
 </html>
+

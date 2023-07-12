@@ -9,8 +9,8 @@
         <div class="row">
             <div class="image-container">
                 {% if "placeholder" in post.cover_image.url %}
-                <img class="card-img-top rounded"
-                    src="/static/images/placeholder.jpg">
+                <img class="card-img-top rounded img-fluid"
+                    src="/static/images/placeholder2.jpg.webp">
                 {% else %}
                 <img class="card-img-top rounded" src=" {{ post.cover_image.url }}">
                 {% endif %}
@@ -19,18 +19,18 @@
         <div class="row">
             <div class=" col image-container pt-3">
                 {% if "placeholder" in post.second_image.url %}
-                <img class="rounded float-start"
-                    src="/static/images/placeholder.jpg">
+                <img class="rounded img-fluid"
+                    src="/static/images/placeholder2.jpg.webp">
                 {% else %}
-                <img class="card-img rounded float-start" src=" {{ post.second_image.url }}">
+                <img class="card-img rounded" src=" {{ post.second_image.url }}">
                 {% endif %}
             </div>
             <div class="col image-container pt-3">
                 {% if "placeholder" in post.third_image.url %}
-                <img class="rounded float-end"
-                    src="/static/images/placeholder.jpg">
+                <img class="rounded img-fluid"
+                    src="/static/images/placeholder2.jpg.webp">
                 {% else %}
-                <img class="card-img rounded fload-end " src=" {{ post.third_image.url }}">
+                <img class="card-img rounded" src=" {{ post.third_image.url }}">
                 {% endif %}
             </div>
         </div>
@@ -98,13 +98,13 @@
             <div class="card-body pt-4">
                 {% for comment in comments %}
                     <div class="comments" style="padding: 10px;">
-                        <p class="font-weight-bold">By: {{ comment.author }} | 
+                        <p class="text-muted">By: <strong>{{ comment.author }}</strong> | 
                             <span class="text-muted">{{ comment.created_on }}</span>
                         </p>
                         {% if user == comment.author %}
                             {{ comment.body | linebreaks }}
-                            <a href="{% url 'delete_comment' comment.pk %}" class="text-dark">Delete</a>
-                            <a href="{% url 'edit_comment' comment.pk %}" class="text-dark">Edit</a>
+                            <a href="{% url 'delete_comment' comment.pk %}" class="badge text-bg-light px-2">Delete</a>
+                            <a href="{% url 'edit_comment' comment.pk %}" class="badge text-bg-light px-2">Edit</a>
                             <!-- post.slug -->
                         {% else %}
                             {{ comment.body | linebreaks }}

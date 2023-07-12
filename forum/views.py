@@ -117,32 +117,18 @@ def categories(request, cats):
         {'cats': cats, 'categorey_posts': categorey_posts})
 
 
-# def categories(request, cats):
-#     categorey_posts = ForumPost.objects.filter(bars=cats)
-#     return render(
-#         request,
-#         'categories.html',
-#         {'cats': cats, 'categorey_posts': categorey_posts})
+class LikedList(generic.ListView):
+    model = ForumPost
+    # queryset = ForumPost.objects.filter(user.forum_like).all().order_by('-created_on')
+    template_name = 'liked_list.html'
+    context_object_name = "posts"
+    paginate_by = 6
 
-
-# def categories(request, cats):
-#     categorey_posts = ForumPost.objects.filter(gears=cats)
-#     return render(
-#         request,
-#         'categories.html',
-#         {'cats': cats, 'categorey_posts': categorey_posts})
-
-
-# class Categories(generic.ListView):
-#     model = ForumPost
-#     template_name = 'categories.html'
-#     context_object_name = 'posts'
-#     paginate_by = 9
-
-#     def get_queryset(self):
-#         bikes = self.request.GET.get('bikes')
-#         queryset = ForumPost.objects.filter(bikes=bikes)
-#         return queryset
+    def get_queryset(self):
+        user = self.request.user
+        queryset = User.objects.prefetch_related('forum_like').get(pk=1).forum_like.all()
+        # queryset = ForumPost.objects.filter(user.forum_like).all().order_by('-created_on')
+        return queryset
 
 
 # Class to create a view of the posts creted by the current user,
@@ -229,5 +215,5 @@ def delete_user(request):
     template_name = 'delete_user.html'
     if request.method == 'POST':
         request.user.delete()
-        return redirect('home') 
+        return redirect('home')
     return render(request, 'delete_user.html')

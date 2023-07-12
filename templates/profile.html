@@ -3,29 +3,36 @@
 {% block content %}
 
 {% load crispy_forms_tags %}
-<div class="container-fluid mb-4">
+<div class="container-fluid mb-5">
     {% if user.is_authenticated %}
     <div class="row text-center my-5">
         <h2>Hi {{ user.username|capfirst }} </h2>
     </div>
-    <div class="col-8 offset-2 my-5 text-center">
-        <div class="row">
-            <p>Show us your amazing bike build, by creating a new post</p>
-        </div>
-        <div class="row">
-            <a href="{% url 'create_post' %}" class="btn btn-warning">CREATE A POST</a>
-        </div>
-    </div>
-    <hr>
-    <div class="row mt-4">
-        <h3>Here are all your previous posts</h3>
-    </div>
     <div class="row">
-        <div class="col-12 mt-3 left">
-            <div class="row">
-                {% for post in posts %}
-                <div class="col-md-4 mt-3">
-                    <div class="col mb-4 h-100">
+        <div class="col-4 text-center">
+            <div class="row-3">
+                <a href="{% url 'create_post' %}" class="btn btn btn-outline-dark"><span class="p-2"><i
+                    class="fa-regular fa-plus fa-lg"></i></span> Show Us Your Bike</a>
+            </div>
+        </div>
+        <div class="col-4 text-center">
+            <div class="row-3">
+                <a href="{% url 'liked_list' %}" class="btn btn btn-outline-dark"><span class="p-2"><i
+                    class="fa-solid fa-bookmark fa-lg"></i></span> Favourites</a>
+            </div>
+        </div>
+        <div class="col-4 text-center">
+            <div class="row-3 dropdown">
+                <a href="#" class="btn btn-outline-dark dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <span class="p-2"><i class="fa-sharp fa-regular fa-user"></i></span> Account</a>
+                    <ul class="dropdown-menu" data-bs-theme="dark">
+                        <li><a class="dropdown-item" href="{% url 'account_logout' %}">Log Out</a></li>
+                        <li><a class="dropdown-item" href="{% url 'delete_user' %}">Delete Profile</a></li>
+                      </ul>
+            </div>
+        </div>
+    </div>
+</div>
 
                         <div class="card-body mx-4">
                             <div class="image-container">

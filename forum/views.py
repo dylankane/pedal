@@ -224,10 +224,10 @@ class DeleteComment(generic.DeleteView):
     context_object_name = 'comment'
     success_url = reverse_lazy('home')
 
-    # def get_success_url(self, *args):
-    #     slug = self.kwargs['post_slug']
-    #     return reverse_lazy('post_detail', kwargs={'slug': slug})
 
-    #  self.success_url = f'/{self.get_object().post.slug}'
-    #  self.slug = self.get_object().post.slug
-    #  return reverse_lazy('post_detail', args=[self.slug])
+def delete_user(request):
+    template_name = 'delete_user.html'
+    if request.method == 'POST':
+        request.user.delete()
+        return redirect('home') 
+    return render(request, 'delete_user.html')

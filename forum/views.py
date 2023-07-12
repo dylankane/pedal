@@ -6,6 +6,8 @@ from .forms import CommentForm, PostForm, UpdateForm, EditCommentForm
 from django.contrib import messages
 from django.contrib.auth.models import User
 from django.urls import reverse_lazy
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 
 # Class to show all posts on the homepage as list, targets the ForumPost model,
@@ -47,7 +49,7 @@ class PostDetail(View):
         )
 
     # Updates the post method on the generic view, again collecting a set of
-    # the posts and selecting by one by slug, Then refering to the form
+    # the posts and selecting one by slug, Then refering to the form
     # CommentForm from forms.py, If this form is valid it triggers succes
     # message, sets author as the current user name, and saves to the Comment
     # database
@@ -117,7 +119,7 @@ def categories(request, cats):
         {'cats': cats, 'categorey_posts': categorey_posts})
 
 
-class LikedList(generic.ListView):
+class LikedList(LoginRequiredMixin, generic.ListView):
     model = ForumPost
     # queryset = ForumPost.objects.filter(user.forum_like).all().order_by('-created_on')
     template_name = 'liked_list.html'
@@ -134,7 +136,7 @@ class LikedList(generic.ListView):
 # Class to create a view of the posts creted by the current user,
 # Targets the ForumPost model, sets a template to render to, and
 # paginates by 9.
-class Profile(generic.ListView):
+class Profile(LoginRequiredMixin, generic.ListView):
     model = ForumPost
     template_name = 'profile.html'
     context_object_name = "posts"
@@ -174,7 +176,7 @@ class CreatePost(generic.CreateView):
         return success_url
 
 
-class UpdatePost(generic.UpdateView):
+class UpdatePost(LoginRequiredMixin, generic.UpdateView):
     model = ForumPost
     template_name = 'update_post.html'
     form_class = UpdateForm
@@ -185,13 +187,13 @@ class UpdatePost(generic.UpdateView):
         return success_url
 
 
-class DeletePost(generic.DeleteView):
+class DeletePost(LoginRequiredMixin, generic.DeleteView):
     model = ForumPost
     template_name = 'delete_post.html'
     success_url = reverse_lazy('profile')
 
 
-class EditComment(generic.UpdateView):
+class EditComment(LoginRequiredMixin, generic.UpdateView):
     model = Comment
     template_name = 'edit_comment.html'
     form_class = EditCommentForm
@@ -204,13 +206,14 @@ class EditComment(generic.UpdateView):
         return success_url
 
 
-class DeleteComment(generic.DeleteView):
+class DeleteComment(LoginRequiredMixin, generic.DeleteView):
     model = Comment
     template_name = 'delete_comment.html'
     context_object_name = 'comment'
     success_url = reverse_lazy('home')
 
 
+@login_required
 def delete_user(request):
     template_name = 'delete_user.html'
     if request.method == 'POST':

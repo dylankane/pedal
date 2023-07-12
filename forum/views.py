@@ -149,7 +149,7 @@ class Profile(LoginRequiredMixin, generic.ListView):
 
 # Class to handle user creating a post, declares the model its working on,
 # the template to render to and the form from forms.py
-class CreatePost(generic.CreateView):
+class CreatePost(LoginRequiredMixin, generic.CreateView):
     model = ForumPost
     template_name = 'create_post.html'
     form_class = PostForm
@@ -178,9 +178,17 @@ class UpdatePost(LoginRequiredMixin, generic.UpdateView):
     template_name = 'update_post.html'
     form_class = UpdateForm
 
+    def form_valid(self, form):
+        messages.success(
+            self.request, "Your bike has been successfully updated")
+        # form.instance.author = self.request.user
+        return super().form_valid(form)
+
     def get_success_url(self):
         slug = self.object.slug
-        success_url = reverse('post_detail', kwargs={'slug': slug})
+        pk = self.object.id
+        success_url = reverse('post_detail', kwargs={'slug': slug, 'pk': pk})
+
         return success_url
 
 
@@ -189,14 +197,19 @@ class DeletePost(LoginRequiredMixin, generic.DeleteView):
     template_name = 'delete_post.html'
     success_url = reverse_lazy('profile')
 
+    def get_success_url(self):
+        messages.success(self.request, "Your bike was successfully deleted")
+        success_url = reverse('profile')
+        return success_url
+
 
 class EditComment(LoginRequiredMixin, generic.UpdateView):
     model = Comment
     template_name = 'edit_comment.html'
     form_class = EditCommentForm
-    # success_url = reverse_lazy('home')
 
     def get_success_url(self):
+        messages.success(self.request, "Your Comment was successfully updated")
         slug = self.object.post.slug
         pk = self.object.post.id
         success_url = reverse('post_detail', kwargs={'slug': slug, 'pk': pk})
@@ -207,13 +220,22 @@ class DeleteComment(LoginRequiredMixin, generic.DeleteView):
     model = Comment
     template_name = 'delete_comment.html'
     context_object_name = 'comment'
-    success_url = reverse_lazy('home')
+    success_message = 'Your comment ha been successfully deleted'
+
+    def get_success_url(self):
+        messages.success(self.request, "Your Comment was deleted successfully")
+        slug = self.object.post.slug
+        pk = self.object.post.id
+        success_url = reverse('post_detail', kwargs={'slug': slug, 'pk': pk})
+        return success_url
 
 
 @login_required
 def delete_user(request):
-    template_name = 'delete_user.html'
     if request.method == 'POST':
         request.user.delete()
+        messages.success(request, 'Your account has been successfully deleted.')
         return redirect('home')
     return render(request, 'delete_user.html')
+    # def get_success_url(self):
+    #     messages.success(self.request, "Your Comment was deleted successfully")

@@ -4,7 +4,6 @@
 
 {% load crispy_forms_tags %}
 <div class="container-fluid mb-5">
-    {% if user.is_authenticated %}
     <div class="row text-center my-5">
         <h2>Hi {{ user.username|capfirst }} </h2>
     </div>
@@ -12,85 +11,69 @@
         <div class="col-4 text-center">
             <div class="row-3">
                 <a href="{% url 'create_post' %}" class="btn btn btn-outline-dark"><span class="p-2"><i
-                    class="fa-regular fa-plus fa-lg"></i></span> Show Us Your Bike</a>
+                            class="fa-regular fa-plus fa-lg"></i></span> Show Us Your Bike</a>
             </div>
         </div>
         <div class="col-4 text-center">
             <div class="row-3">
                 <a href="{% url 'liked_list' %}" class="btn btn btn-outline-dark"><span class="p-2"><i
-                    class="fa-solid fa-bookmark fa-lg"></i></span> Favourites</a>
+                            class="fa-solid fa-bookmark fa-lg"></i></span> Favourites</a>
             </div>
         </div>
         <div class="col-4 text-center">
             <div class="row-3 dropdown">
-                <a href="#" class="btn btn-outline-dark dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <a href="#" class="btn btn-outline-dark dropdown-toggle" role="button" data-bs-toggle="dropdown"
+                    aria-expanded="false">
                     <span class="p-2"><i class="fa-sharp fa-regular fa-user"></i></span> Account</a>
-                    <ul class="dropdown-menu" data-bs-theme="dark">
-                        <li><a class="dropdown-item" href="{% url 'account_logout' %}">Log Out</a></li>
-                        <li><a class="dropdown-item" href="{% url 'delete_user' %}">Delete Profile</a></li>
-                      </ul>
+                <ul class="dropdown-menu" data-bs-theme="dark">
+                    <li><a class="dropdown-item" href="{% url 'account_logout' %}">Log Out</a></li>
+                    <li><a class="dropdown-item" href="{% url 'delete_user' %}">Delete Profile</a></li>
+                </ul>
             </div>
         </div>
     </div>
 </div>
 <hr>
-<div class="row mt-4">
-    <h3>Here are all your previous posts</h3>
-</div>
-<div class="row">
-    <div class="col-12 mt-3 left">
-        <div class="row">
+<div class="container-fluid">
+    <div class="col">
+        <div class="row my-4">
             {% for post in posts %}
-            <div class="col-md-4 mt-3">
-                <div class="col mb-4 h-100">
-
-                    <div class="card-body mx-4">
-                        <div class="image-container">
-                            {% if "placeholder" in post.cover_image.url %}
-                            <img class="card-img-top rounded" src="/static/images/placeholder2.jpg.webp">
-                            {% else %}
-                            <img class="card-img-top rounded" src=" {{ post.cover_image.url }}">
-                            {% endif %}
-                            <div class="image-flash">
-                                <div class="col">
-                                    <p class="author">By: {{ post.author }}</p>
-                                </div>
-                                <div classs="col">
-                                    <p><i class="far fa-heart"></i>{{ post.number_of_likes }}</p>
-                                </div>
+            <div class="col-md-4 mb-4">
+                <div class=" card card-cascade wider bg-white rounded shadow-sm h-100 m-4">
+                    <div class="view view-cascade overlay">
+                        {% if "placeholder" in post.cover_image.url %}
+                        <img src="/static/images/placeholder2.jpg.webp" alt="" class="img-fluid card-img-top">
+                        {% else %}
+                        <img src="{{ post.cover_image.url }}" alt="" class="img-fluid card-img-top">
+                        {% endif %}
+                    </div>
+                    <div class="card-body card-body-cascade text-center p-3">
+                        <div class="d-flex justify-content-between">
+                            <div>
+                                <span><i class="far fa-heart"></i></span>
+                                <span class="font-weight-bold">{{ post.number_of_likes }}</span>
+                            </div>
+                            <div>
+                                {% with post.comments.count as total_comments %}
+                                <span><i class="far fa-heart"></i></span>
+                                <span class="font-weight-bold"> {{ total_comments }}</span>
+                                {% endwith %}
                             </div>
                         </div>
-
-                        <div>
-                            <a href="{% url 'post_detail' post.pk post.slug %}" class="post-link">
-                                <h2 class="card-title text-center">{{ post.title }}</h2>
-                            </a>
+                        <h4 class="card-title"><a href="#"><strong>{{ post.title }}</strong></a></h4>                    
+                        <h6 class="font-weight-bold py-2">By: {{ post.author }}</h6>
+                        <h6 class="font-weight-bold py-2">Created: {{ post.created_on }}</h6>
+                    </div>
+                    <div class="card-footer bg-white text-muted text-center">
+                        <div class="d-flex justify-content-between my-4">
+                            <a href="#"><span class="btn btn-outline-dark btn-sm">{{ post.bikes }}</span></a>
+                            <a href="#"><span class="btn btn-outline-dark btn-sm">{{ post.bars }}</span></a>
+                            <a href="#"><span class="btn btn-outline-dark btn-sm">{{ post.gears }}</span></a>
                         </div>
-
-                        <div class="row my-3 text-center">
-                            <div class="col">
-                                <a href="{% url 'categories' post.bikes %}"
-                                    class="badge rounded-pill text-bg-warning">{{ post.bikes }}</a>
-                            </div>
-                            <div class="col">
-                                <a href="{% url 'categories' post.bars %}"
-                                    class="badge rounded-pill text-bg-warning">{{ post.bars }}</a>
-                            </div>
-                            <div class="col">
-                                <a href="{% url 'categories' post.gears %}"
-                                    class="badge rounded-pill text-bg-warning">{{ post.gears }}</a>
-                            </div>
+                        <div class="d-flex justify-content-around my-3">
+                            <a href="{% url 'update_post' post.slug %}"><span class="btn btn-outline-primary btn-sm">EDIT</span></a>
+                            <a href="{% url 'delete_post' post.slug %}"><span class="btn btn-outline-danger btn-sm">DELETE</span></a>
                         </div>
-
-                        <div class="row text-center my-4">
-                            <div class="col">
-                                <a href="{% url 'update_post' post.slug %}" class="btn btn-outline-dark">EDIT</a>
-                            </div>
-                            <div class="col">
-                                <a href="{% url 'delete_post' post.slug %}" class="btn btn-outline-danger">DELETE</a>
-                            </div>
-                        </div>
-                        <p class="card-text text-muted h6">{{ post.created_on}}</p>
                     </div>
                 </div>
             </div>
@@ -99,37 +82,28 @@
         <div class="row">
             {% endif %}
             {% endfor %}
-
         </div>
     </div>
 </div>
 {% if is_paginated %}
-<nav aria-label="Page navigation">
+<nav class="mb-5" aria-label="Page navigation">
     <ul class="pagination justify-content-center">
         {% if page_obj.has_previous %}
-        <li><a href="?page={{ page_obj.previous_page_number }}" class="page-link">&laquo; PREV </a></li>
+        <li><a href="?page={{ page_obj.previous_page_number }}" class="page-link text-dark rounded m-1">&laquo; PREV </a></li>
         {% endif %}
+        {% for i in paginator.page_range %}
+        {% if page_obj.number == i %}
+            <li class="page-item disabled"><a href="?page={{ i }}" class="page-link text-dark rounded m-1">{{ i }}</a></li>
+        {% else %}
+            <li><a href="?page={{ i }}" class="page-link text-dark rounded m-1">{{ i }}</a></li>
+        {% endif %}
+    {% endfor %}
         {% if page_obj.has_next %}
-        <li><a href="?page={{ page_obj.next_page_number }}" class="page-link"> NEXT &raquo;</a></li>
+        <li><a href="?page={{ page_obj.next_page_number }}" class="page-link text-dark rounded m-1"> NEXT &raquo;</a></li>
 
         {% endif %}
     </ul>
 </nav>
 {% endif %}
-{% else %}
-<div class="row text-center my-5">
-    <h2>It looks like your not logged in...</h2>
-</div>
-<div class="col-8 offset-2 my-5 text-center">
-    <div class="row">
-        <p>Log in or sign up to enjoy the full experience of our community</p>
-    </div>
-    <div class="row">
-        <a href="{% url 'account_login' %}" class="btn btn-warning">Log In</a>
-        <a href="{% url 'account_signup' %}" class="btn btn-warning">Sign Up</a>
-    </div>
-</div>
-{% endif %}
-
 </div>
 {% endblock %}

@@ -2,7 +2,7 @@ body {
     background-color: #ebe3e3;
     font-family: roboto, sans-serif;
 }
-
+/* #ebe3e3; */
 h1 {
     font-family: agdasima, sans-serif;
     /* letter-spacing: 0.5em; */
@@ -27,6 +27,9 @@ h5 {
     font-family: agdasima, sans-serif;
 }
 
+.header-links {
+    color:rgb(190, 190, 8)
+}
 
 a {
     color: black;
@@ -96,10 +99,34 @@ hr{
 
 #tags {
     color:black;
-    background-color: rgb(190, 190, 8); ;
+    background-color: rgb(190, 190, 8);
 }
 
+.card-footer {
+    border-top: 0;
+}
+
+/* .btn-outline-dark {
+    color:  rgb(178, 127, 19) !important;
+    border-color: rgb(178, 127, 19) !important;
+} */
+
+.btn-primary {
+    background-color: rgb(190, 190, 8);
+    color: black;
+}
+
+/* .paginate_button.active .page-link {
+    background-color: grey !important;
+    border: 1px solid grey !important;
+  } */
+
+/* .page-link {
+    box-shadow:black;
+} */
+
+/* 
 footer {
     position: absolute;
     bottom: 0;
-}
+} */

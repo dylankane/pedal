@@ -53,7 +53,7 @@
                     </button>
                     {% else %}
                     <button type="submit" name="forumpost_id" value="{{post.slug}}" class="btn-like">
-                        <i class="fa-regular fa-heart"></i>
+                        <i class="fa-regular fa-heart red"></i>
                     </button>
                     {% endif %}
                 </form>
@@ -94,7 +94,6 @@
 
         <div class="col-md-8 mb-4 mt-3">
             <h3>Comments:</h3>
-            <hr>
             <div class="card-body pt-4">
                 {% for comment in comments %}
                     <div class="comments" style="padding: 10px;">
@@ -122,7 +121,7 @@
             <form method="post" style="margin-top: 1.3em;">
                 {{ comment_form | crispy }}
                 {% csrf_token %}
-                <button type="submit" class="btn btn-success btn-lg">Submit</button>
+                <button type="submit" class="btn btn-outline-dark btn-lg">Submit</button>
             </form>
             {% else %}
             <h2>Want to join in the conversation?</h2>

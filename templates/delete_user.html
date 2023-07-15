@@ -10,12 +10,14 @@
     <div class="row">
       <p>Are you sure you want to delete your post, it will be gone forever, along with your bike posts and comments</p>
     </div>
-    <div class="row">
+    <div class="row" >
       <form method="post">
-         {% csrf_token %}
-         <button type="submit" class="btn btn-danger">Delete</button>
-        <button class="btn btn-outline-dark"><a href="{% url 'home' %}"></a> I changed my mind</button>
+        {% csrf_token %}
+        <button type="submit" class="btn btn-danger">Delete</button>
       </form>
+      <div class="row mt-4">
+        <a href="{% url 'profile' %}" class="btn btn-outline-dark">I Changed My Mind</a>
+      </div>
     </div>  
   </div>
 </div>

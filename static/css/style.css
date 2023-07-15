@@ -1,7 +1,19 @@
+
+
 body {
-    background-color: #ebe3e3;
+    background-color: #f4f4f4;
     font-family: roboto, sans-serif;
+    color: rgb(56, 55, 55);
 }
+
+.red{
+    color: red;
+}
+
+.purple {
+    color: blueviolet
+}
+
 /* #ebe3e3; */
 h1 {
     font-family: agdasima, sans-serif;
@@ -14,8 +26,9 @@ h2 {
     font-family: agdasima, sans-serif;
 }
 
-h3 {
+h3 a {
     font-family: agdasima, sans-serif;
+    /* color: blueviolet; */
 }
 
 
@@ -74,6 +87,12 @@ input {
     /* font-size: large; */
 }
 
+.card-img-top {
+    width: 100%;
+    height: 18vw;
+    object-fit: cover;
+}
+
 .bike{
     color: rgb(190, 190, 8)
 }
@@ -114,6 +133,16 @@ hr{
 .btn-primary {
     background-color: rgb(190, 190, 8);
     color: black;
+}
+
+.card {
+    background-color: #ebe3e3;
+}
+
+.btn.btn-sm.rounded-pill {
+    background-color: rgb(190, 190, 8);
+    font-family: agdasima, sans-serif;
+    letter-spacing: 0.2em;
 }
 
 /* .paginate_button.active .page-link {

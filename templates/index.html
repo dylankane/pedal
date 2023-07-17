@@ -21,15 +21,15 @@
         </div>
     </section>
 
-    <div class="container-fluid">
+    <div class="container-fluid mb-5">
         <div class="col mx-3">
             <div class="row">
                 {% for post in posts %}
                 <div class="col-md-4 mb-4">
-                    <div class=" card card-cascade bg-light rounded shadow h-100">
+                    <div class=" card card-cascade rounded shadow h-100">
                         <div class="view view-cascade overlay">
                             {% if "placeholder" in post.cover_image.url %}
-                            <img src="/static/images/placeholder2.jpg.webp" alt="" class="img-fluid card-img-top">
+                            <img src="/media/images/placeholder2.jpg.webp" alt="" class="img-fluid card-img-top">
                             {% else %}
                             <img src="{{ post.cover_image.url }}" alt="" class="img-fluid card-img-top">
                             {% endif %}
@@ -48,16 +48,16 @@
                                 </div>
                             </div>
                             <div>
-                                <h3 class="card-title"><a href="{% url 'post_detail' post.id post.slug %}"><strong>{{ post.title }}</strong></a></h3>                    
-                                <p>By: <strong>{{ post.author }}</strong></p>
-                                <p><strong>{{ post.created_on }}</strong></p>
+                                <h3 class="card-title"><a href="{% url 'post_detail' post.id post.slug %}" class="anchor"><strong>{{ post.title }}</strong></a></h3>                    
+                                <p>By: {{ post.author }}</p>
+                                <p>{{ post.created_on }}</p>
                                 </div>
                         </div>
-                        <div class="card-footer card-footer-cascade bg-light text-muted text-center">
-                            <div class="d-flex justify-content-around pb-3">
-                                <a href="{% url 'categories' post.bikes %}"><span class="btn btn-sm rounded-pill"><strong>{{ post.bikes }}</strong></span></a>
-                                <a href="{% url 'categories' post.bars %}"><span class="btn btn-sm rounded-pill"><strong>{{ post.bars }}</strong></span></a>
-                                <a href="{% url 'categories' post.gears %}"><span class="btn btn-sm rounded-pill"><strong>{{ post.gears }}</strong></span></a>
+                        <div class="card-footer card-footer-cascade text-muted text-center">
+                            <div class="d-flex justify-content-between pb-3">
+                                <a href="{% url 'categories' post.bikes %}"><span class="btn btn-outline-dark rounded-pill"><strong>{{ post.bikes }}</strong></span></a>
+                                <a href="{% url 'categories' post.bars %}"><span class="btn btn-outline-dark rounded-pill"><strong>{{ post.bars }}</strong></span></a>
+                                <a href="{% url 'categories' post.gears %}"><span class="btn btn-outline-dark rounded-pill"><strong>{{ post.gears }}</strong></span></a>
                             </div>
                         </div>
                     </div>

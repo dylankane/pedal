@@ -1,5 +1,6 @@
 {% load static %}
 
+
 <!doctype html>
 <html lang="en">
 
@@ -22,43 +23,44 @@
             <div class="container">
                 <div class="row text text-center">
                     <div class="col-sm-8 col-md-7 py-4">
-                        <h4>What is PEDAL</h4>
+                        <h4>What Is PEDAL</h4>
                         <p>Pedal is a space for showcasing amazingly unique bike builds.
                             Where biker lovers of all kinds can come to admire other peoples builds and / or post an
                             article about
-                            their own unique build. Whether its a refurbished 90's mtb a brand new carbon gravel bike or
+                            their own unique build. Whether its a refurbished 90's mtb, a brand new carbon gravel bike or
                             a vintage steel road racer, all is welcome.
-                            Nothing is too weird.
+                            Nothing is too weird!! Have a look around, become a member and get involved. 
                         </p>
                     </div>
                     <div class="col-sm-4 offset-md-1 mt-5 py-4">
                         <ul class="list-unstyled">
-                            <li class="pb-2"><a href="{% url 'home' %}" class="text-light">Home</a></li>
-                            <li class="pb-2"><a href="#" class="text-light">About</a></li>
-                            <li class="pb-2"><a href="#" class="text-light">Contact</a></li>
+                            <li class="pb-2"><a href="{% url 'home' %}" class="nav-links text-light">Home</a></li>
+                            <li class="pb-2"><a href="{% url 'about' %}" class="nav-links text-light">About</a></li>
+                            <li class="pb-2"><a href="{% url 'about' %}#contact" class="nav-links text-light">Contact</a></li>
+                            <li class="pb-2"><a href="{% url 'about' %}#tc" class="nav-links text-light">T&Cs</a></li>
                         </ul>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="navbar navbar-dark bg-dark shadow-sm">
+        <div class="navbar navbar-dark bg-dark shadow py-4">
             <div class="container-fluid">
                 <div class="col-sm-6 col-md-8">
-                    <a href="{% url 'home' %}" class="navbar-brand d-flex align-items-center" data-mdb-ripple-color="light"><strong>PEDAL</strong></a>
+                    <a href="{% url 'home' %}" class="navbar-brand"><strong>PEDAL</strong></a>
                 </div>
                 <div class="col-sm-3 col-md-2 text-center">
                     {%if user.is_authenticated%}
-                    <a href="{% url 'account_logout' %}" class="text-light px-2">Log Out</a>
-                    <a href="{% url 'profile' %}" class="text-light px-2">Profile</a>
+                    <a href="{% url 'account_logout' %}" class="nav-links text-light px-2">Log Out</a>
+                    <a href="{% url 'profile' %}" class="nav-links text-light px-2">Profile</a>
                     {% else %}
-                    <a href="{% url 'account_login' %}" class="text-light px-2">Log In</a>
-                    <a href="{% url 'account_signup' %}" class="text-light px-2">Sign Up</a>
+                    <a href="{% url 'account_login' %}" class="nav-links text-light px-2">Log In</a>
+                    <a href="{% url 'account_signup' %}" class="nav-links text-light px-2">Sign Up</a>
                     {% endif %}
                 </div>
                 <div class="col-sm-3 col-md-2 text-center">
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarHeader"
                         aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="text-light"><i class="fa-solid fa-bars fa-lg"></i></span>
+                        <span class="text-light"><i class="fa-solid fa-bars fa-lg nav-links"></i></span>
                     </button>
                 </div>
             </div>
@@ -90,17 +92,20 @@
             <div class="row justify-content-center">
                 <div class="col-md-9 text-center">
                     <div class="footer-logo mb-4">
-                        <a href="{% url 'home' %}"><strong><h2>PEDAL</h2></strong></a>
+                        <a href="{% url 'home' %}" class="anchor"><strong><h2>PEDAL</h2></strong></a>
                     </div>
                     <ul class="list-unstyled list-inline mb-5">
                         <li class="list-inline-item me-4">
-                            <a href="#">Home</a>
+                            <a href="{% url 'home' %}" class="anchor"><h4>Home</h4></a>
                         </li>
                         <li class="list-inline-item me-4">
-                            <a href="#">About</a>
+                            <a href="{% url 'about' %}" class="anchor"><h4>About</h4></a>
                         </li>
                         <li class="list-inline-item me-4">
-                            <a href="#">Contact</a>
+                            <a href="{% url 'about' %}#contact" class="anchor"><h4>Contact</h4></a>
+                        </li>
+                        <li class="list-inline-item me-4">
+                            <a href="{% url 'about' %}#tc" class="anchor"><h4>T&Cs</h4></a>
                         </li>
                     </ul>
                     <hr>
@@ -108,16 +113,16 @@
                         <h3>Follow Us</h3>
                         <ul class="list-unstyled list-inline">
                             <li class="list-inline-item m-4">
-                                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                                <a href="https://www.facebook.com/"><i class="fab fa-facebook-f"></i></a>
                             </li>
                             <li class="list-inline-item m-4">
-                                <a href="#"><i class="fab fa-twitter"></i></a>
+                                <a href="https://twitter.com/"><i class="fab fa-twitter"></i></a>
                             </li>
                             <li class="list-inline-item m-4">
-                                <a href="#"><i class="fab fa-instagram"></i></a>
+                                <a href="https://www.instagram.com/"><i class="fab fa-instagram"></i></a>
                             </li>
                             <li class="list-inline-item m-4">
-                                <a href="#"><i class="fa-brands fa-pinterest"></i></i></a>
+                                <a href="https://www.pinterest.com/"><i class="fa-brands fa-pinterest"></i></i></a>
                             </li>
                         </ul>
                     </div>

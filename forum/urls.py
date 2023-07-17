@@ -1,4 +1,5 @@
 from . import views
+from django.views.generic import TemplateView
 from django.urls import path
 
 urlpatterns = [
@@ -25,9 +26,6 @@ urlpatterns = [
         views.DeleteComment.as_view(),
         name='delete_comment'),
     path('liked_list/', views.LikedList.as_view(), name='liked_list'),
-    path('delete_user/', views.delete_user, name='delete_user')
-    # path(
-    #     'delete_comment/<slug:post_slug>/<int:pk>/',
-    #     views.DeleteComment.as_view(),
-    #     name='delete_comment'),
+    path('delete_user/', views.delete_user, name='delete_user'),
+    path('about/', TemplateView.as_view(template_name="about.html"), name='about')
 ]

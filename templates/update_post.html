@@ -14,7 +14,7 @@
         </div>
     </div>
     <div class="col-8 offset-2">
-        <form method="POST">
+        <form method="POST" enctype="multipart/form-data">
             {{ form | crispy }}
             {% csrf_token %}
             <button type="submit" class="btn btn-outline-dark btn-lg">Update</button>

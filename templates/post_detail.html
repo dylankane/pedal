@@ -90,9 +90,30 @@
 <div class="container-fluid">
     <div class="row px-4">
 
+         
+        
+        <!-- Leave a comment -->
+        <div class="col-md-4 order-md-2 mb-4 mt-3">
+            {% if user.is_authenticated %}
+            <h3>Leave a comment:</h3>
+            <p>As: {{ user.username }}</p>
+            <form method="post" style="margin-top: 1.3em;">
+                {{ comment_form | crispy }}
+                {% csrf_token %}
+                <button type="submit" class="btn btn-outline-success">SUBMIT</button>
+            </form>
+            {% else %}
+            <h2>Want to join in the conversation?</h2>
+            <p>
+                <a href="{% url 'account_signup' %}">Sign Up</a>
+                <span>or</span>
+                <a href="{% url 'account_login' %}">login</a>
+            </p>
+            {% endif %}
+        </div>
 
-
-        <div class="col-md-8 mb-4 mt-3">
+        <!-- comments -->
+        <div class="col-md-8 order-md-1 mb-4 mt-3">
             <h3>Comments:</h3>
             <div class="card-body pt-4">
                 {% for comment in comments %}
@@ -104,7 +125,6 @@
                             {{ comment.body | linebreaks }}
                             <a href="{% url 'delete_comment' comment.pk %}" class="badge text-bg-light px-2">Delete</a>
                             <a href="{% url 'edit_comment' comment.pk %}" class="badge text-bg-light px-2">Edit</a>
-                            <!-- post.slug -->
                         {% else %}
                             {{ comment.body | linebreaks }}
                         {% endif %}
@@ -113,25 +133,7 @@
             </div>
         </div>
 
-    
-        <div class="col-md-4 mb-4 mt-3">
-            {% if user.is_authenticated %}
-            <h3>Leave a comment:</h3>
-            <p>As: {{ user.username }}</p>
-            <form method="post" style="margin-top: 1.3em;">
-                {{ comment_form | crispy }}
-                {% csrf_token %}
-                <button type="submit" class="btn btn-outline-dark btn-lg">Submit</button>
-            </form>
-            {% else %}
-            <h2>Want to join in the conversation?</h2>
-            <p>
-                <a href="{% url 'account_signup' %}">Sign Up</a>
-                <span>or</span>
-                <a href="{% url 'account_login' %}">login</a>
-            </p>
-            {% endif %}
-        </div>
+      
     </div>
 </div>
 

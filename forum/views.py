@@ -49,7 +49,7 @@ class PostDetail(View):
         )
 
     # Updates the post method on the generic view, again collecting a set of
-    # the posts and selecting one by slug, Then refering to the form
+    # the posts and selecting one by slug, Then reffering to the form
     # CommentForm from forms.py, If this form is valid it triggers succes
     # message, sets author as the current user name, and saves to the Comment
     # database
@@ -57,6 +57,7 @@ class PostDetail(View):
         queryset = ForumPost.objects.all()
         post = get_object_or_404(queryset, slug=slug)
         comments = post.comments.all().order_by("created_on")
+        pk = post.id
         liked = False
         if post.likes.filter(id=self.request.user.id).exists():
             liked = True
@@ -70,6 +71,9 @@ class PostDetail(View):
             comment = comment_form.save(commit=False)
             comment.post = post
             comment.save()
+
+            return HttpResponseRedirect(
+                reverse('post_detail', kwargs={'slug': slug, 'pk': pk}))
 
         else:
             comment_form = CommentForm
@@ -88,8 +92,8 @@ class PostDetail(View):
 
 # Class to handle the like functionality of the posts,
 # retrievs the object/post by its slug field, and checks if user has liked or
-#  not, with logic to add or remove the like field, and redirecting to the
-#   currrent page / post view.
+# not, with logic to add or remove the like field, and redirecting to the
+# currrent page / post view.
 class PostLike(View):
     def post(self, request, slug, *args, **kwargs):
         post = get_object_or_404(ForumPost, slug=slug)
@@ -102,13 +106,6 @@ class PostLike(View):
 
         return HttpResponseRedirect(reverse('post_detail', kwargs={
             'slug': slug, 'pk': pk}))
-
-        # return HttpResponseRedirect(reverse('post_detail', args=[slug]))
-
-        # return reverse('post_detail', args={'slug': slug, 'pk': id})
-
-        # return HttpResponseRedirect('post_detail', kwargs={'slug': slug, 'pk': pk})
-        # reverse('polls:results', args=(category.slug, question.id, ))
 
 
 def categories(request, cats):
@@ -220,7 +217,6 @@ class DeleteComment(LoginRequiredMixin, generic.DeleteView):
     model = Comment
     template_name = 'delete_comment.html'
     context_object_name = 'comment'
-    success_message = 'Your comment ha been successfully deleted'
 
     def get_success_url(self):
         messages.success(self.request, "Your Comment was deleted successfully")
@@ -234,8 +230,7 @@ class DeleteComment(LoginRequiredMixin, generic.DeleteView):
 def delete_user(request):
     if request.method == 'POST':
         request.user.delete()
-        messages.success(request, 'Your account has been successfully deleted.')
+        messages.success(
+            request, 'Your account has been successfully deleted.')
         return redirect('home')
     return render(request, 'delete_user.html')
-    # def get_success_url(self):
-    #     messages.success(self.request, "Your Comment was deleted successfully")

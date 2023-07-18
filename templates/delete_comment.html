@@ -17,7 +17,9 @@
       </form>
     </div>
     <div class="row mt-4"></div>
-      <a href="{{ view.get_success_url }}" class="btn btn-outline-dark">I Changed My Mind</a>
+      <form>
+        <input class="btn btn-outline-dark" type="button" value="CANCEL" onclick="history.back()">
+      </form>
     </div>
   </div>
 </div>

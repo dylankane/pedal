@@ -6,10 +6,8 @@
 
 <p>Are you sure you want to delete your post, it will be gone forever......(imagine dramatic music)</p>
 
-<form method="post">
-  {% csrf_token %}
-  <button type="submit" class="btn btn-danger">Delete</button>
-</form>
-
+  <form class="mt-3">
+    <input class="btn btn-outline-dark" type="button" value="CANCEL" onclick="history.back()">
+  </form>
 
 {% endblock %}

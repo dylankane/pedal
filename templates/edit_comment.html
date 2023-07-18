@@ -13,8 +13,11 @@
         <form method="POST">
             {{ form | crispy }}
             {% csrf_token %}
-            <button type="submit" class="btn btn-outline-dark">Update</button>
+            <button type="submit" class="btn btn-outline-success">UPDATE</button>
         </form>
+        <form class="mt-3">
+            <input class="btn btn-outline-dark" type="button" value="CANCEL" onclick="history.back()">
+          </form>
     </div>
 </div>
 

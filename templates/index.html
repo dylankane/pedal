@@ -48,16 +48,16 @@
                                 </div>
                             </div>
                             <div>
-                                <h3 class="card-title"><a href="{% url 'post_detail' post.id post.slug %}" class="anchor"><strong>{{ post.title }}</strong></a></h3>                    
+                                <h3 class="card-title"><a href="{% url 'post_detail' post.id post.slug %}" class="anchor">{{ post.title }}</a></h3>                    
                                 <p>By: {{ post.author }}</p>
                                 <p>{{ post.created_on }}</p>
-                                </div>
+                            </div>
                         </div>
                         <div class="card-footer card-footer-cascade text-muted text-center">
-                            <div class="d-flex justify-content-between pb-3">
-                                <a href="{% url 'categories' post.bikes %}"><span class="btn btn-outline-dark rounded-pill"><strong>{{ post.bikes }}</strong></span></a>
-                                <a href="{% url 'categories' post.bars %}"><span class="btn btn-outline-dark rounded-pill"><strong>{{ post.bars }}</strong></span></a>
-                                <a href="{% url 'categories' post.gears %}"><span class="btn btn-outline-dark rounded-pill"><strong>{{ post.gears }}</strong></span></a>
+                            <div class="d-flex justify-content-around pb-3">
+                                <a href="{% url 'categories' post.bikes %}"><span class="btn btn-outline-dark btn-sm rounded-pill">{{ post.bikes }}</span></a>
+                                <a href="{% url 'categories' post.bars %}"><span class="btn btn-outline-dark btn-sm rounded-pill">{{ post.bars }}</span></a>
+                                <a href="{% url 'categories' post.gears %}"><span class="btn btn-outline-dark btn-sm rounded-pill">{{ post.gears }}</span></a>
                             </div>
                         </div>
                     </div>

@@ -38,7 +38,7 @@ class ForumPost(models.Model):
 
     title = models.CharField(max_length=150, unique=True)
     slug = models.SlugField(max_length=150, unique=True)
-    created_on = models.DateTimeField(auto_now=True)
+    created_on = models.DateTimeField(auto_now_add=True)
     updated_on = models.DateTimeField(auto_now=True)
     author = models.ForeignKey(
         User, on_delete=models.CASCADE, related_name="forum_posts")
@@ -64,7 +64,7 @@ class ForumPost(models.Model):
     def number_of_likes(self):
         return self.likes.count()
 
-    def save(self, *args, **kwargs):  # new
+    def save(self, *args, **kwargs):
         if not self.slug:
             self.slug = slugify(self.title)
         return super().save(*args, **kwargs)
@@ -73,7 +73,7 @@ class ForumPost(models.Model):
 class Comment(models.Model):
     post = models.ForeignKey(
         ForumPost, on_delete=models.CASCADE, related_name='comments')
-    created_on = models.DateTimeField(auto_now=True)
+    created_on = models.DateTimeField(auto_now_add=True)
     updated_on = models.DateTimeField(auto_now=True)
     author = models.ForeignKey(
         User, on_delete=models.CASCADE, related_name='user_comments')

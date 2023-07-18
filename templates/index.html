@@ -10,7 +10,7 @@
     <section class="py-5 text-center container mylogo">
         <div class="row py-lg-5">
             <div class="col-lg-6 col-md-8 mx-auto">
-                <div class="row title">
+                <div class="row">
                     <h1 class="fw-light text-center">P E D A L</h1>
                 </div>
                 <div class="row py-5 bike"><i class="fa-sharp fa-solid fa-bicycle fa-5x"></i></div>
@@ -29,7 +29,7 @@
                     <div class=" card card-cascade rounded shadow h-100">
                         <div class="view view-cascade overlay">
                             {% if "placeholder" in post.cover_image.url %}
-                            <img src="/media/images/placeholder2.jpg.webp" alt="" class="img-fluid card-img-top">
+                            <img src="/static/images/placeholder2.jpg.webp" alt="" class="img-fluid card-img-top">
                             {% else %}
                             <img src="{{ post.cover_image.url }}" alt="" class="img-fluid card-img-top">
                             {% endif %}
@@ -70,6 +70,12 @@
             </div>
         </div>
     </div>
+    <div class="col-8 offset-2 mb-3">
+        <div class="row">
+            <a href="{% url 'create_post' %}" class="btn btn-outline-success"><span class="p-2"><i
+                class="fa-regular fa-plus fa-lg"></i></span> Show Us Your Bike</a>
+        </div>
+    </div>
     {% if is_paginated %}
     <nav class="mb-5" aria-label="Page navigation">
         <ul class="pagination justify-content-center">
@@ -92,29 +98,6 @@
     {% endif %}
 </div>
 {% endblock %}
-
-
-<!-- {% if is_paginated %}
-    <nav aria-label="Page navigation">
-        <ul class="pagination justify-content-center">
-            {% if page_obj.has_previous %}
-                <li><a href="?page={{ page_obj.previous_page_number }}" class="page-link text-dark rounded">&laquo; PREV </a></li>
-            {% endif %}
-
-            {% for i in paginator.page_range %}
-                {% if page_obj.number == i %}
-                    <li class="active"><a href="?page={{ i }}" class="page-link text-dark rounded">{{ i }}</a></li>
-                {% else %}
-                    <li><a href="?page={{ i }}" class="page-link text-dark rounded">{{ i }}</a></li>
-                {% endif %}
-            {% endfor %}
-
-            {% if page_obj.has_next %}
-                <li><a href="?page={{ page_obj.next_page_number }}" class="page-link text-dark rounded"> NEXT &raquo;</a></li>
-            {% endif %}
-        </ul>
-    </nav>
-{% endif %} -->
 
 
 

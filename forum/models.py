@@ -3,35 +3,37 @@ from django.contrib.auth.models import User
 from cloudinary.models import CloudinaryField
 from django.template.defaultfilters import slugify
 
-# Create your models here.
-
 
 class ForumPost(models.Model):
 
     class Bikes(models.TextChoices):
-        NONE = 'Unknown', 'Unknown'
+        NONE = 'N/A', 'N/A'
         ROAD = 'Road', 'Road'
-        MTB = 'Mtb', 'Mtb'
         GRAVEL = 'Gravel', 'Gravel'
-        FIXIE = 'Fixie', 'Fixie'
+        CX = 'CX', 'CX'
         TOURING = 'Touring', 'Touring'
+        MTB = 'MTB', 'MTB'
+        DOWNHILL = 'Downhill', 'Downhill'
+        FIXIE = 'Fixie', 'Fixie'
+        COMMUTE = 'Commute', 'Commute'
         BMX = 'BMX', 'BMX'
         HYBRID = 'Hybrid', 'Hybrid'
         OTHER = 'Other', 'Other'
 
     class Bars(models.TextChoices):
-        NONE = 'Unknown', 'Unknwon'
+        NONE = 'N/A', 'N/A'
         FLAT = 'Flat', 'Flat'
         DROP = 'Drop', 'Drop'
         ALT = 'Alt', 'Alt'
         OTHER = 'Other', 'Other'
 
     class Gears(models.TextChoices):
-        NONE = 'Unknown', 'Unknwon'
-        FIXED = 'FIXED', 'FIXED'
+        NONE = 'N/A', 'N/A'
+        FIXED = 'Fixed', 'Fixed'
         ONE = '1X', '1X'
         TWO = '2X', '2X'
         THREE = '3X', '3X'
+        HUB = 'Hub', 'Hub'
         OTHER = 'Other', 'Other'
 
     title = models.CharField(max_length=150, unique=True)

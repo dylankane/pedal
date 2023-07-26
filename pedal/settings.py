@@ -27,7 +27,8 @@ DEBUG = os.environ.get('DEBUG', False)
 
 ALLOWED_HOSTS = [
     'pedal-forum-80408630e3b0.herokuapp.com',
-    '8000-dylankane-pedal-8asdqp1lcl0.ws-eu101.gitpod.io']
+    '8000-dylankane-pedal-8asdqp1lcl0.ws-eu101.gitpod.io',
+    '8000-dylankane-pedal-8asdqp1lcl0.ws-eu102.gitpod.io']
 
 
 # Application definition
@@ -68,14 +69,20 @@ ACCOUNT_USERNAME_REQUIRED = True
 ACCOUNT_EMAIL_REQUIRED = True
 ACCOUNT_AUTHENTICATION_METHOD = 'username_email'
 ACCOUNT_EMAIL_VERIFICATION = "mandatory"
+
+# if 'DEVELOPMENT' in os.environ:
+#     EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+#     DEFAULT_FROM_EMAIL = "pedalbikeblog@gmail.com"
+# else:
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
-# EMAIL_PORT = 587
-# EMAIL_USE_TLS = True
-EMAIL_PORT = 465
-EMAIL_USE_SSL = True
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+# EMAIL_PORT = 465
+# EMAIL_USE_SSL = True
 EMAIL_HOST_USER = os.environ.get('EMAIL_ID')
 EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_PW')
+DEFAULT_FROM_EMAIL = os.environ.get('EMAIL_ID')
 
 
 MESSAGE_TAGS = {

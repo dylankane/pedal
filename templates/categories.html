@@ -5,14 +5,13 @@
 <div class="container-fluid mb-5">
     <div class="col mx-3">
         <h1 class="title">{{ cats }}</h1>
-        <hr>
         <div class="row mt-4">
             {% for post in categorey_posts %}
             <div class="col-md-4 mb-4">
                 <div class=" card card-cascade rounded shadow h-100">
                     <div class="view view-cascade overlay">
                         {% if "placeholder" in post.cover_image.url %}
-                        <img src="/static/images/placeholder2.jpg.webp" alt="" class="img-fluid card-img-top">
+                        <img src="https://res.cloudinary.com/defppxuea/image/upload/v1689765450/static/images/placeholder2.jpg.b5217726b98b.webp" alt="" class="img-fluid card-img-top">
                         {% else %}
                         <img src="{{ post.cover_image.url }}" alt="" class="img-fluid card-img-top">
                         {% endif %}

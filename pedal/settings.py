@@ -64,22 +64,19 @@ AUTHENTICATION_BACKENDS = (
     'allauth.account.auth_backends.AuthenticationBackend',
 )
 
+#settings for allauth sign up and log in
 ACCOUNT_USER_MODEL_USERNAME_FIELD = 'username'
 ACCOUNT_USERNAME_REQUIRED = True
 ACCOUNT_EMAIL_REQUIRED = True
 ACCOUNT_AUTHENTICATION_METHOD = 'username_email'
 ACCOUNT_EMAIL_VERIFICATION = "mandatory"
 
-# if 'DEVELOPMENT' in os.environ:
-#     EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
-#     DEFAULT_FROM_EMAIL = "pedalbikeblog@gmail.com"
-# else:
+#settings for allauth to handle email verification
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-# EMAIL_PORT = 465
-# EMAIL_USE_SSL = True
+
 EMAIL_HOST_USER = os.environ.get('EMAIL_ID')
 EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_PW')
 DEFAULT_FROM_EMAIL = os.environ.get('EMAIL_ID')

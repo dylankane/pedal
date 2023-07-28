@@ -6,17 +6,21 @@
     <div class="col mx-3">
         <h1 class="title">Your Favourites</h1>
         <hr>
+        <!-- List of posts -->
         <div class="row mt-4">
             {% for post in posts %}
             <div class="col-md-4 mb-4">
+                <!-- Post card / conatainer-->
                 <div class=" card card-cascade rounded shadow h-100">
                     <div class="view view-cascade overlay">
+                        <!-- Feature image -->
                         {% if "placeholder" in post.cover_image.url %}
                         <img src="https://res.cloudinary.com/defppxuea/image/upload/v1689765450/static/images/placeholder2.jpg.b5217726b98b.webp" alt="" class="img-fluid card-img-top">
                         {% else %}
                         <img src="{{ post.cover_image.url }}" alt="" class="img-fluid card-img-top">
                         {% endif %}
                     </div>
+                    <!-- Card body -->
                     <div class="card-body card-body-cascade">
                         <div class="d-flex justify-content-between">
                             <div>
@@ -36,6 +40,7 @@
                             <p>{{ post.created_on }}</p>
                         </div>
                     </div>
+                    <!-- Catergorey links -->
                     <div class="card-footer card-footer-cascade text-muted text-center">
                         <div class="d-flex justify-content-around pb-3">
                             <a href="{% url 'categories' post.bikes %}"><span class="btn btn-outline-dark btn-sm rounded-pill">{{ post.bikes }}</span></a>
@@ -53,6 +58,7 @@
         </div>
     </div>
 </div>
+<!-- Pagination of list -->
 {% if is_paginated %}
 <nav class="mb-5" aria-label="Page navigation">
     <ul class="pagination justify-content-center">

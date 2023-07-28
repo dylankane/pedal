@@ -19,6 +19,7 @@
 
 <body>
     <header>
+        <!-- Hidden collapsed navbar section -->
         <div class="collapse text-bg-dark" id="navbarHeader">
             <div class="container">
                 <div class="row text text-center">
@@ -43,6 +44,7 @@
                 </div>
             </div>
         </div>
+        <!-- Main visible nav bar -->
         <div class="navbar navbar-dark bg-dark shadow py-4">
             <div class="container-fluid">
                 <div class="col-sm-6 col-md-8">
@@ -67,7 +69,7 @@
         </div>
     </header>
 
-
+    <!-- Messages -->
     <div class="container">
         <div class="row">
             <div class="col-md-8 offset-md-2">
@@ -81,11 +83,13 @@
         </div>
     </div>
 
+    <!-- Main block content area where other templates are inserted -->
     <main>
         {% block content %}
         {% endblock %}
     </main>
 
+    <!-- Footer -->
     <footer>
         <hr>
         <div class="container mt-4">

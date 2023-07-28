@@ -4,9 +4,8 @@
 {% block content %}
 <section class="container mb-5">
   <h1 class="title">Delete Your Post</h1>
-
   <p>Are you sure you want to delete your post, it will be gone forever......(imagine dramatic music)</p>
-
+  <!-- Delete post form -->
   <form method="post">
     {% csrf_token %}
     <button type="submit" class="btn btn-danger">Delete</button>

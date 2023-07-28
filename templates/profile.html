@@ -5,9 +5,11 @@
 {% load crispy_forms_tags %}
 <div class="container-fluid mb-5">
     <div class="row text-center my-5">
+        <!-- Title -->
         <h2>Hi {{ user.username|capfirst }} </h2>
     </div>
     <div class="row my-3">
+        <!-- Create a post button -->
         <div class="col-8 offset-2 text-center">
             <div class="row">
                 <a href="{% url 'create_post' %}" class="btn btn-outline-dark"><span class="p-2"><i
@@ -16,13 +18,14 @@
         </div>
     </div>
     <div class="row mt-3">
+        <!-- View liked posts button -->
         <div class="col-6 text-center">
             <div class="row-3">
                 <a href="{% url 'liked_list' %}" class="btn btn-outline-dark"><span class="p-2">
                     <i class="far fa-heart red"></i></span> Favourites</a>
             </div>
         </div>
-
+        <!-- Drop-down account management button -->
         <div class="col-6 text-center">
             <div class="row-3 dropdown">
                 <a href="#" class="btn btn-outline-dark dropdown-toggle" role="button" data-bs-toggle="dropdown"
@@ -39,17 +42,21 @@
 
 <div class="container-fluid mb-5">
     <div class="col mx-3">
+        <!-- List of posts -->
         <div class="row">
             {% for post in posts %}
             <div class="col-md-4 mb-4">
+                <!-- Post card / conatainer-->
                 <div class=" card card-cascade bg-light rounded shadow h-100">
                     <div class="view view-cascade overlay">
+                        <!-- Feature image -->
                         {% if "placeholder" in post.cover_image.url %}
                         <img src="https://res.cloudinary.com/defppxuea/image/upload/v1689765450/static/images/placeholder2.jpg.b5217726b98b.webp" alt="" class="img-fluid card-img-top">
                         {% else %}
                         <img src="{{ post.cover_image.url }}" alt="" class="img-fluid card-img-top">
                         {% endif %}
                     </div>
+                    <!-- Card body -->
                     <div class="card-body card-body-cascade">
                         <div class="d-flex justify-content-between">
                             <div>
@@ -69,6 +76,7 @@
                             <p>{{ post.created_on }}</p>
                         </div>
                     </div>
+                    <!-- Catergorey links -->
                     <div class="card-footer card-footer-cascade bg-light text-center">
                         <div class="d-flex justify-content-around pb-3">
                             <a href="#"><span class="btn btn-outline-dark btn-sm rounded-pill">{{ post.bikes }}</span></a>
@@ -90,6 +98,7 @@
         </div>
     </div>
 </div>
+<!-- Pagination of list -->
 {% if is_paginated %}
 <nav class="mb-5" aria-label="Page navigation">
     <ul class="pagination justify-content-center">

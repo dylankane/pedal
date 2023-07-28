@@ -1,14 +1,10 @@
-
-
-
+/* General style rules */
 :root {
     --background: #f4f4f4;
     --background-light: #eeee;
     --accent: rgb(190, 190, 8);
     --grey: rgb(65, 65, 65);
     --liked: red;
-    --accent2: #f29559;
-    /* #ee5622 */
 }
 
 body {
@@ -27,7 +23,10 @@ h1 {
     font-size: 4em;
 }
 
-h2, h3, h4, h5 {
+h2,
+h3,
+h4,
+h5 {
     font-family: agdasima, sans-serif;
     letter-spacing: 0.05em;
 }
@@ -39,7 +38,8 @@ a {
     font-size: 1.25em;
 }
 
-.btn, .badge {
+.btn,
+.badge {
     font-family: roboto, sans-serif;
 }
 
@@ -49,14 +49,15 @@ a {
 }
 
 
-hr{
+hr {
     width: 33%;
-   margin:auto;
+    margin: auto;
 }
+
 
 /* nav bar */
 .nav-links:hover {
-    color: var(--accent)!important;
+    color: var(--accent) !important;
 }
 
 .navbar-brand {
@@ -66,7 +67,6 @@ hr{
     padding-left: 15px;
 }
 
-
 .navbar-toggler,
 .navbar-toggler:focus,
 .navbar-toggler:active {
@@ -75,27 +75,27 @@ hr{
     box-shadow: none;
 }
 
-
+/* Logo */
 .mylogo {
     height: 100vh;
 }
 
-
- /* Detail View */
-
-.red{
-    color: var(--liked);
-}
-
-.bike{
+.bike {
     color: var(--accent)
 }
 
-.fa-beat{
+/* Detail View */
+
+.red {
     color: var(--liked);
 }
 
-.btn-like{
+
+.fa-beat {
+    color: var(--liked);
+}
+
+.btn-like {
     border: none;
     background-color: transparent;
 }
@@ -119,22 +119,11 @@ input {
     background-color: var(--background-light);
 }
 
-/* .card-img-top {
-    width: 100%;
-    height: 18vw;
-    object-fit: cover;
-} */
-
 .post-link {
     text-decoration: none;
 }
 
-
-#tags {
-    color:black;
-    background-color: var(--accent2);
-}
-
+/* footer */
 .card-footer {
     border-top: 0;
     background-color: var(--background-light);

@@ -1,8 +1,8 @@
 from django.shortcuts import render, get_object_or_404, reverse, redirect
 from django.views import generic, View
 from django.http import HttpResponseRedirect
-from .models import ForumPost, Comment
-from .forms import CommentForm, PostForm, UpdateForm, EditCommentForm
+from .models import ForumPost, Comment, Messages
+from .forms import CommentForm, PostForm, UpdateForm, EditCommentForm, ContactForm
 from django.contrib import messages
 from django.contrib.auth.models import User
 from django.urls import reverse_lazy
@@ -158,7 +158,7 @@ class CreatePost(LoginRequiredMixin, generic.CreateView):
     template_name = 'create_post.html'
     form_class = PostForm
 
-    # Updating / overiding the formvalid method from generic CreateView
+    # Updating / overiding the form_valid method from generic CreateView
     # When form is valid, trigger a success message and sets the author name to
     # that of the current user.
     def form_valid(self, form):
@@ -252,3 +252,21 @@ def delete_user(request):
             request, 'Your account has been successfully deleted.')
         return redirect('home')
     return render(request, 'delete_user.html')
+
+
+class SendMessage(LoginRequiredMixin, generic.CreateView):
+    model = Messages
+    template_name = 'message.html'
+    form_class = ContactForm
+    success_url = ('about')
+
+    def form_valid(self, form):
+        messages.success(
+            self.request, "Your message has been successfully sent")
+        form.instance.author = self.request.user
+        return super().form_valid(form)
+
+    def get_success_url(self):
+        return reverse('about')
+
+    # return HttpResponseRedirect(reverse('about'))

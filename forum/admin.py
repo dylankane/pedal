@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import ForumPost, Comment
+from .models import ForumPost, Comment, Messages
 
 
 @admin.register(ForumPost)
@@ -15,3 +15,10 @@ class CommentAdmin(admin.ModelAdmin):
     list_display = ('post', 'author', 'body', 'created_on')
     list_filter = ('created_on', 'updated_on')
     search_fields = ('post__title', 'author__username')
+
+
+@admin.register(Messages)
+class MessageAdmin(admin.ModelAdmin):
+    list_display = ('author', 'name', 'email', 'message', 'date_sent')
+    list_filter = ('author', 'email', 'date_sent')
+    search_fields = ('author', 'date_sent')

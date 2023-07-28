@@ -1,114 +1,76 @@
 # PEDAL
 Welcome to PEDAl.
-This is a space for bike lovers and enthusiasts to view and share unique bike builds. A blog / forum where members can post images and decriptions of their bikes. Anyone can visit the site and scroll through all the bikes for inspiration and advice.
+Pedal is a space for showcasing amazingly unique bike builds.
+Where biker lovers of all kinds can come to admire other peoples builds and post an
+article about their own unique build. Whether its a refurbished 90's mtb, a brand new 
+carbon gravel bike or a vintage steel road racer, all is welcome. Its a place to encourage tinkering
+around with bike parts and sharing your expierience with others. 
+Dont settle for an off the shelf bike, experiment.
+And check out parts and components from other bike categories to yours, they might inspire something unique
+Nothing is too weird!! 
+A blog / forum where members can post images and decriptions of their bikes. Anyone can visit the site and scroll through all the bikes for inspiration and advice.
 Whether its a custom DIY build with new or repurposed frames and parts, a professional commisioned bike or even an off the shelf bike with a few minor customizations.
 Memebers of the site can post their own articles, comment on others and like / vote on builds they love.
 Its purpose is to create a community of people to share their ideas, advice and reviews of bike parts,and specific configurations.
-It is inclusive of all styles of bikes, from road to bmx allowing cross over of ideas.
+It is inclusive of all styles of bikes, from road to bmx, allowing cross over of ideas.
 Similar spaces may exist but tend to lean towards very niche areas of bike styles.
+This is am MVP(minimum viable product) So more features will be added and exsisting ones improved, after initial fedback.
 Enjoy!! 
-
-⚠️⚠️⚠️⚠️⚠️ START OF NOTES (to be deleted) ⚠️⚠️⚠️⚠️⚠️
-
-In this section, you will include a few paragraphs providing an overview of your project.
-Essentially, this part is your "sales pitch".
-
-At this stage, you should have a name for your project so use it!
-Don't introduce the project as a "portfolio project" for the diploma.
-
-In this section, describe what the project hopes to accomplish, who it is intended to target, and how it will be useful to the target audience.
-
-Consider adding a mockup image using the "Am I Responsive" website.
-Here's your deployed site as an example:
-https://ui.dev/amiresponsive?url=https://pedal-forum-80408630e3b0.herokuapp.com
-
-Screenshots for the README and testing should not be inside of `assets/` or `static/` image folders.
-(reminder: `assets/` and `static/` are for files used on the live site, not documentation)
-Consider adding a new folder called `documentation`, and add the amiresponsive screenshot inside of that folder.
-To add the image into your README, use this format:
-(assuming you have a new folder called `documentation` with an image called "mockup.png")
 
 ![screenshot](documentation/mockup.png)
 
-Note: Markdown files (.md) should not contain HTML elements like `img`, `br`, `div`, `a`, etc, only Markdown formatting.
-Find out more about using Markdown elements here:
-https://pandao.github.io/editor.md/en.html
+## UX/UI
+The UX / UI of PEDAL has been designed to be easy to use and to encourage users to interact with the content. The website is well-organized and the content easy to find. All users can access all posts, click on a post card to expand it and see all the information and images within that post, and see other user's comments on said post. Once a user wants to interact with the content with more features, a simple sign-up process sets up their account. Once logged in they can create, update and delete their article and create, update, and delete their comments. It is designed to be as intuitive as possible.
+All the bike posts are also sorted by categories, with clickable links/tags on each post card and post view, directing the user to a list of all the bikes from the same category as the one they clicked. The design process was aided by an agile tool from GitHub, using user stories as well as site owner/admin stories to help create an app that is a pleasure to interact with and manage. The site also features an easily accessible administration panel to manage content and user accounts. 
+Logged-in users can create and edit content with ease thanks to the site's intuitive forms. The focus is on the bikes and the content. The site is styled in a simple pretty monochrome scheme with small accents of the brand colour. The other colours used are just for informative purposes, with no bold hero images or banners, and just off-white backgrounds, letting the post images do all the talking. Components have been well-spaced out to avoid a cluttered experience. The use of white buttons with a coloured outline that fills in when interacted with keeps this clean and spacious, but by using the fill colours the buttons are easily identified and separated for their different uses. The Pedal project was designed with the user experience at the forefront, this can be seen with the mobile-first approach, considering the users on a mobile device as a majority target market. The layout changes smoothly across all screen sizes and remains as easy to navigate with very different changes to the structure. The most important part of the UX is probably the navigation of the site, and how intuitive it is. This was achieved by keeping the header/navbar clean with just the most used features left visible and the rest behind a full-width drop-down navigation area and info section. With more navigation links found at the bottom of every page in the footer. 
+All pages follow a very similar layout keeping consistency across the site, and the UX a happy one.
 
-🛑🛑🛑🛑🛑 END OF NOTES (to be deleted) 🛑🛑🛑🛑🛑
-
-## UX
-
-⚠️⚠️⚠️⚠️⚠️ START OF NOTES (to be deleted) ⚠️⚠️⚠️⚠️⚠️
-
-In this section, you will briefly explain your design processes.
-
-🛑🛑🛑🛑🛑 END OF NOTES (to be deleted) 🛑🛑🛑🛑🛑
 
 ### Colour Scheme
 
-⚠️⚠️⚠️⚠️⚠️ START OF NOTES (to be deleted) ⚠️⚠️⚠️⚠️⚠️
+The colour scheme is based around a basic monochrome style, with black and white. While the majority of all pages are made up of an off-white background, with the black header/navigation bar, text and buttons the monochrome theme is established. The only other assthetic colour used is the pop of neon green/yellow. This is a strong contrasting colour and is for this reason used sparingly to have a big impact when used. It is seen in the logo and as a way to highlight certain clickable links. This whole colour scheme is simple but simple by design. As the content of the posts/articles takes up most of the blank space, and is centered on images uplaoded by users, I felt in was important not have an over use of colour, so as not to clash or overcrowd the aestics of the site. Most views the user will see will be either a list of posts with very minimal information under a large image, or a view of a post in detail, which will have 3 large images at the head of a block of text. This simplicity of whate and black allows the post view to take on the theme of the photographs. The other colours used are basic green red and blue colours used to highlight buttons for log-in, log-out, edit, delete or success messages. These are important for intuitive navigation. 
 
-Explain your colours and the colour scheme.
+- `#f4f4f4` used for background.
+- `rgb(65, 65, 65)` used for text.
+- `rgb(190, 190, 8)` used for accent colour.
+- `red` used for liked heart.
 
-🛑🛑🛑🛑🛑 END OF NOTES (to be deleted) 🛑🛑🛑🛑🛑
-
-- `#000000` used for primary text.
-- `#E84610` used for primary highlights.
-- `#4A4A4F` used for secondary text.
-- `#009FE3` used for secondary highlights.
-
-⚠️⚠️⚠️⚠️⚠️ START OF NOTES (to be deleted) ⚠️⚠️⚠️⚠️⚠️
-
-Consider adding a link and screenshot for your colour scheme using "coolors".
-https://coolors.co/generate
-
-When you add a colour to the palette, the URL is dynamically updated, making it easier for you to return back to your colour palette later if needed.
-
-Example:
-
-🛑🛑🛑🛑🛑 END OF NOTES (to be deleted) 🛑🛑🛑🛑🛑
-
-I used [coolors.co](https://coolors.co/e84610-009fe3-4a4a4f-445261-d63649-e6ecf0-000000) to generate my colour palette.
+I used [coolors.co](https://coolors.co/palette/f4f4f4-414141-000000-bebe08) to generate my colour palette.
 
 ![screenshot](documentation/coolors.png)
-
-⚠️⚠️⚠️⚠️⚠️ START OF NOTES (to be deleted) ⚠️⚠️⚠️⚠️⚠️
-
-If you've used CSS `:root` variables, consider also including a code snippet here!
-
-🛑🛑🛑🛑🛑 END OF NOTES (to be deleted) 🛑🛑🛑🛑🛑
 
 I've used CSS `:root` variables to easily update the global colour scheme by changing only one value, instead of everywhere in the CSS file.
 
 ```css
 :root {
-    /* P = Primary | S = Secondary */
-    --p-text: #000000;
-    --p-highlight: #E84610;
-    --s-text: #4A4A4F;
-    --s-highlight: #009FE3;
-    --white: #FFFFFF;
-    --black: #000000;
+    --background: #f4f4f4;
+    --background-light: #eeee;
+    --accent: rgb(190, 190, 8);
+    --grey: rgb(65, 65, 65);
+    --liked: red;
 }
 ```
 
 ### Typography
 
-⚠️⚠️⚠️⚠️⚠️ START OF NOTES (to be deleted) ⚠️⚠️⚠️⚠️⚠️
+I have used Google Fonts to source the two main fonts for accross the site. the size of its library along with the ease of implemtation makes it a great resource.
 
-Explain any fonts and icon libraries used, like Google Fonts and/or Font Awesome.
+The main feature font is Agdasima used for titles, headers logo and some links.
 
-Consider adding a link to each font used, and the Font Awesome site if used (or similar icon library).
+>" Agdasima is based on Big Shoulders, a condensed American Gothic sans-serif font family."
 
-Example:
+- [Agdasima](https://fonts.google.com/specimen/Agdasima)
 
-🛑🛑🛑🛑🛑 END OF NOTES (to be deleted) 🛑🛑🛑🛑🛑
 
-- [Montserrat](https://fonts.google.com/specimen/Montserrat) was used for the primary headers and titles.
+The secondary font used for lighter text and large bodies of text is Roboto.
 
-- [Lato](https://fonts.google.com/specimen/Lato) was used for all other secondary text.
+> "Roboto has a dual nature. It has a mechanical skeleton and the forms are largely geometric. At the same time, the font features friendly and open curves. While some grotesks distort their letterforms to force a rigid rhythm, Roboto doesn’t compromise, allowing letters to be settled into their natural width. This makes for a more natural reading rhythm more commonly found in humanist and serif types."
 
-- [Font Awesome](https://fontawesome.com) icons were used throughout the site, such as the social media icons in the footer.
+- [Roboto](https://fonts.google.com/specimen/Roboto)
+
+Font Awesome was used throughtout the site for logos and icons. Its extensive library gives many options to add icons with different styles and weights.
+
+- [Font Awesome](https://fontawesome.com)
 
 ## User Stories
 
@@ -144,46 +106,38 @@ In this section, list all of your user stories for the project.
 
 ## Wireframes
 
-⚠️⚠️⚠️⚠️⚠️ START OF NOTES (to be deleted) ⚠️⚠️⚠️⚠️⚠️
 
-In this section, display your wireframe screenshots using a Markdown `table`.
+To follow best practice, wireframes were developed for mobile, and desktop sizes. Tablet sizes were obviously a big consideration, but the decision was made that the tablet size would be layed out almost identical to the desktop while in landscape and mobile in portrait of narrow tablets. Any small changes needed to the layout could be done on the fly while developing and testing, the need for a set of wireframes for the tablet view was not need in the particular design.
 
-Instructions on how to do Markdown `tables` start on line #213 on this site: https://pandao.github.io/editor.md/en.html
-
-🛑🛑🛑🛑🛑 END OF NOTES (to be deleted) 🛑🛑🛑🛑🛑
-
-To follow best practice, wireframes were developed for mobile, tablet, and desktop sizes.
 I've used [Balsamiq](https://balsamiq.com/wireframes) to design my site wireframes.
 
-### Home Page Wireframes
+### Landing Page Wireframes
 
 | Size | Screenshot |
 | --- | --- |
-| Mobile | ![screenshot](documentation/wireframes/mobile-home.png) |
-| Tablet | ![screenshot](documentation/wireframes/tablet-home.png) |
-| Desktop | ![screenshot](documentation/wireframes/desktop-home.png) |
+| Mobile | ![screenshot](documentation/wireframes/mobile-landing.png) |
+| Desktop | ![screenshot](documentation/wireframes/desktop-landing.png) |
 
-### About Page Wireframes
-
-| Size | Screenshot |
-| --- | --- |
-| Mobile | ![screenshot](documentation/wireframes/mobile-about.png) |
-| Tablet | ![screenshot](documentation/wireframes/tablet-about.png) |
-| Desktop | ![screenshot](documentation/wireframes/desktop-about.png) |
-
-### Contact Page Wireframes
+### List View Wireframes
 
 | Size | Screenshot |
 | --- | --- |
-| Mobile | ![screenshot](documentation/wireframes/mobile-contact.png) |
-| Tablet | ![screenshot](documentation/wireframes/tablet-contact.png) |
-| Desktop | ![screenshot](documentation/wireframes/desktop-contact.png) |
+| Mobile | ![screenshot](documentation/wireframes/mobile-list.png) |
+| Desktop | ![screenshot](documentation/wireframes/desktop-list.png) |
 
-⚠️⚠️⚠️⚠️⚠️ START OF NOTES (to be deleted) ⚠️⚠️⚠️⚠️⚠️
+### Post Detail View Wireframe
 
-Repeat for any addition wireframe pages you have.
+| Size | Screenshot |
+| --- | --- |
+| Mobile | ![screenshot](documentation/wireframes/mobile-post.png) |
+| Desktop | ![screenshot](documentation/wireframes/desktop-list.png) |
 
-🛑🛑🛑🛑🛑 END OF NOTES (to be deleted) 🛑🛑🛑🛑🛑
+### Comment Section Wireframe
+
+| Size | Screenshot |
+| --- | --- |
+| Mobile | ![screenshot](documentation/wireframes/mobile-comment.png) |
+| Desktop | ![screenshot](documentation/wireframes/desktop-comment.png) |
 
 ## Features
 

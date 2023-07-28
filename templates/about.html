@@ -2,6 +2,7 @@
 
 {% block content %}
 
+
 <div class="container-fluid">
     <div class="col-8 offset-2 mb-5">
         <!-- About Section -->
@@ -23,19 +24,26 @@
         <!-- Contact section -->
         <div class="row mb-5 text-center" id="contact">
             <h1>Contact Us</h1>
-            <p class="pb-5">Please get in touch with our admin staff if you are having an issue with any of
-                the features of the site. Login in or sign up issues, user account problems or require assistance adding or 
-                removing content. Or if you wish to report any innapropriate behaviour / content of another user.
-                Please check the T&C's below general rules of the site.
+            <p class="pb-5">Please get in touch with our admin staff with the link below if you are having any 
+                issue with any of the features of the site. Login in or sign up issues, user account problems, 
+                password reset or require assistance adding or removing content. Or if you wish to report any 
+                innapropriate behaviour / content of another user. 
             </p>
-            <p>
-                You can contact use by our social media accounts or directly by email, see links below.
+            <p>Please check the T&C's below general rules 
+                of the site.
             </p>
             <div class="text-center my-5">
-                <a href="mailto:pedalbikeblog@gmail.com" class="btn btn-outline-dark">Send Email</a>
+                <a href="{% url 'send_message' %}" class="btn btn-outline-dark">Send Message</a>
             </div>
+            <p>
+                Please check out and follow us on our social media, we throw up some great content there too, 
+                sharing other resources for bike builds and tips and tricks on DIY builds.
+            </p>
             <div class="social text-center mb-5">
                 <ul class="list-unstyled list-inline">
+                    <li class="list-inline-item m-4">
+                        <a href="mailto:pedalbikeblog@gmail.com"><i class="fa-solid fa-envelope"></i></a>
+                    </li>
                     <li class="list-inline-item m-4">
                         <a href="https://www.facebook.com/"><i class="fab fa-facebook-f"></i></a>
                     </li>
@@ -43,7 +51,7 @@
                         <a href="https://twitter.com/"><i class="fab fa-twitter"></i></a>
                     </li>
                     <li class="list-inline-item m-4">
-                        <a href="https://www.instagram.com/"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.instagram.com/"><i class="fa-brands fa-square-instagram"></i></a>
                     </li>
                     <li class="list-inline-item m-4">
                         <a href="https://www.pinterest.com/"><i class="fa-brands fa-pinterest"></i></i></a>

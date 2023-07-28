@@ -1,4 +1,4 @@
-from .models import Comment, ForumPost
+from .models import Comment, ForumPost, Messages
 from django import forms
 
 
@@ -45,4 +45,14 @@ class UpdateForm(forms.ModelForm):
             'second_image',
             'third_image',
             'content',
+            )
+
+
+class ContactForm(forms.ModelForm):
+    class Meta:
+        model = Messages
+        fields = (
+            'name',
+            'email',
+            'message',
             )

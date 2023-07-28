@@ -42,5 +42,6 @@ urlpatterns = [
     path(
         'about/',
         TemplateView.as_view(template_name="about.html"),
-        name='about')
+        name='about'),
+    path('message/', views.SendMessage.as_view(), name='send_message')
 ]

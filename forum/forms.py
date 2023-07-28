@@ -9,14 +9,14 @@ class CommentForm(forms.ModelForm):
         fields = ('body',)
 
 
-#Form for user to edit their own comments 
+# Form for user to edit their own comments
 class EditCommentForm(forms.ModelForm):
     class Meta:
         model = Comment
         fields = ('body',)
 
 
-#Form for a logged-in user to create their own post
+# Form for a logged-in user to create their own post
 class PostForm(forms.ModelForm):
     class Meta:
         model = ForumPost
@@ -32,7 +32,7 @@ class PostForm(forms.ModelForm):
             )
 
 
-#Form for a user to update their own posts.
+# Form for a user to update their own posts.
 class UpdateForm(forms.ModelForm):
     class Meta:
         model = ForumPost

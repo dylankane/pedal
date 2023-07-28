@@ -4,8 +4,11 @@ from cloudinary.models import CloudinaryField
 from django.template.defaultfilters import slugify
 
 
+# Model for the main database holding the data of all the user created posts
 class ForumPost(models.Model):
 
+    # Model class defining the options of the bike type categorey within the
+    # main ForumPost model
     class Bikes(models.TextChoices):
         NONE = 'N/A', 'N/A'
         ROAD = 'Road', 'Road'
@@ -20,6 +23,8 @@ class ForumPost(models.Model):
         HYBRID = 'Hybrid', 'Hybrid'
         OTHER = 'Other', 'Other'
 
+    # Model class defining the options of the handlebar type categorey within
+    # the main ForumPost model
     class Bars(models.TextChoices):
         NONE = 'N/A', 'N/A'
         FLAT = 'Flat', 'Flat'
@@ -27,6 +32,8 @@ class ForumPost(models.Model):
         ALT = 'Alt', 'Alt'
         OTHER = 'Other', 'Other'
 
+    # Model class defining the options of the gearing type categorey within the
+    # main ForumPost model
     class Gears(models.TextChoices):
         NONE = 'N/A', 'N/A'
         FIXED = 'Fixed', 'Fixed'
@@ -70,6 +77,8 @@ class ForumPost(models.Model):
         return super().save(*args, **kwargs)
 
 
+# Model for the comment section database, holding the data from all
+# comments site wide
 class Comment(models.Model):
     post = models.ForeignKey(
         ForumPost, on_delete=models.CASCADE, related_name='comments')

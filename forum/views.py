@@ -108,14 +108,21 @@ class PostLike(View):
             'slug': slug, 'pk': pk}))
 
 
+# Function method that collects all the posts of a specific tag / text choice
+# value that matches the one selected by the user. And displys them as a list.
 def categories(request, cats):
-    categorey_posts = ForumPost.objects.filter(bikes=cats) | ForumPost.objects.filter(bars=cats) | ForumPost.objects.filter(gears=cats)
+    categorey_posts = ForumPost.objects.filter(
+        bikes=cats) | ForumPost.objects.filter(
+            bars=cats) | ForumPost.objects.filter(
+                gears=cats)
     return render(
         request,
         'categories.html',
         {'cats': cats, 'categorey_posts': categorey_posts})
 
 
+# Class that checks over all the posts for ones that have been liked by the
+# current user, creating a list of all the posts that user has liked
 class LikedList(LoginRequiredMixin, generic.ListView):
     model = ForumPost
     template_name = 'liked_list.html'
@@ -170,17 +177,20 @@ class CreatePost(LoginRequiredMixin, generic.CreateView):
         return success_url
 
 
+# Class to allow a user the update their own posts
 class UpdatePost(LoginRequiredMixin, generic.UpdateView):
     model = ForumPost
     template_name = 'update_post.html'
     form_class = UpdateForm
 
+    # Function to control a success message to appear when the form is valid
     def form_valid(self, form):
         messages.success(
             self.request, "Your bike has been successfully updated")
-        # form.instance.author = self.request.user
         return super().form_valid(form)
 
+    # Function to get the correct url parameter to redirect the user back to
+    # the post view with the updates applied
     def get_success_url(self):
         slug = self.object.slug
         pk = self.object.id
@@ -189,22 +199,26 @@ class UpdatePost(LoginRequiredMixin, generic.UpdateView):
         return success_url
 
 
+# Class view to handle the deletion of a post
 class DeletePost(LoginRequiredMixin, generic.DeleteView):
     model = ForumPost
     template_name = 'delete_post.html'
     success_url = reverse_lazy('profile')
 
+    # Function to update the success url of the DeleteView class
     def get_success_url(self):
         messages.success(self.request, "Your bike was successfully deleted")
         success_url = reverse('profile')
         return success_url
 
 
+# Class view to allow a user to edit their comments
 class EditComment(LoginRequiredMixin, generic.UpdateView):
     model = Comment
     template_name = 'edit_comment.html'
     form_class = EditCommentForm
 
+    # Function to get the success url to redirect after editing comment
     def get_success_url(self):
         messages.success(self.request, "Your Comment was successfully updated")
         slug = self.object.post.slug
@@ -213,11 +227,13 @@ class EditComment(LoginRequiredMixin, generic.UpdateView):
         return success_url
 
 
+# Class to handle the deletion of a users comment
 class DeleteComment(LoginRequiredMixin, generic.DeleteView):
     model = Comment
     template_name = 'delete_comment.html'
     context_object_name = 'comment'
 
+    # Function to get the success url after the deletion of a comment
     def get_success_url(self):
         messages.success(self.request, "Your Comment was deleted successfully")
         slug = self.object.post.slug
@@ -226,6 +242,8 @@ class DeleteComment(LoginRequiredMixin, generic.DeleteView):
         return success_url
 
 
+# Function to delete a users account, handling the success message and the
+# redirect
 @login_required
 def delete_user(request):
     if request.method == 'POST':

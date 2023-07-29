@@ -256,6 +256,9 @@ def delete_user(request):
     return render(request, 'delete_user.html')
 
 
+# Function to allow logged in users to send messages directly to
+# the admin staff of the site, using the Messages model to handle the data
+# and the ContactForm.
 class SendMessage(LoginRequiredMixin, generic.CreateView):
     model = Messages
     template_name = 'message.html'
@@ -270,5 +273,3 @@ class SendMessage(LoginRequiredMixin, generic.CreateView):
 
     def get_success_url(self):
         return reverse('about')
-
-    # return HttpResponseRedirect(reverse('about'))

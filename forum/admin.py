@@ -21,4 +21,4 @@ class CommentAdmin(admin.ModelAdmin):
 class MessageAdmin(admin.ModelAdmin):
     list_display = ('author', 'name', 'email', 'message', 'date_sent')
     list_filter = ('author', 'email', 'date_sent')
-    search_fields = ('author__username', 'name','date_sent')
+    search_fields = ('author__username', 'name', 'date_sent')

@@ -2,22 +2,15 @@
 
 
 {% block content %}
-<div class="container p-4 vh-100">
-	<div class="row-8 mt-5">
-		<div class="col">
-			<h2>Delete Comment</h2>
-		</div>
-		<div class="col">
-			<p>Are you sure you want to delete your comment, it will be gone forever......(insert dramatic music)</p>
-		</div>
-		<div class="row-8">
-			<!-- Delete comment form -->
-			<form method="post">
-				{% csrf_token %}
-				<button type="submit" class="btn btn-outline-danger">DELETE</button>
-			</form>
-		</div>
-		<div class="row mt-4"></div>
+<div class="container vh-100">
+	<div class="col text-center my-5">
+		<h1>Delete Comment</h1>
+		<p>Are you sure you want to delete your comment, it will be gone forever......(insert dramatic music)</p>
+		<!-- Delete comment form -->
+		<form method="post">
+			{% csrf_token %}
+			<button type="submit" class="btn btn-outline-danger">DELETE</button>
+		</form>
 		<form>
 			<input class="btn btn-outline-dark" type="button" value="CANCEL" onclick="history.back()">
 		</form>

@@ -141,52 +141,42 @@ I've used [Balsamiq](https://balsamiq.com/wireframes) to design my site wirefram
 
 ## Features
 
-⚠️⚠️⚠️⚠️⚠️ START OF NOTES (to be deleted) ⚠️⚠️⚠️⚠️⚠️
-
-In this section, you should go over the different parts of your project,
-and describe each in a sentence or so.
-
-You will need to explain what value each of the features provides for the user,
-focusing on who this website is for, what it is that they want to achieve,
-and how your project is the best way to help them achieve these things.
-
-For some/all of your features, you may choose to reference the specific project files that implement them.
-
-IMPORTANT: Remember to always include a screenshot of each individual feature!
-
-🛑🛑🛑🛑🛑 END OF NOTES (to be deleted) 🛑🛑🛑🛑🛑
-
 ### Existing Features
 
 - **Navagation bar**
 
     - At the top of every page or view the user lands on there is a black navigation bar, stretching full width. It features a logo on the left that doubles as a clickable link to the home page. On the far right is a clickable icon of three horizontal bars. This opens a collapsed menu from the top down, pushing the navbar down with it. Inside this collapsed menu, there is a brief description of the site, and a vertical ascending list of links to other pages on the site, 'Home', 'About', 'Contact', 'T&Cs'. The other feature of the nav bar is the two links spaced to the right of center of the always visible bar. When the user is not logged in these are 'log-in' and 'sign-up' and when the user is logged in they are 'log-out' and 'profile' links. Each link redirecting the user to pages to log in/out or sign-up to create an account. The profile link will send the user to a page of their posts, and other options only available to logged in users, more explained on this later. The main function of a nav bar is obviously to allow the user to navigate around the site and its multiple pages. However is also an important style feature for aesthetics of the site. For this application I have kept it vey simple and clean, by hiding a lot of its featues behind the collapsable section. This leaves the important and most commonly used featues at easy reach, without having to loose the full functionallity. By removing clutter, I believe it keeps the concentration on the content. It is also important to have the relevant user account management controls always at hand, to log-in or out or sign up if a user is not yet a member.
 
-![screenshot](documentation/feature01.png)
+![screenshot](documentation/features/navbar.png)
+![screenshot](documentation/features/navbar-expand-desk.png)
+![screenshot](documentation/features/navbar-expand.png)
 
 - **Logo header**
 
     - Below the navigation bar on the homepage, is a large landing area, with a large logo and site name in the center. This along with the nav bar takes up the whole window of whatever device its being viewed on. Rather than putting an image here I wanted to push the logo to help make it stick in the users mind. It is also a place to introduce the accent colour setting the colour theme as soon as the user lands on the website. This open area creates space before delving into the content proper.
 
-![screenshot](documentation/feature02.png)
+![screenshot](documentation/features/logo-header.png)
+![screenshot](documentation/features/logo.png)
 
 - **Main post list**
 
     - Below the logo section on the homepage begins the first look at the main site content. It is a list of posts, each displayed in their own 'post cards' floating on the background. In mobile view they are one at a time above each other, each post taking up most of the screen. On larger screens they are laid out in rows of three. Once there is more than 9 posts the page is paginated with next, previous and numerical buttons to navigate the list easily. Each card shows the main image of the post and some basic info. At the bottom of the list is a large button, 'Show Us Your Bike' This will direct the user to either a create a post form or if not logged in to a sign-up page. This is how all the content is displayed when in list form on the site, whether viewing posts of specific categories or post tyou have liked. The design process of this is to create a board of posts with large images to attract attention, and encourage scrolling through many posts while giving enough information to the user to make a decision on whether they want to click and view the more detailed view of a post. The background of the cards are slightly lighter that the main background with a gentle shadow around the border of each card. Giving the impression they are lifted off the surface. 
 
-![screenshot](documentation/feature03.png)
+![screenshot](documentation/features/main-post-list.png)
+![screenshot](documentation/features/main-post-list-mobile.png)
 
 - **Post Cards**
 
     - Each post card in any of the list views are the same with the only differences when a user views their own posts, there are two extra links at the bottom, edit and delete. Otherwise this feature is consistent accross the site. Made up of a large image at the top. Underneath are to icons, one is a heart with res outline and the other is a speech bubble. Beside each will be a number. The heart shows how many times that post has been likes by a user, the other how many comments that post has been left. Below this is posts title, doubling as a link to the detailed view of that post. Below that is some basic info about the post, who created it and when it was created. And finally in the footer of the card there are 3 tags/buttons. Each button corresponds to one of three lists of categories. These are clickable and help filter the list of posts. These cards are therefore multifunctional, a way to display some basic information and allow the viewing of many posts quickly, but also a way to filter through the posts from any point through a list, without having to return to a navbar. The consistency of the styling helps site navigation a feeling of ease. The cards are organised by their creation date, newest ones first keeping the content looking fresh for returning customers.
 
-![screenshot](documentation/feature03.png)
+![screenshot](documentation/features/post-card.png)
+![screenshot](documentation/features/post-cards-detail.png)
 
 - **Categorey tags**
 
     - The three tags mentioned above are an important feature of the site, and are found on all post cards and in the detailed view of each post. The first on the left is a categorey of bike types, each bike when the post is created will be assigned a value for this categorey, road bike, mountainbike, fixie etc. Whatever bike style that post is, will be displayed on the tag. This clickable tag will bring the user to another list of all the bikes that match that catergoey. The second and third tags works the same, one for handlebar types the other for gearing set ups. This is designed to aid the user to view the bikes they are interested in and to compare like for like. There is no need to scroll through all the bikes if you only have interest in bmx bikes. A simple filtering tool and very intuitive.
 
-![screenshot](documentation/feature03.png)
+![screenshot](documentation/features/categorey-tags.png)
 
 
 - **Post detail view**
@@ -194,20 +184,24 @@ IMPORTANT: Remember to always include a screenshot of each individual feature!
     - Once a user clicks into a post a detailed view of the post is displayed, this view still mimics the post cards but without a border and larger. Keeping the same structure, with image top and center, but now 2 other images are shown, under the large main image. 
     Followed by the same info as the cards with titles author and created date, and ofcourse the liked heart and speech bubble, with corresponding numbers. However here the like heart is clickable, turning it completely red and beating if current you have liked it.Below this area is the main content of the post where the user has filled in all the information the want to share about the bike build. A simple and effective layout showing all the information in a stylish way, basically a larger expanded post card. The user can click read enjoy and hit the heart if they want to show their love and save it for viewing later. Below this main detail view is a comment section, where users can interact with each other and discuss that post.
 
-![screenshot](documentation/feature03.png)
+![screenshot](documentation/features/post-detail-view.png)
+![screenshot](documentation/features/post-detail-images.png)
+![screenshot](documentation/features/post-detail-view2.png)
 
 - **Liked hearts**
 
     - The liked hearts are another important feature of the site, they are away of showing your love for a post and a way to save and find the ones you have viewed and enjoyed. It is a feature only available to logged in users. It can only be clicked from within the post detail view, but the number of likes a post has can be viewed from any of the post cards. If a user is viewing a post they have liked the whole heart will be filled in in red and beating. When the user enters the profile page, there is a button to a list of all the posts that the current user has liked. This feature helps the site and user in a few ways, creating a level of interaction with the content, away to compare different posts, and simply a kind of bookmark feature. 
 
-![screenshot](documentation/feature03.png)
+![screenshot](documentation/features/like-heart.png)
+![screenshot](documentation/features/liked-heart.png)
 
 - **Comment section**
 
     - The comment section is pretty self explanitory, and I have kept this looking pretty standard, to help people feel comfortable. 
     In mobile view directly under the main post detail view, there is a box where a user can write their own comment and submit, directly under this is the full list of posts belonging to that post. On larger screens the comments are moved to the left of the screen while the text box is on the right. When a user submits a comment it is stored in a database model for all the comments, linked to the post by a slug. If the user is logged in the comments they have left will have two buttons under that specific comment one for edit and one for delete, both of these send the user to a form to either edit or delete. Like the posts, the comments are ordered by their creation date, but with the comments it is oldest first, to keep the converversation flowing naturally. This feature is vital for users to interact with each other, and helps to naturally and informally create more content. 
 
-![screenshot](documentation/feature03.png)
+![screenshot](documentation/features/comments-mobile.png)
+![screenshot](documentation/features/comments.png)
 
 - **Profile Page**
 
@@ -256,7 +250,7 @@ IMPORTANT: Remember to always include a screenshot of each individual feature!
 
     - The footer is the area at the bottom of every page, it and the nav bar are contained within a base html file, within which all the other templates are added by the django views. In this section is the list of internal page/navigation links making them eady to access from anywhere on the site, there is also all the social media account links. This feature is an important navigational and user experience tool for a functioning website.
 
-![screenshot](documentation/feature03.png)
+![screenshot](documentation/features/footer.png)
 
 - **Admin panel**
 
@@ -413,13 +407,8 @@ It isn't a specialized tool, but with the right tags and project creation/issue 
 
 Through it, user stories, issues, and milestone tasks were planned, then tracked on a weekly basis using the basic Kanban board.
 
-⚠️⚠️⚠️⚠️⚠️ START OF NOTES (to be deleted) ⚠️⚠️⚠️⚠️⚠️
-
-Consider adding a basic screenshot of your Projects Board.
-
-🛑🛑🛑🛑🛑 END OF NOTES (to be deleted) 🛑🛑🛑🛑🛑
-
 ![screenshot](documentation/gh-projects.png)
+![screenshot](documentation/gh-projects2.png)
 
 ### GitHub Issues
 
@@ -427,12 +416,6 @@ Consider adding a basic screenshot of your Projects Board.
 There, I used my own **User Story Template** to manage user stories.
 
 It also helped with milestone iterations on a weekly basis.
-
-⚠️⚠️⚠️⚠️⚠️ START OF NOTES (to be deleted) ⚠️⚠️⚠️⚠️⚠️
-
-Consider adding a screenshot of your Open and Closed Issues.
-
-🛑🛑🛑🛑🛑 END OF NOTES (to be deleted) 🛑🛑🛑🛑🛑
 
 - [Open Issues](https://github.com/dylankane/pedal/issues)
 
@@ -457,15 +440,6 @@ Using this approach, I was able to apply the MoSCow prioritization and labels to
 For all testing, please refer to the [TESTING.md](TESTING.md) file.
 
 ## Deployment
-
-⚠️⚠️⚠️⚠️⚠️ START OF NOTES (to be deleted) ⚠️⚠️⚠️⚠️⚠️
-
-**IMPORTANT:**
-- ⚠️ DO NOT update the environment variables to your own! These should NOT be included in this file; just demo values! ⚠️
-- ⚠️ DO NOT update the environment variables to your own! These should NOT be included in this file; just demo values! ⚠️
-- ⚠️ DO NOT update the environment variables to your own! These should NOT be included in this file; just demo values! ⚠️
-
-🛑🛑🛑🛑🛑 END OF NOTES (to be deleted) 🛑🛑🛑🛑🛑
 
 The live deployed application can be found deployed on [Heroku](https://pedal-forum-80408630e3b0.herokuapp.com).
 
@@ -526,6 +500,9 @@ For Heroku deployment, follow these steps to connect your own GitHub repository 
 
 Either:
 - Select **Automatic Deployment** from the Heroku app.
+
+Or:
+- Select **Manual Deployment** from the Heroku app.
 
 Or:
 - In the Terminal/CLI, connect to Heroku using this command: `heroku login -i`
@@ -596,89 +573,39 @@ You can fork this repository by using the following steps:
 2. At the top of the Repository (not top of page) just above the "Settings" Button on the menu, locate the "Fork" Button.
 3. Once clicked, you should now have a copy of the original repository in your own GitHub account!
 
-### Local VS Deployment
-
-⚠️⚠️⚠️⚠️⚠️ START OF NOTES (to be deleted) ⚠️⚠️⚠️⚠️⚠️
-
-Use this space to discuss any differences between the local version you've developed, and the live deployment site on Heroku.
-
-🛑🛑🛑🛑🛑 END OF NOTES (to be deleted) 🛑🛑🛑🛑🛑
 
 ## Credits
 
-⚠️⚠️⚠️⚠️⚠️ START OF NOTES (to be deleted) ⚠️⚠️⚠️⚠️⚠️
-
-In this section you need to reference where you got your content, media, and extra help from.
-It is common practice to use code from other repositories and tutorials,
-however, it is important to be very specific about these sources to avoid plagiarism.
-
-🛑🛑🛑🛑🛑 END OF NOTES (to be deleted) 🛑🛑🛑🛑🛑
-
 ### Content
-
-⚠️⚠️⚠️⚠️⚠️ START OF NOTES (to be deleted) ⚠️⚠️⚠️⚠️⚠️
-
-Use this space to provide attribution links to any borrowed code snippets, elements, or resources.
-A few examples have been provided below to give you some ideas.
-
-Ideally, you should provide an actual link to every resource used, not just a generic link to the main site!
-
-🛑🛑🛑🛑🛑 END OF NOTES (to be deleted) 🛑🛑🛑🛑🛑
 
 | Source | Location | Notes |
 | --- | --- | --- |
 | [Markdown Builder](https://traveltimn.github.io/markdown-builder) | README and TESTING | tool to help generate the Markdown files |
-| [Chris Beams](https://chris.beams.io/posts/git-commit) | version control | "How to Write a Git Commit Message" |
-| [W3Schools](https://www.w3schools.com/howto/howto_js_topnav_responsive.asp) | entire site | responsive HTML/CSS/JS navbar |
-| [W3Schools](https://www.w3schools.com/howto/howto_css_modals.asp) | contact page | interactive pop-up (modal) |
-| [W3Schools](https://www.w3schools.com/css/css3_variables.asp) | entire site | how to use CSS :root variables |
-| [Flexbox Froggy](https://flexboxfroggy.com/) | entire site | modern responsive layouts |
-| [Grid Garden](https://cssgridgarden.com) | entire site | modern responsive layouts |
-| [StackOverflow](https://stackoverflow.com/a/2450976) | quiz page | Fisher-Yates/Knuth shuffle in JS |
-| [YouTube](https://www.youtube.com/watch?v=YL1F4dCUlLc) | leaderboard | using `localStorage()` in JS for high scores |
-| [YouTube](https://www.youtube.com/watch?v=u51Zjlnui4Y) | PP3 terminal | tutorial for adding color to the Python terminal |
-| [strftime](https://strftime.org) | CRUD functionality | helpful tool to format date/time from string |
-| [WhiteNoise](http://whitenoise.evans.io) | entire site | hosting static files on Heroku temporarily |
+| [YouTube(Codemy.com)](https://www.youtube.com/@Codemycom/featured) | django code | A gereneral resource for django tutorials, with specific playlist buiding  a blog |
+| [YouTube (Very Academy)](https://youtu.be/cWq6jQGWmEg) | ForumPost Model | Help to structure choices field in model |
+| [!def](https://notdefined.tech/blog/how-to-fix-django-error-related-field-got-invalid-lookup-icontains/) | admin.py | Ability to search by FK field in admin panel |
+| [YouTube (Very Academy)](https://www.youtube.com/watch?v=EUUjJdw3EBM) | views.py | Help to build and understand class based views, in particular update view |
+| [Classy Class-Based Views](https://ccbv.co.uk/) | views.py | Help understanding django class based views and how to update methods in them |
+| [StackOverflow](https://stackoverflow.com/) | entire site | problem solving all sorts of bugs and issues |
+| [django-allauth](https://django-allauth.readthedocs.io/en/latest/configuration.html) | user accounts | documents helping manage user accounts |
+| [mdbootstrap](https://mdbootstrap.com/docs/standard/navigation/navbar/) | navbar base.html | code snippet for structure to use collapsable nav bar, basic bootstrap structure of footer from this site was used aswell  |
+| [StackOverflow](https://stackoverflow.com/questions/73589078/how-to-filter-liked-posts-by-user-django) | views.py | How to filter liked posts by User |
+| [LearnDjango](https://learndjango.com/tutorials/django-slug-tutorial) | models.py | Django slug tutorial |
+| [bootstrap](https://getbootstrap.com/docs/4.0/utilities/flex/) | front end layout | For the use of flex and grids |
+| [W3Schools](https://www.w3schools.com/django/django_queryset_filter.php) | categories function in views.py | Code structure to join queryset filters |
 
 ### Media
 
-⚠️⚠️⚠️⚠️⚠️ START OF NOTES (to be deleted) ⚠️⚠️⚠️⚠️⚠️
-
-Use this space to provide attribution links to any images, videos, or audio files borrowed from online.
-A few examples have been provided below to give you some ideas.
-
-If you're the owner (or a close acquaintance) of all media files, then make sure to specify this.
-Let the assessors know that you have explicit rights to use the media files within your project.
-
-Ideally, you should provide an actual link to every media file used, not just a generic link to the main site!
-The list below is by no means exhaustive. Within the Code Institute Slack community, you can find more "free media" links
-by sending yourself the following command: `!freemedia`.
-
-🛑🛑🛑🛑🛑 END OF NOTES (to be deleted) 🛑🛑🛑🛑🛑
-
 | Source | Location | Type | Notes |
 | --- | --- | --- | --- |
-| [Pexels](https://www.pexels.com) | entire site | image | favicon on all pages |
-| [Lorem Picsum](https://picsum.photos) | home page | image | hero image background |
-| [Unsplash](https://unsplash.com) | product page | image | sample of fake products |
-| [Pixabay](https://pixabay.com) | gallery page | image | group of photos for gallery |
-| [Wallhere](https://wallhere.com) | footer | image | background wallpaper image in the footer |
-| [This Person Does Not Exist](https://thispersondoesnotexist.com) | testimonials | image | headshots of fake testimonial images |
-| [Audio Micro](https://www.audiomicro.com/free-sound-effects) | game page | audio | free audio files to generate the game sounds |
-| [Videvo](https://www.videvo.net/) | home page | video | background video on the hero section |
-| [TinyPNG](https://tinypng.com) | entire site | image | tool for image compression |
+| [FontAwesome](https://fontawesome.com/) | entire site | icon | icons on all pages |
+| [The Radivist](https://theradavist.com/) | post creation | images | used to take photos of bikes to make posts to poulate the site |
+| [VectoStock](https://www.vectorstock.com/royalty-free-vector/road-bicycle-parts-and-accessories-silhouette-set-vector-8841664) | placeholder | image | Used in a post where no uploaded image is available |
 
 ### Acknowledgements
 
-⚠️⚠️⚠️⚠️⚠️ START OF NOTES (to be deleted) ⚠️⚠️⚠️⚠️⚠️
 
-Use this space to provide attribution to any supports that helped, encouraged, or supported you throughout the development stages of this project.
-A few examples have been provided below to give you some ideas.
-
-🛑🛑🛑🛑🛑 END OF NOTES (to be deleted) 🛑🛑🛑🛑🛑
-
-- I would like to thank my Code Institute mentor, [Tim Nelson](https://github.com/TravelTimN) for their support throughout the development of this project.
+- I would like to thank my Code Institute mentor, Rory Patrick Sheridan for their support throughout the development of this project. A massive help
 - I would like to thank the [Code Institute](https://codeinstitute.net) tutor team for their assistance with troubleshooting and debugging some project issues.
-- I would like to thank the [Code Institute Slack community](https://code-institute-room.slack.com) for the moral support; it kept me going during periods of self doubt and imposter syndrome.
-- I would like to thank my partner (John/Jane), for believing in me, and allowing me to make this transition into software development.
-- I would like to thank my employer, for supporting me in my career development change towards becoming a software developer.
+- I would like to thank the [Code Institute Slack community](https://code-institute-room.slack.com) for the moral support and wealth of knowledge. Another great resource to have.
+- I would like to thank my partner and kids, for believing in me, and allowing me to make this transition into software development.

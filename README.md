@@ -600,6 +600,7 @@ You can fork this repository by using the following steps:
 | --- | --- | --- | --- |
 | [FontAwesome](https://fontawesome.com/) | entire site | icon | icons on all pages |
 | [The Radivist](https://theradavist.com/) | post creation | images | used to take photos of bikes to make posts to poulate the site |
+| [Vintage Trek](http://www.vintage-trek.com/Trek_galleryKR.htm) | post creation | images | used to take photos of bikes to make posts to poulate the site |
 | [VectoStock](https://www.vectorstock.com/royalty-free-vector/road-bicycle-parts-and-accessories-silhouette-set-vector-8841664) | placeholder | image | Used in a post where no uploaded image is available |
 
 ### Acknowledgements

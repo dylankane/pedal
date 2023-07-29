@@ -158,60 +158,131 @@ IMPORTANT: Remember to always include a screenshot of each individual feature!
 
 ### Existing Features
 
-- **Title for feature #1**
+- **Navagation bar**
 
-    - Details about this particular feature, including the value to the site, and benefit for the user. Be as detailed as possible!
+    - At the top of every page or view the user lands on there is a black navigation bar, stretching full width. It features a logo on the left that doubles as a clickable link to the home page. On the far right is a clickable icon of three horizontal bars. This opens a collapsed menu from the top down, pushing the navbar down with it. Inside this collapsed menu, there is a brief description of the site, and a vertical ascending list of links to other pages on the site, 'Home', 'About', 'Contact', 'T&Cs'. The other feature of the nav bar is the two links spaced to the right of center of the always visible bar. When the user is not logged in these are 'log-in' and 'sign-up' and when the user is logged in they are 'log-out' and 'profile' links. Each link redirecting the user to pages to log in/out or sign-up to create an account. The profile link will send the user to a page of their posts, and other options only available to logged in users, more explained on this later. The main function of a nav bar is obviously to allow the user to navigate around the site and its multiple pages. However is also an important style feature for aesthetics of the site. For this application I have kept it vey simple and clean, by hiding a lot of its featues behind the collapsable section. This leaves the important and most commonly used featues at easy reach, without having to loose the full functionallity. By removing clutter, I believe it keeps the concentration on the content. It is also important to have the relevant user account management controls always at hand, to log-in or out or sign up if a user is not yet a member.
 
 ![screenshot](documentation/feature01.png)
 
-- **Title for feature #2**
+- **Logo header**
 
-    - Details about this particular feature, including the value to the site, and benefit for the user. Be as detailed as possible!
+    - Below the navigation bar on the homepage, is a large landing area, with a large logo and site name in the center. This along with the nav bar takes up the whole window of whatever device its being viewed on. Rather than putting an image here I wanted to push the logo to help make it stick in the users mind. It is also a place to introduce the accent colour setting the colour theme as soon as the user lands on the website. This open area creates space before delving into the content proper.
 
 ![screenshot](documentation/feature02.png)
 
-- **Title for feature #3**
+- **Main post list**
 
-    - Details about this particular feature, including the value to the site, and benefit for the user. Be as detailed as possible!
+    - Below the logo section on the homepage begins the first look at the main site content. It is a list of posts, each displayed in their own 'post cards' floating on the background. In mobile view they are one at a time above each other, each post taking up most of the screen. On larger screens they are laid out in rows of three. Once there is more than 9 posts the page is paginated with next, previous and numerical buttons to navigate the list easily. Each card shows the main image of the post and some basic info. At the bottom of the list is a large button, 'Show Us Your Bike' This will direct the user to either a create a post form or if not logged in to a sign-up page. This is how all the content is displayed when in list form on the site, whether viewing posts of specific categories or post tyou have liked. The design process of this is to create a board of posts with large images to attract attention, and encourage scrolling through many posts while giving enough information to the user to make a decision on whether they want to click and view the more detailed view of a post. The background of the cards are slightly lighter that the main background with a gentle shadow around the border of each card. Giving the impression they are lifted off the surface. 
 
 ![screenshot](documentation/feature03.png)
 
-⚠️⚠️⚠️⚠️⚠️ START OF NOTES (to be deleted) ⚠️⚠️⚠️⚠️⚠️
+- **Post Cards**
 
-Repeat as necessary for as many features as your site contains.
+    - Each post card in any of the list views are the same with the only differences when a user views their own posts, there are two extra links at the bottom, edit and delete. Otherwise this feature is consistent accross the site. Made up of a large image at the top. Underneath are to icons, one is a heart with res outline and the other is a speech bubble. Beside each will be a number. The heart shows how many times that post has been likes by a user, the other how many comments that post has been left. Below this is posts title, doubling as a link to the detailed view of that post. Below that is some basic info about the post, who created it and when it was created. And finally in the footer of the card there are 3 tags/buttons. Each button corresponds to one of three lists of categories. These are clickable and help filter the list of posts. These cards are therefore multifunctional, a way to display some basic information and allow the viewing of many posts quickly, but also a way to filter through the posts from any point through a list, without having to return to a navbar. The consistency of the styling helps site navigation a feeling of ease. The cards are organised by their creation date, newest ones first keeping the content looking fresh for returning customers.
 
-Hint: the more, the merrier!
+![screenshot](documentation/feature03.png)
 
-🛑🛑🛑🛑🛑 END OF NOTES (to be deleted) 🛑🛑🛑🛑🛑
+- **Categorey tags**
+
+    - The three tags mentioned above are an important feature of the site, and are found on all post cards and in the detailed view of each post. The first on the left is a categorey of bike types, each bike when the post is created will be assigned a value for this categorey, road bike, mountainbike, fixie etc. Whatever bike style that post is, will be displayed on the tag. This clickable tag will bring the user to another list of all the bikes that match that catergoey. The second and third tags works the same, one for handlebar types the other for gearing set ups. This is designed to aid the user to view the bikes they are interested in and to compare like for like. There is no need to scroll through all the bikes if you only have interest in bmx bikes. A simple filtering tool and very intuitive.
+
+![screenshot](documentation/feature03.png)
+
+
+- **Post detail view**
+
+    - Once a user clicks into a post a detailed view of the post is displayed, this view still mimics the post cards but without a border and larger. Keeping the same structure, with image top and center, but now 2 other images are shown, under the large main image. 
+    Followed by the same info as the cards with titles author and created date, and ofcourse the liked heart and speech bubble, with corresponding numbers. However here the like heart is clickable, turning it completely red and beating if current you have liked it.Below this area is the main content of the post where the user has filled in all the information the want to share about the bike build. A simple and effective layout showing all the information in a stylish way, basically a larger expanded post card. The user can click read enjoy and hit the heart if they want to show their love and save it for viewing later. Below this main detail view is a comment section, where users can interact with each other and discuss that post.
+
+![screenshot](documentation/feature03.png)
+
+- **Liked hearts**
+
+    - The liked hearts are another important feature of the site, they are away of showing your love for a post and a way to save and find the ones you have viewed and enjoyed. It is a feature only available to logged in users. It can only be clicked from within the post detail view, but the number of likes a post has can be viewed from any of the post cards. If a user is viewing a post they have liked the whole heart will be filled in in red and beating. When the user enters the profile page, there is a button to a list of all the posts that the current user has liked. This feature helps the site and user in a few ways, creating a level of interaction with the content, away to compare different posts, and simply a kind of bookmark feature. 
+
+![screenshot](documentation/feature03.png)
+
+- **Comment section**
+
+    - The comment section is pretty self explanitory, and I have kept this looking pretty standard, to help people feel comfortable. 
+    In mobile view directly under the main post detail view, there is a box where a user can write their own comment and submit, directly under this is the full list of posts belonging to that post. On larger screens the comments are moved to the left of the screen while the text box is on the right. When a user submits a comment it is stored in a database model for all the comments, linked to the post by a slug. If the user is logged in the comments they have left will have two buttons under that specific comment one for edit and one for delete, both of these send the user to a form to either edit or delete. Like the posts, the comments are ordered by their creation date, but with the comments it is oldest first, to keep the converversation flowing naturally. This feature is vital for users to interact with each other, and helps to naturally and informally create more content. 
+
+![screenshot](documentation/feature03.png)
+
+- **Profile Page**
+
+    - The profile page, available only to looged users, starts with three buttons, one to create a post, one to show a list of all their liked posts, and the final is a dropdown, where the user can log-out or delete their account (keeping the later two in a dropdown as  a way to help prevent accidental clicking, even though they both have another page to check if the user is sure.)Below thse buttons the user will find a list oview of post cards of the posts they have created if any. And each card with a edit and delete button for that post. This is a functional page needed to help a user manage their account and their content. A space that could see many more features as the site grows more features and functionallity.
+
+![screenshot](documentation/feature03.png)
+
+
+- **Create, edit and delete posts**
+
+    - Throughout the site there are a few places where th user can click into a form to create a post. This form based on the database model for the posts has a few input boxes, each corresponding to specific pieses of data needed to build the post views. Starting with a title, which auto populates a slug field for the backend, then three drop down lists, for each of the three tag categories, another three fields for three seperate images the first being the main feature image. Then a large text bax where the creater can add any extra content they want. On submit the information is stored in the database and the post is created and linked to the user. The user is then redirected to the newly created post page, with a pop up success message, that auto dissapears. From the profile page when the user views their previously created posts they will have a edit and delete button. The edit button will bring them to a form identical to the create a post form, but with the fields prepopulated which can be edited. The submit proccess works the same. When the delete button is clicked the user is brought to a very simple page, stating thay are about to delete their post and it is permanent, if they want to continue. If they do, they will be redirected to the profile page with a success message saying post has been deleted. The deletion of a post will also delete all the comments linked to it. All these features are vital for a fully functioning application with full CRUD features. This gives the users control over their content.
+
+![screenshot](documentation/feature03.png)
+
+- **Sign-up, log-in and log-out**
+
+    - The management of the user database is controlled by the internal django feature 'allauth' once installed and configured it handles the data, and supplies templates for sign-up, log-in, log-out, and many more pages. These have been styled and content added to match the sites themes and consitent features, like buttons. The user can can sign-up and log-in/out from a few different places thoughout the site, it is intuitive and a simple proccess. For now the data needed for createing an account is minimal, username, email(optional), and password. This can be extended as the site grows to use email verification, and collect more data if needed. Without these features the site cant function the way it needs to, either not allowing users to create content or allowing anyone to, opening it to abuse.
+
+![screenshot](documentation/feature03.png)
+
+- **Delete User**
+
+    - The delete user function is not handled by allauth. Here I have a function that will delete the user instance from the database. In the profile page in the account drop-down button there is an option to delete your user account. This is completed with a very familiar style form to others with buttons, and warnings to make users aware of what they are doing. This will not only delete that user but also all their posts and any comment made by them. I think this is a neccesary feature to give the user complete control over their data and content. 
+
+![screenshot](documentation/feature03.png)
+
+- **About section**
+
+    - The about, contact and t&c section all exist on the one page, but individual links, the user will be brought to the specific part of the page. The about section is simply a paragraph of text explaining the website and its mission. An exteded explanation to what is found in the collapsed nav bar. just a little help to users to get a feel for what the project is all about.
+
+![screenshot](documentation/feature03.png)
+
+- **Contact Section**
+
+    - The contact section is again a simplified one, this is not a business selling a product or a shop with a bricks and mortar address, so the contact section lists the social media sites with associated accounts, as in the footer, with an email icon that links the user to their email provider account to send an email to PEDAL with a prepoulated email address field. The main feature in this section comes in the messaging form. With the click of a send message button the user is brought to a form where thay can message the admin staff directly within the application. For this there is a seperate database model, to collect and organise the messages, for the admin staff to view within the django admin panel. The form only needs the users email address for a reply, their name and a message. This is convenient for a mvp as it is reasonably lightweight and keeps all the data within the application, again as the site grows an email form could be linkied diectly to an email address with smtp, but it could be still good practice to store this data within the application anyway. This contact form is a good way for users to contact admin staff with more technical questions like password reset or help removing content, where general news and information can be communicated better over the social media channels.
+
+![screenshot](documentation/feature03.png)
+
+- **Terms and conditions**
+
+    - The terms and conditions section follows up after the contact section on the about page, it can be navigated to directly through its own link in the collapsable nav bar or the footer. It outlines the general rulles and conduct of behaviour for all users who interact with the application. It is important to have these guidelines out-lined and easliy accesible. A purpose decision was to allow content to be added freely and quickly by users with waiting for approval, as I feel that can affect the user experience. When the guidlines are clear, the admin staff can monitor the content and simply remove when a breach has occurred. There is obviously flaws with this leaving opening for abuse until spotted, but for a small mvp project it keeps the UX smooth, until more policing of content is needed.
+
+![screenshot](documentation/feature03.png)
+
+- **Footer**
+
+    - The footer is the area at the bottom of every page, it and the nav bar are contained within a base html file, within which all the other templates are added by the django views. In this section is the list of internal page/navigation links making them eady to access from anywhere on the site, there is also all the social media account links. This feature is an important navigational and user experience tool for a functioning website.
+
+![screenshot](documentation/feature03.png)
+
+- **Admin panel**
+
+    - Django supplies a batteries included admin panel, that once configured is a hugely iseful tool to a site like this. The panel has been set up to display data from the 3 database models. this data can be filtered and organise in different ways. It is an tool used by any admin staff / owner of the site who has access, where all the data can be read created, updated and removed, great for content moderation and user account management. 
+
+![screenshot](documentation/feature03.png)
 
 ### Future Features
 
-⚠️⚠️⚠️⚠️⚠️ START OF NOTES (to be deleted) ⚠️⚠️⚠️⚠️⚠️
+- Email Verification
+    - Through allauth with django an email verification can bet set up using an smtp email service. This allows the site to checkthe user has given a valid email address my emailing and have the user use that email to create the account. This is also great for password reset functionallity. A simple feature to introduce once the project is out of the mvp stage, and after some initial feedback about all the base features.
+- Blog
+    - within the projest itself another djanjo app could be developed to hold a lightweight blog, only curated with content by the site owners, something like links to videos on how to do some common bike maintenace jobs, how to paint a bike frame, how to clean your gears properly, etc. general tips and tricks, also maybe a bike post of the month, included. Not to include comments sections, or like buttons. but just a video or article link and brief description. I could show sample list of posts underneath the post lists of the main blog/forum before the footer and also on a page of its own.
+- Full contact form with smtp mail service 
+    - Rather than just an internal messaging form this could be expanded to a proper email form, with more automation.
+- Enrich comment section
+    - The comment section if proves to be popular, could be added to, ideas like pagination of comments if the numbers of comments per posts affect ux, also nesting of comments allowing comments themselves to be replied to, which will also help contain large numbers of comments. Also a more feature rich text input box for the comments allowing styling of text and even emojis.
+- Image modal
+    - Another nice feature would be to add a pop up image gallery modal in the post deail view. by clicking on one of the photos a madal almost full screen size could appear, with a gallery of all the images within the post, showing one at a time and a navigation arrow left and right to view all the photos full screen. I could allow users to post more than 3, with anything over the 3 being hidden within the madal. It will keep the structure of the detail view intact, but allow nice interaction with the images.
+- ForumPost model
+    - The main database model ForumPost could also be extend to include more categoreies for tags, or a list of bike parts that the creater could fill in whatmake and model thay have on their build they have on their build. This would increase the amount of content in each post, and have more data that will be easily filterable.
+- Seach bar
+    - The current filtering available through the tags is great when the quantity of content is still low, but in the future if the quantity gets to bifg theat filtering isnt sufficient, a keyword search bar would make more sense.
 
-Do you have additional ideas that you'd like to include on your project in the future?
-Fantastic! List them here!
-It's always great to have plans for future improvements!
-Consider adding any helpful links or notes to help remind you in the future, if you revisit the project in a couple years.
-
-🛑🛑🛑🛑🛑 END OF NOTES (to be deleted) 🛑🛑🛑🛑🛑
-
-- Title for future feature #1
-    - Any additional notes about this feature.
-- Title for future feature #2
-    - Any additional notes about this feature.
-- Title for future feature #3
-    - Any additional notes about this feature.
 
 ## Tools & Technologies Used
-
-⚠️⚠️⚠️⚠️⚠️ START OF NOTES (to be deleted) ⚠️⚠️⚠️⚠️⚠️
-
-In this section, you should explain the various tools and technologies used to develop the project.
-Make sure to put a link (where applicable) to the source, and explain what each was used for.
-Some examples have been provided, but this is just a sample only, your project might've used others.
-Feel free to delete any unused items below as necessary.
-
-🛑🛑🛑🛑🛑 END OF NOTES (to be deleted) 🛑🛑🛑🛑🛑
 
 - [HTML](https://en.wikipedia.org/wiki/HTML) used for the main site content.
 - [CSS](https://en.wikipedia.org/wiki/CSS) used for the main site design and layout.
@@ -222,79 +293,116 @@ Feel free to delete any unused items below as necessary.
 - [Python](https://www.python.org) used as the back-end programming language.
 - [Git](https://git-scm.com) used for version control. (`git add`, `git commit`, `git push`)
 - [GitHub](https://github.com) used for secure online code storage.
-- [GitHub Pages](https://pages.github.com) used for hosting the deployed front-end site.
 - [Gitpod](https://gitpod.io) used as a cloud-based IDE for development.
 - [Bootstrap](https://getbootstrap.com) used as the front-end CSS framework for modern responsiveness and pre-built components.
-- [Materialize](https://materializecss.com) used as the front-end CSS framework for modern responsiveness and pre-built components.
-- [Flask](https://flask.palletsprojects.com) used as the Python framework for the site.
 - [Django](https://www.djangoproject.com) used as the Python framework for the site.
-- [MongoDB](https://www.mongodb.com) used as the non-relational database management with Flask.
-- [SQLAlchemy](https://www.sqlalchemy.org) used as the relational database management with Flask.
 - [PostgreSQL](https://www.postgresql.org) used as the relational database management.
 - [ElephantSQL](https://www.elephantsql.com) used as the Postgres database.
 - [Heroku](https://www.heroku.com) used for hosting the deployed back-end site.
 - [Cloudinary](https://cloudinary.com) used for online static file storage.
-- [Stripe](https://stripe.com) used for online secure payments of ecommerce products/services.
-- [AWS S3](https://aws.amazon.com/s3) used for online static file storage.
+
 
 ## Database Design
 
 Entity Relationship Diagrams (ERD) help to visualize database architecture before creating models.
 Understanding the relationships between different tables can save time later in the project.
 
-⚠️⚠️⚠️⚠️⚠️ START OF NOTES (to be deleted) ⚠️⚠️⚠️⚠️⚠️
-
-Using your defined models (one example below), create an ERD with the relationships identified.
-
-🛑🛑🛑🛑🛑 END OF NOTES (to be deleted) 🛑🛑🛑🛑🛑
 
 ```python
-class Product(models.Model):
-    category = models.ForeignKey(
-        "Category", null=True, blank=True, on_delete=models.SET_NULL)
-    sku = models.CharField(max_length=254, null=True, blank=True)
-    name = models.CharField(max_length=254)
-    description = models.TextField()
-    has_sizes = models.BooleanField(default=False, null=True, blank=True)
-    price = models.DecimalField(max_digits=6, decimal_places=2)
-    rating = models.DecimalField(
-        max_digits=6, decimal_places=2, null=True, blank=True)
-    image_url = models.URLField(max_length=1024, null=True, blank=True)
-    image = models.ImageField(null=True, blank=True)
+class ForumPost(models.Model):
+
+    class Bikes(models.TextChoices):
+        NONE = 'N/A', 'N/A'
+        ROAD = 'Road', 'Road'
+        GRAVEL = 'Gravel', 'Gravel'
+        CX = 'CX', 'CX'
+        TOURING = 'Touring', 'Touring'
+        MTB = 'MTB', 'MTB'
+        DOWNHILL = 'Downhill', 'Downhill'
+        FIXIE = 'Fixie', 'Fixie'
+        COMMUTE = 'Commute', 'Commute'
+        BMX = 'BMX', 'BMX'
+        HYBRID = 'Hybrid', 'Hybrid'
+        OTHER = 'Other', 'Other'
+
+    class Bars(models.TextChoices):
+        NONE = 'N/A', 'N/A'
+        FLAT = 'Flat', 'Flat'
+        DROP = 'Drop', 'Drop'
+        ALT = 'Alt', 'Alt'
+        OTHER = 'Other', 'Other'
+
+    class Gears(models.TextChoices):
+        NONE = 'N/A', 'N/A'
+        FIXED = 'Fixed', 'Fixed'
+        ONE = '1X', '1X'
+        TWO = '2X', '2X'
+        THREE = '3X', '3X'
+        HUB = 'Hub', 'Hub'
+        OTHER = 'Other', 'Other'
+
+    title = models.CharField(max_length=150, unique=True)
+    slug = models.SlugField(max_length=150, unique=True)
+    created_on = models.DateTimeField(auto_now_add=True)
+    updated_on = models.DateTimeField(auto_now=True)
+    author = models.ForeignKey(
+        User, on_delete=models.CASCADE, related_name="forum_posts")
+    bikes = models.CharField(
+        max_length=20, choices=Bikes.choices, default=Bikes.NONE)
+    bars = models.CharField(
+        max_length=20, choices=Bars.choices, default=Bikes.NONE)
+    gears = models.CharField(
+        max_length=20, choices=Gears.choices, default=Bikes.NONE)
+    cover_image = CloudinaryField('image', default="placeholder")
+    second_image = CloudinaryField('image', default="placeholder")
+    third_image = CloudinaryField('image', default="placeholder")
+    content = models.TextField()
+    likes = models.ManyToManyField(
+        User, related_name='forum_like', blank=True)
+
+    class Meta:
+        ordering = ['-created_on']
 
     def __str__(self):
-        return self.name
+        return self.title
+
+    def number_of_likes(self):
+        return self.likes.count()
+
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            self.slug = slugify(self.title)
+        return super().save(*args, **kwargs)
+
+class Comment(models.Model):
+    post = models.ForeignKey(
+        ForumPost, on_delete=models.CASCADE, related_name='comments')
+    created_on = models.DateTimeField(auto_now_add=True)
+    updated_on = models.DateTimeField(auto_now=True)
+    author = models.ForeignKey(
+        User, on_delete=models.CASCADE, related_name='user_comments')
+    body = models.TextField()
+
+    class Meta:
+        ordering = ['created_on']
+
+    def __str__(self):
+        return f"Comment {self.body} by {self.author}"
+
+class Messages(models.Model):
+    name = models.CharField(max_length=150)
+    email = models.EmailField()
+    message = models.TextField()
+    date_sent = models.DateTimeField(auto_now_add=True)
+    author = models.ForeignKey(
+        User, on_delete=models.CASCADE, related_name='user_message')
+
+    class Meta:
+        ordering = ['-created_on']
 ```
 
-⚠️⚠️⚠️⚠️⚠️ START OF NOTES (to be deleted) ⚠️⚠️⚠️⚠️⚠️
-
-A couple recommendations for building free ERDs:
-- [Draw.io](https://draw.io)
-- [Lucidchart](https://www.lucidchart.com/pages/ER-diagram-symbols-and-meaning)
-
-🛑🛑🛑🛑🛑 END OF NOTES (to be deleted) 🛑🛑🛑🛑🛑
 
 ![screenshot](documentation/erd.png)
-
-⚠️⚠️⚠️⚠️⚠️ START OF NOTES (to be deleted) ⚠️⚠️⚠️⚠️⚠️
-
-Using Markdown formatting to represent an example ERD table using the Product model above:
-
-🛑🛑🛑🛑🛑 END OF NOTES (to be deleted) 🛑🛑🛑🛑🛑
-
-- Table: **Product**
-
-    | **PK** | **id** (unique) | Type | Notes |
-    | --- | --- | --- | --- |
-    | **FK** | category | ForeignKey | FK to **Category** model |
-    | | sku | CharField | |
-    | | name | CharField | |
-    | | description | TextField | |
-    | | has_sizes | BooleanField | |
-    | | price | DecimalField | |
-    | | rating | DecimalField | |
-    | | image_url | URLField | |
-    | | image | ImageField | |
 
 ## Agile Development Process
 

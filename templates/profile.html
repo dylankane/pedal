@@ -51,9 +51,10 @@
                     <div class="view view-cascade overlay">
                         <!-- Feature image -->
                         {% if "placeholder" in post.cover_image.url %}
-                        <img src="https://res.cloudinary.com/defppxuea/image/upload/v1689765450/static/images/placeholder2.jpg.b5217726b98b.webp" alt="" class="img-fluid card-img-top">
+                        <img src="https://res.cloudinary.com/defppxuea/image/upload/v1689765450/static/images/placeholder2.jpg.b5217726b98b.webp" 
+                            alt="placeholder image of bike parts" class="img-fluid card-img-top">
                         {% else %}
-                        <img src="{{ post.cover_image.url }}" alt="" class="img-fluid card-img-top">
+                        <img src="{{ post.cover_image.url }}" alt="image of bike uploaded by user" class="img-fluid card-img-top">
                         {% endif %}
                     </div>
                     <!-- Card body -->
@@ -79,9 +80,9 @@
                     <!-- Catergorey links -->
                     <div class="card-footer card-footer-cascade bg-light text-center">
                         <div class="d-flex justify-content-around pb-3">
-                            <a href="#"><span class="btn btn-outline-dark btn-sm rounded-pill">{{ post.bikes }}</span></a>
-                            <a href="#"><span class="btn btn-outline-dark btn-sm rounded-pill">{{ post.bars }}</span></a>
-                            <a href="#"><span class="btn btn-outline-dark btn-sm rounded-pill">{{ post.gears }}</span></a>
+                            <a href="{% url 'categories' post.bikes %}"><span class="btn btn-outline-dark btn-sm rounded-pill">{{ post.bikes }}</span></a>
+                            <a href="{% url 'categories' post.bars %}"><span class="btn btn-outline-dark btn-sm rounded-pill">{{ post.bars }}</span></a>
+                            <a href="{% url 'categories' post.gears %}"><span class="btn btn-outline-dark btn-sm rounded-pill">{{ post.gears }}</span></a>
                         </div>
                         <div class="d-flex justify-content-around my-3">
                             <a href="{% url 'update_post' post.slug %}"><span class="btn btn-outline-primary btn-sm">EDIT</span></a>
@@ -111,7 +112,7 @@
         {% else %}
             <li><a href="?page={{ i }}" class="page-link text-dark rounded m-1">{{ i }}</a></li>
         {% endif %}
-    {% endfor %}
+        {% endfor %}
         {% if page_obj.has_next %}
         <li><a href="?page={{ page_obj.next_page_number }}" class="page-link text-dark rounded m-1"> NEXT &raquo;</a></li>
 
@@ -119,5 +120,5 @@
     </ul>
 </nav>
 {% endif %}
-</div>
+
 {% endblock %}

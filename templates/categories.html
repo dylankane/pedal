@@ -14,9 +14,10 @@
                     <!-- Main feature image -->
                     <div class="view view-cascade overlay">
                         {% if "placeholder" in post.cover_image.url %}
-                        <img src="https://res.cloudinary.com/defppxuea/image/upload/v1689765450/static/images/placeholder2.jpg.b5217726b98b.webp" alt="" class="img-fluid card-img-top">
+                        <img src="https://res.cloudinary.com/defppxuea/image/upload/v1689765450/static/images/placeholder2.jpg.b5217726b98b.webp" 
+                            alt="Placeholder image of bike parts" class="img-fluid card-img-top">
                         {% else %}
-                        <img src="{{ post.cover_image.url }}" alt="" class="img-fluid card-img-top">
+                        <img src="{{ post.cover_image.url }}" alt="Image of bike uploaded by user" class="img-fluid card-img-top">
                         {% endif %}
                     </div>
                     <!-- Card body -->
@@ -78,6 +79,6 @@
     </ul>
 </nav>
 {% endif %}
-</div>
+
 {% endblock %}
 

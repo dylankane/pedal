@@ -10,7 +10,7 @@ class ForumPost(models.Model):
     # Model class defining the options of the bike type categorey within the
     # main ForumPost model
     class Bikes(models.TextChoices):
-        NONE = 'N/A', 'N/A'
+        NONE = 'Other', 'Other'
         ROAD = 'Road', 'Road'
         GRAVEL = 'Gravel', 'Gravel'
         CX = 'CX', 'CX'
@@ -21,27 +21,27 @@ class ForumPost(models.Model):
         COMMUTE = 'Commute', 'Commute'
         BMX = 'BMX', 'BMX'
         HYBRID = 'Hybrid', 'Hybrid'
-        OTHER = 'Other', 'Other'
+        # OTHER = 'Other', 'Other'
 
     # Model class defining the options of the handlebar type categorey within
     # the main ForumPost model
     class Bars(models.TextChoices):
-        NONE = 'N/A', 'N/A'
+        NONE = 'Other', 'Other'
         FLAT = 'Flat', 'Flat'
         DROP = 'Drop', 'Drop'
         ALT = 'Alt', 'Alt'
-        OTHER = 'Other', 'Other'
+        # OTHER = 'Other', 'Other'
 
     # Model class defining the options of the gearing type categorey within the
     # main ForumPost model
     class Gears(models.TextChoices):
-        NONE = 'N/A', 'N/A'
+        NONE = 'Other', 'Other'
         FIXED = 'Fixed', 'Fixed'
         ONE = '1X', '1X'
         TWO = '2X', '2X'
         THREE = '3X', '3X'
         HUB = 'Hub', 'Hub'
-        OTHER = 'Other', 'Other'
+        # OTHER = 'Other', 'Other'
 
     title = models.CharField(max_length=150, unique=True)
     slug = models.SlugField(max_length=150, unique=True)

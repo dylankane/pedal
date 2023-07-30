@@ -42,7 +42,7 @@ As I only have a small bit of custom JS I dont have a file .js but rather have i
 
 | File | Screenshot | Notes |
 | --- | --- | --- |
-| base.html | ![screenshot](documentation/tests/js-validation.png) | One undefined variable
+| base.html | ![screenshot](documentation/tests/jshint-validation.png) | One undefined variable
 4	bootstrap |
 
 
@@ -127,87 +127,42 @@ I have undergone extensive manual deffensive and general testing of all ares of 
 
 ## Bugs
 
-⚠️⚠️⚠️⚠️⚠️ START OF NOTES (to be deleted) ⚠️⚠️⚠️⚠️⚠️
 
-It's very important to document any bugs you've discovered while developing the project.
-Make sure to include any necessary steps you've implemented to fix the bug(s) as well.
+- TemplateDoesNotExist at/
+    ![screenshot](documentation/template-error.png)
+    - This bug was a recurring bug/error during the development stages. Where the url paths were wrongly configured, eack url took a bit of trial and error. In particular the post detail url, ended up taking a slug and a pk as its parameters. Each view needed slightly different approaches to get the path waorking. I found help with this from multiple stack overflow conversations.
 
-For JavaScript and Python applications, it's best to screenshot the errors to include them as well.
+- Page not found/
+    ![screenshot](documentation/page-not-found.png)
+    - This bug turned out to be very similar to the prrevious one, however the solution was not exactly a bad url just two very similar pathways using the slug as the parameters, so django was using the first url it cam to that matched, even though the correct one was after it.
 
-**PRO TIP**: screenshots of bugs are extremely helpful, and go a long way!
+- Integritty Error at/
+    ![screenshot](documentation/integritty-error.png)
+    - In views.py in the post function for comments, I had the wrong request for the author.
+    - comment_form.instance.author = request.user  < = correct
+    - comment_form.instance.author = request.user.usernane < = inncorrect
 
-🛑🛑🛑🛑🛑 END OF NOTES (to be deleted) 🛑🛑🛑🛑🛑
+- On the deployed heroku site while testing I noticed that if I created a post with out entering a value for the categories i was getting a server error 500
+    ![screenshot](documentation/server-error.png)
+    - By turning back ob debug on the live site I could see it was a error with the pathway to the catergorey list view, which was looking for a parameter "cat" but because I had updated the model specifically the text choices values for none to N/A to be more frontend friendly than "unknown" however it turns out that the use of the / seems to have affrected the url breaking it, So I had to change the value to "other".
 
-- JS Uncaught ReferenceError: `foobar` is undefined/not defined
+- With a few of my views I had to get a queryset of objects for a list, the main home page list the likes list or the categories list, coming accross many different bugs and issue. 
+    - There was no one solution, but with a bit more reading of the django docs and the site ccbv.co.uk explaining the way to update class based view with a function I got there.
 
-    ![screenshot](documentation/bug01.png)
 
-    - To fix this, I _____________________.
-
-- JS `'let'` or `'const'` or `'template literal syntax'` or `'arrow function syntax (=>)'` is available in ES6 (use `'esversion: 11'`) or Mozilla JS extensions (use moz).
-
-    ![screenshot](documentation/bug02.png)
-
-    - To fix this, I _____________________.
-
-- Python `'ModuleNotFoundError'` when trying to import module from imported package
-
-    ![screenshot](documentation/bug03.png)
-
-    - To fix this, I _____________________.
-
-- Django `TemplateDoesNotExist` at /appname/path appname/template_name.html
-
-    ![screenshot](documentation/bug04.png)
-
-    - To fix this, I _____________________.
-
-- Python `E501 line too long` (93 > 79 characters)
-
-    ![screenshot](documentation/bug04.png)
-
-    - To fix this, I _____________________.
-
+- This Error was in the small amount of custom Javascript I have in the project. When the page loadedlocally or deployed I was getting a error in the console
+    ![screenshot](documentation/js-error.png)
+    - This was due to the browser trying to access an object that was null, again with a lot of trial and error and stackoverflow by adding an if statement to the alert object this would check if its not null,making sure the alert.close(); runs when needed.
+    
 
 ## Unfixed Bugs
 
-⚠️⚠️⚠️⚠️⚠️ START OF NOTES (to be deleted) ⚠️⚠️⚠️⚠️⚠️
 
-You will need to mention unfixed bugs and why they were not fixed.
-This section should include shortcomings of the frameworks or technologies used.
-Although time can be a big variable to consider, paucity of time and difficulty understanding
-implementation is not a valid reason to leave bugs unfixed.
+- In the light house audits there are some notes on performance specifically on mobile due to image size
+    - To fix this I can specify height and width but at the moment I have cloudinary looking afer keeping the images responsive to screen sizes and I think doing a great job of it. At this mvp stage I feel like the performance levels are still good, but it definitely needs to be addressed in the next stage, I also feel it needs road testing from users to see what kind of images are uploaded, scale and size
 
-If you've identified any unfixed bugs, no matter how small, be sure to list them here.
-It's better to be honest and list them, because if it's not documented and an assessor finds the issue,
-they need to know whether or not you're aware of them as well, and why you've not corrected/fixed them.
+- In the local version of the sire I have a favicon image in the staic folder, called in the head of the base html, and working fine, however in the live deployed site on heroku it is not finding or loading the image.
+    - I have tried placing the image in other places in the directory to no avail, and tried different colectstatic setting in the heroku config vars. The static is cbeing collect as the css is rendering. I have decided to leave this it was a last minute addition, while it wile have to be addressed but agin at this mvp stage I feel it doesnt affect the testing and over all ux. A bit more investigation into the heroku staic files is needed and am sure it will be sorted at the next stage. I have left the image in the local version and code to see.
 
-Some examples:
-
-🛑🛑🛑🛑🛑 END OF NOTES (to be deleted) 🛑🛑🛑🛑🛑
-
-- On devices smaller than 375px, the page starts to have `overflow-x` scrolling.
-
-    ![screenshot](documentation/unfixed-bug01.png)
-
-    - Attempted fix: I tried to add additional media queries to handle this, but things started becoming too small to read.
-
-- For PP3, when using a helper `clear()` function, any text above the height of the terminal does not clear, and remains when you scroll up.
-
-    ![screenshot](documentation/unfixed-bug02.png)
-
-    - Attempted fix: I tried to adjust the terminal size, but it only resizes the actual terminal, not the allowable area for text.
-
-- When validating HTML with a semantic `section` element, the validator warns about lacking a header `h2-h6`. This is acceptable.
-
-    ![screenshot](documentation/unfixed-bug03.png)
-
-    - Attempted fix: this is a known warning and acceptable, and my section doesn't require a header since it's dynamically added via JS.
-
-⚠️⚠️⚠️⚠️⚠️ START OF NOTES (to be deleted) ⚠️⚠️⚠️⚠️⚠️
-
-If you legitimately cannot find any unfixed bugs or warnings, then use the following sentence:
-
-🛑🛑🛑🛑🛑 END OF NOTES (to be deleted) 🛑🛑🛑🛑🛑
-
-There are no remaining bugs that I am aware of.
+- Another issue with the live site is the rendering of the placeholder image on very large screens isnt great, I like the image and coulnt find a better quality version. 
+    - A new image is need of better quality

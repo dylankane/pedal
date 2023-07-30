@@ -25,8 +25,6 @@ I have used the recommended [HTML W3C Validator](https://validator.w3.org) to va
 | Contact Message | n/a | ![screenshot](documentation/tests/html-validation-message.png) | No errors or warnings to show |
 | Delete User | n/a | ![screenshot](documentation/tests/html-validation-delete-user.png) | No errors or warnings to show |
 | Log Out | n/a | ![screenshot](documentation/tests/html-validation-log-out.png) | No errors or warnings to show |
-| x | n/a | ![screenshot](documentation/tests) | No errors or warnings to show |
-
 
 ### CSS
 
@@ -39,46 +37,14 @@ I have used the recommended [CSS Jigsaw Validator](https://jigsaw.w3.org/css-val
 
 ### JavaScript
 
-I have used the recommended [JShint Validator](https://jshint.com) to validate all of my JS files.
-
-⚠️⚠️⚠️⚠️⚠️ START OF NOTES (to be deleted) ⚠️⚠️⚠️⚠️⚠️
-
-If using modern JavaScript (ES6) methods, then make sure to include the following
-line at the very top of every single JavaScript file (this should remain in your files for submission):
-
-    /* jshint esversion: 11 */
-
-If you are also including jQuery (`$`), then the updated format will be:
-
-    /* jshint esversion: 11, jquery: true */
-
-This allows the JShint validator to recognize modern ES6 methods, such as:
-`let`, `const`, `template literals`, `arrow functions (=>)`, etc.
-
-**IMPORTANT**: External resources
-
-Sometimes we'll write JavaScript that imports variables from other files, such as an array of questions
-from `questions.js`, which are used within the main `script.js` file elsewhere.
-If that's the case, the JShint validation tool doesn't know how to recognize unused variables
-that would normally be imported locally in your code.
-These warnings are acceptable to showcase on your screenshots.
-
-The same thing applies when using external libraries such as Stripe, Leaflet, Bootstrap, Materialize, etc..
-To instantiate these components, we need to use their respective declarator.
-Again, the JShint validation tool would flag these as undefined/unused variables.
-These warnings are acceptable to showcase on your screenshots.
-
-Sample JS code validation documentation (tables are extremely helpful!):
-
-🛑🛑🛑🛑🛑 END OF NOTES (to be deleted) 🛑🛑🛑🛑🛑
+I have used the recommended [JShint Validator](https://jshint.com) to validate all of my JavaScript.
+As I only have a small bit of custom JS I dont have a file .js but rather have it at the bottom of the base.html.
 
 | File | Screenshot | Notes |
 | --- | --- | --- |
-| script.js | ![screenshot](documentation/js-validation-script.png) | Unused variables from external files |
-| questions.js | ![screenshot](documentation/js-validation-questions.png) | Pass: No Errors |
-| quiz.js | ![screenshot](documentation/js-validation-quiz.png) | Unused variables from external files |
-| stripe_elements.js | ![screenshot](documentation/js-validation-stripe.png) | Undefined Stripe variable |
-| x | x | x | repeat for all remaining JavaScript files |
+| base.html | ![screenshot](documentation/tests/js-validation.png) | One undefined variable
+4	bootstrap |
+
 
 ### Python
 
@@ -146,34 +112,18 @@ I've tested my deployed project on multiple devices to check for responsiveness 
 
 ## Lighthouse Audit
 
-⚠️⚠️⚠️⚠️⚠️ START OF NOTES (to be deleted) ⚠️⚠️⚠️⚠️⚠️
-
-Use this space to discuss testing the live/deployed site's Lighthouse Audit reports.
-Avoid testing the local version (especially if developing in Gitpod), as this can have knock-on effects of performance.
-
-If you don't have Lighthouse in your Developer Tools,
-it can be added as an [extension](https://chrome.google.com/webstore/detail/lighthouse/blipmdconlkpinefehnmjammfjpmpbjk).
-
-Don't just test the home page (unless it's a single-page application).
-Make sure to test the Lighthouse Audit results for all of your pages.
-
-**IMPORTANT**: You must provide screenshots of the results, to "prove" that you've actually tested them.
-
-Sample Lighthouse testing documentation:
-
-🛑🛑🛑🛑🛑 END OF NOTES (to be deleted) 🛑🛑🛑🛑🛑
-
 I've tested my deployed project using the Lighthouse Audit tool to check for any major issues.
 
-| Page | Size | Screenshot | Notes |
-| --- | --- | --- | --- |
-| Home | Mobile | ![screenshot](documentation/lighthouse-home-mobile.png) | Some minor warnings |
-| Home | Desktop | ![screenshot](documentation/lighthouse/lighthouse-home-desk.png) | Acceptable results |
-| About | Mobile | ![screenshot](documentation/lighthouse-about-mobile.png) | Some minor warnings |
-| About | Desktop | ![screenshot](documentation/lighthouse/lighthouse-about-desk.png) | Few warnings |
-| Gallery | Mobile | ![screenshot](documentation/lighthouse-gallery-mobile.png) | Slow response time due to large images |
-| Gallery | Desktop | ![screenshot](documentation/lighthouse-gallery-desktop.png) | Slow response time due to large images |
-| x | x | x | repeat for any other tested pages/sizes |
+| Page | Screenshot | Notes |
+| --- | --- | --- |
+| Home | ![screenshot](documentation/lighthouse/lighthouse-home.png) | Acceptable results |
+| About | ![screenshot](documentation/lighthouse/lighthouse-about.png) | Acceptable results |
+| Profile | ![screenshot](documentation/lighthouse/lighthouse-proflie.png) | Acceptable results |
+| Liked | ![screenshot](documentation/lighthouse/lighthouse-liked.png) | Acceptable results |
+| Categories | ![screenshot](documentation/lighthouse/lighthouse-categories.png) | Acceptable results |
+| Post Detail | ![screenshot](documentation/lighthouse/lighthouse-post-detail.png) | Acceptable results |
+
+- Some warnings that came back on some of the lighthouse audits are image sizes slowing down performances and some accesibility issues with links and buttons, while the results are acceptable these are issues that have to be looked at in teh next stage of development.
 
 ## Defensive Programming
 

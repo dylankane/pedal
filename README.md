@@ -74,35 +74,29 @@ Font Awesome was used throughtout the site for logos and icons. Its extensive li
 
 ## User Stories
 
-⚠️⚠️⚠️⚠️⚠️ START OF NOTES (to be deleted) ⚠️⚠️⚠️⚠️⚠️
+- As a site owner I need a data base to store and organise the information of all users posts
+- As a site owner I need a database to store and organise the information of all user's comments
+- As a admin member I can access admin section so that I can create update and delete posts for content moderation
+- As an admin member, I can access the admin section so that I can create update and delete comments for content moderation 
+- As a user I can register an account so that I have access to the features available to members
+- As a user I can login in to my account so that I can access memebers features
+- As a user I can log out of my account so that I can secure my browser from others using my account 
+- As a user I can log out of my account so that I can secure my browser from others using my account 
+- As a user I can view all other posts on one main page so that I can see a brief outline of each post
+- As a user I can view each post on its own page so that I can read and interact with all the information
+- As a user I can comment on other posts so that I can leave feedback, get more info, and interact with other users
+- As a user I can like or vote on a post so that popular posts are visible and I can see what posts I have enjoyed 
+- As a site owner I need guest users to be able to read posts, comments and likes but not interact or create so that information is freely available but will encourage user to sign up
+- As a user I can create a post so that to share info and images of my bike build
+- As a user I can edit and delete posts so that I have full control over my content
+- As a user I can view the posts filtered by certain criteria so that the content can be more targeted to me interests
+- As a user I can I can view a list of posts I have liked so that I can easily view my favourite posts
 
-In this section, list all of your user stories for the project.
+### User stories for future development
 
-🛑🛑🛑🛑🛑 END OF NOTES (to be deleted) 🛑🛑🛑🛑🛑
-
-### New Site Users
-
-- As a new site user, I would like to ____________, so that I can ____________.
-- As a new site user, I would like to ____________, so that I can ____________.
-- As a new site user, I would like to ____________, so that I can ____________.
-- As a new site user, I would like to ____________, so that I can ____________.
-- As a new site user, I would like to ____________, so that I can ____________.
-
-### Returning Site Users
-
-- As a returning site user, I would like to ____________, so that I can ____________.
-- As a returning site user, I would like to ____________, so that I can ____________.
-- As a returning site user, I would like to ____________, so that I can ____________.
-- As a returning site user, I would like to ____________, so that I can ____________.
-- As a returning site user, I would like to ____________, so that I can ____________.
-
-### Site Admin
-
-- As a site administrator, I should be able to ____________, so that I can ____________.
-- As a site administrator, I should be able to ____________, so that I can ____________.
-- As a site administrator, I should be able to ____________, so that I can ____________.
-- As a site administrator, I should be able to ____________, so that I can ____________.
-- As a site administrator, I should be able to ____________, so that I can ____________.
+- As a site owner I can restrict user account signup to email verified only so that users are verified, and forgot passwords can be automated
+- As a user I can view all post images in their own gallery so that images can be viewed in a larger more interactive format
+- As a site owner I can run and manage and internal mini blog of videos of bike tips and trick so that I can add more useful content to keep users engaged in the website
 
 ## Wireframes
 

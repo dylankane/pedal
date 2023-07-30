@@ -21,7 +21,6 @@ class ForumPost(models.Model):
         COMMUTE = 'Commute', 'Commute'
         BMX = 'BMX', 'BMX'
         HYBRID = 'Hybrid', 'Hybrid'
-        # OTHER = 'Other', 'Other'
 
     # Model class defining the options of the handlebar type categorey within
     # the main ForumPost model
@@ -30,7 +29,6 @@ class ForumPost(models.Model):
         FLAT = 'Flat', 'Flat'
         DROP = 'Drop', 'Drop'
         ALT = 'Alt', 'Alt'
-        # OTHER = 'Other', 'Other'
 
     # Model class defining the options of the gearing type categorey within the
     # main ForumPost model
@@ -41,7 +39,6 @@ class ForumPost(models.Model):
         TWO = '2X', '2X'
         THREE = '3X', '3X'
         HUB = 'Hub', 'Hub'
-        # OTHER = 'Other', 'Other'
 
     title = models.CharField(max_length=150, unique=True)
     slug = models.SlugField(max_length=150, unique=True)

@@ -120,7 +120,8 @@ I have undergone extensive manual deffensive and general testing of all ares of 
 - The about page is being directed to from the correct links. When the contact and t&cs links are clicked user is redirected to the about page but to the specific section either contact or t&cs. All links within these section on the about page working correctly.
 - In the contact section of the about page if the user is logged in, the send messgae button redirects to a contact form, if user is not logged in then it redirects to the login form. The message form asks for a name email and message the are all accepting text and when submitted the messages database is updated and shown in the admin panel. All these fields are mandatory and form caannot be submitted otherwise
 - The delete user form is correctly deleteing the user from the database and all their content, and redirecting to the home page.
-- On the successful completion of any form on the site, log in/out, sign up, create update or delete comments or posts, delete user and sending messages a success pop up message apperars at the head of whatever page the user has been redirected, and disappears. A specific message is printed into the pop up depending on the action just completed.
+- On the successful completion of any form on the site, log in/out, sign up, create update or delete comments or posts, delete user and sending messages a success pop up message apperars at the head of whatever page the user has been redirected, and disappears. A specific message is printed into the pop up depending on the action just completed. All of these form areas have a action button and a cancel button
+- The cancel button returns the user to the previous page in the browser with completing the form or affecting data.
 - All areas restricted to logged in users have been tested for brute-force navigation with urls and were unsuccesful acessing with beig logged in.
 
 

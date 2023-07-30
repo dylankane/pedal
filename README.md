@@ -17,7 +17,7 @@ Similar spaces may exist but tend to lean towards very niche areas of bike style
 This is am MVP(minimum viable product) So more features will be added and exsisting ones improved, after initial fedback.
 Enjoy!! 
 
-![screenshot](documentation/mockup.png)
+![screenshot](documentation/features/logo-header.png)
 
 ## UX/UI
 The UX / UI of PEDAL has been designed to be easy to use and to encourage users to interact with the content. The website is well-organized and the content easy to find. All users can access all posts, click on a post card to expand it and see all the information and images within that post, and see other user's comments on said post. Once a user wants to interact with the content with more features, a simple sign-up process sets up their account. Once logged in they can create, update and delete their article and create, update, and delete their comments. It is designed to be as intuitive as possible.
